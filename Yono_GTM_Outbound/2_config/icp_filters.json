@@ -1,0 +1,44 @@
+{
+  "target_titles": [
+    "CEO",
+    "Chief Executive Officer",
+    "Founder",
+    "Co-Founder",
+    "VP Product",
+    "Vice President of Product",
+    "CPO",
+    "Chief Product Officer",
+    "VP Engineering",
+    "CTO",
+    "Head of Platform"
+  ],
+  "vc_keywords": [
+    "Capital",
+    "Ventures",
+    "Partners",
+    "Fund",
+    "Investor",
+    "Angel",
+    "Syndicate"
+  ],
+  "exclude_company_keywords": [
+    "Self-employed",
+    "Freelance",
+    "Consulting",
+    "Consultant",
+    "Agency",
+    "NGO",
+    "Charity",
+    "Real Estate",
+    "Prop Firm",
+    "Advisors"
+  ],
+  "exclude_title_keywords": [
+    "Recruiter",
+    "Talent",
+    "HR",
+    "Student",
+    "Intern",
+    "Teacher"
+  ]
+}

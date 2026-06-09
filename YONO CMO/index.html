@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YONO | The Reliable Context Layer</title>
+    <meta name="description" content="Yono transforms legacy UIs into reliable natural-language interfaces. Code is the only source of truth.">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">YONO</div>
+        <div class="nav-links mono">
+            <a href="#problem" class="btn btn-sm" style="padding: 0.5rem 1rem; border: none;">PROBLEM</a>
+            <a href="#mission" class="btn btn-sm" style="padding: 0.5rem 1rem; border: none;">MANIFESTO</a>
+            <a href="#infrastructure" class="btn btn-sm" style="padding: 0.5rem 1rem; border: none;">VIRTUAL TEAM</a>
+            <a href="#contact" class="btn btn-primary">GET ACCESS</a>
+        </div>
+    </nav>
+
+    <header class="hero scientific-grid">
+        <div class="container">
+            <p class="mono text-lavender" style="letter-spacing: 4px; font-size: 0.9rem; margin-bottom: 1rem;">THE RELIABLE CONTEXT LAYER</p>
+            <h1>PROBABILISTIC INTENT.<br><span class="text-lavender">DETERMINISTIC RESULTS.</span></h1>
+            
+            <div class="chat-terminal" id="hero-terminal">
+                <div class="terminal-header">
+                    <div class="dot dot-red"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class="dot dot-green"></div>
+                    <span class="mono" style="font-size: 0.6rem; color: var(--beskar-alloy); margin-left: 1rem;">yono_orchestrator.exe</span>
+                </div>
+                <div class="terminal-body" id="terminal-content">
+                    <div class="agent-msg">
+                        <span class="text-lavender">></span> Initializing Yono...<br>
+                        <span class="text-lavender">></span> I am the bridge between your natural language intent and your codebase's deterministic logic.<br>
+                        <span class="text-lavender">></span> How should we explore the infrastructure?
+                    </div>
+                    <div class="chip-container">
+                        <div class="chip" onclick="scrollToSection('market')">THE AGENTIC SHIFT</div>
+                        <div class="chip" onclick="scrollToSection('problem')">WHY AGENTS FAIL</div>
+                        <div class="chip" onclick="scrollToSection('mission')">THE 3-LAYER FIX</div>
+                        <div class="chip" onclick="scrollToSection('infrastructure')">VIRTUAL TEAM ROI</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layer-viz">
+                <div class="layer-box" id="layer-directive">
+                    <span class="handoff-label">LAYER 1</span>
+                    <h3 style="font-size: 0.8rem;">DIRECTIVE</h3>
+                    <p style="font-size: 0.6rem; color: var(--beskar-alloy);">Human Intent (NL)</p>
+                </div>
+                <div class="layer-box active" id="layer-orchestration">
+                    <span class="handoff-label">LAYER 2</span>
+                    <h3 style="font-size: 0.8rem; color: var(--chaos-light);">ORCHESTRATION</h3>
+                    <p style="font-size: 0.6rem; color: var(--beskar-alloy);">Yono Context Layer</p>
+                </div>
+                <div class="layer-box" id="layer-execution">
+                    <span class="handoff-label">LAYER 3</span>
+                    <h3 style="font-size: 0.8rem;">EXECUTION</h3>
+                    <p style="font-size: 0.6rem; color: var(--beskar-alloy);">Deterministic Code</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="agent-handoff container">
+        <span class="handoff-label">[ LOG: SELF-ANNEALING_INITIALIZED ]</span>
+        Detecting market drift. Most enterprises are stuck in Layer 1. LLMs are hallucinating because they lack Layer 2 context. 
+    </div>
+
+    <section id="market" class="container">
+        <div class="text-center" style="margin-bottom: 4rem;">
+            <p class="mono text-lavender" style="letter-spacing: 2px;">MARKET_TIMING.SYS</p>
+            <h2 class="text-steel">THE SHIFT TO DETERMINISM</h2>
+        </div>
+        <div class="timeline framed">
+            <div class="timeline-row">
+                <div class="timeline-item">
+                    <span class="timeline-date">2023 - 2025</span>
+                    <span class="timeline-status">YESTERDAY</span>
+                    <h3 class="text-steel" style="font-size: 1rem; margin-bottom: 1rem;">FRAGILE EXPERIMENTS</h3>
+                    <p style="font-size: 0.8rem; color: var(--beskar-alloy);">Chatbots and Copilots flooded the market. Most failed to deliver ROI due to lack of product context.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">2026</span>
+                    <span class="timeline-status active">TODAY</span>
+                    <h3 class="text-lavender" style="font-size: 1rem; margin-bottom: 1rem;">THE CONTEXT GAP</h3>
+                    <p style="font-size: 0.8rem; color: var(--beskar-steel);">LLMs are recognized as generic engines. Enterprise success now depends on a dedicated context layer.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">2027+</span>
+                    <span class="timeline-status">TOMORROW</span>
+                    <h3 class="text-steel" style="font-size: 1rem; margin-bottom: 1rem;">AGENTIC DOMINANCE</h3>
+                    <p style="font-size: 0.8rem; color: var(--beskar-alloy);">Autonomous execution surpasses simple chat. ROI-driven agents become the standard interface.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="problem" class="container">
+        <div class="text-center" style="margin-bottom: 4rem;">
+            <p class="mono text-orange" style="letter-spacing: 2px;">THE CONTEXT GAP</p>
+            <h2 class="text-steel">LAYER 1 FAILURE: PROBABILISTIC DRIFT</h2>
+        </div>
+        <div class="bento-grid">
+            <div class="bento-card card-span-4 framed" style="border-color: var(--vaporware-orange);">
+                <h3 class="text-orange">HALLUCINATION</h3>
+                <p style="font-size: 0.9rem; margin-top: 1rem;">Generic reasoning engines lack product context. 60% of deployments fail due to hallucinated actions and code drift.</p>
+                <div class="mono text-orange" style="margin-top: 2rem; font-size: 0.8rem;">[ GARTNER 2026 ]</div>
+            </div>
+            <div class="bento-card card-span-4 framed">
+                <h3 class="text-steel">VELOCITY TRAP</h3>
+                <p style="font-size: 0.9rem; margin-top: 1rem;">Building actionable agents requires months of custom engineering. It pulls your team off the core roadmap.</p>
+                <div class="mono text-steel" style="margin-top: 2rem; font-size: 0.8rem;">[ ACV LOSS: $150K+ ]</div>
+            </div>
+            <div class="bento-card card-span-4 framed">
+                <h3 class="text-steel">MAINTENANCE DRAIN</h3>
+                <p style="font-size: 0.9rem; margin-top: 1rem;">Drift management and evaluations consume up to 40% of engineering resources. Your agents break as your UI evolves.</p>
+                <div class="mono text-steel" style="margin-top: 2rem; font-size: 0.8rem;">[ DRIFT: 40% OPEX ]</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 6rem;">
+            <div class="text-center" style="margin-bottom: 3rem;">
+                <h2 class="text-steel" style="font-size: 1.5rem;">THE COMPETITIVE WEDGE</h2>
+                <p class="mono" style="font-size: 0.7rem; color: var(--beskar-alloy);">Bypassing manual scripting and API bottlenecks.</p>
+            </div>
+            <div class="framed" style="padding: 2rem; background: rgba(255, 255, 255, 0.01);">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>CATEGORY</th>
+                            <th>EXAMPLE</th>
+                            <th>LIMITATION</th>
+                            <th class="text-lavender">YONO FIX</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CONVERSATIONAL</td>
+                            <td class="mono" style="font-size: 0.7rem;">SIERRA, WONDERFUL</td>
+                            <td>High OpEx. Requires armies of humans to manually script flows.</td>
+                            <td class="text-accent">AUTOMATED SETUP. Maps codebase instantly.</td>
+                        </tr>
+                        <tr>
+                            <td>BACKEND INTEGRATION</td>
+                            <td class="mono" style="font-size: 0.7rem;">ADAPT</td>
+                            <td>Lengthy integration cycles requiring deep backend access.</td>
+                            <td class="text-accent">ZERO-TOUCH. Natively parse UI state via frontend.</td>
+                        </tr>
+                        <tr>
+                            <td>INTERNAL BUILD</td>
+                            <td class="mono" style="font-size: 0.7rem;">DIY</td>
+                            <td>Drift management takes 40%+ of engineering time.</td>
+                            <td class="text-accent">SELF-HEALING. Auto-syncs with GitHub repo.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="mission" class="container">
+        <div class="bento-grid">
+            <div class="bento-card card-span-8">
+                <h2 class="text-steel">THE RELIABLE CONTEXT LAYER</h2>
+                <p style="margin-top: 1.5rem;">We don't train your agents; we map them. By reverse-engineering your frontend codebase, Yono creates a deterministic bridge between human directives and execution scripts. This is the only way to eliminate hallucination in business-critical workflows.</p>
+                <div class="mono text-lavender" style="margin-top: 2rem; font-size: 0.8rem;">[ LAYER 2: ACTIVE ]</div>
+            </div>
+            <div class="bento-card card-span-4">
+                <h3 class="text-lavender">THE ROI</h3>
+                <div style="margin-top: 1.5rem;">
+                    <div class="stat-item">
+                        <span class="stat-number">49%</span>
+                        <span class="stat-label">ROI ON AGENTIC INTERFACES</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">60%</span>
+                        <span class="stat-label">TIME-TO-FIRST-VALUE REDUCTION</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3X</span>
+                        <span class="stat-label">FEATURE PENETRATION INCREASE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="infrastructure" style="background: var(--grey-jedi);">
+        <div class="container text-center">
+            <h2 class="text-steel">THE VIRTUAL TEAM LAYER</h2>
+            <p class="bricolage" style="max-width: 800px; margin: 1.5rem auto 4rem; font-size: 1.2rem;">Yono acts as a 24/7 client-facing layer, consolidating Product, Customer Success, and Sales Engineering inside your platform.</p>
+            
+            <div class="bento-grid">
+                <div class="bento-card card-span-4 framed">
+                    <h4 class="mono text-lavender" style="margin-bottom: 1rem;">SALES ENGINEERING</h4>
+                    <h3 class="text-steel" style="font-size: 1.1rem;">AUTOMATED VALIDATION</h3>
+                    <p style="font-size: 0.85rem; margin-top: 1rem;">Deploy actionable demos in hours. Validate "Product Truth" during discovery without pulling backend devs.</p>
+                    <div class="mono text-lavender" style="margin-top: 2rem; font-size: 0.7rem;">[ LOI SECURED: $100K ]</div>
+                </div>
+                <div class="bento-card card-span-4 framed">
+                    <h4 class="mono text-lavender" style="margin-bottom: 1rem;">CUSTOMER SUCCESS</h4>
+                    <h3 class="text-steel" style="font-size: 1.1rem;">ZERO-DAY ONBOARDING</h3>
+                    <p style="font-size: 0.85rem; margin-top: 1rem;">Instant feature discovery. No docs needed. Users ask, Yono executes directly in the UI state.</p>
+                    <div class="mono text-lavender" style="margin-top: 2rem; font-size: 0.7rem;">[ ENGAGEMENT: +75% ]</div>
+                </div>
+                <div class="bento-card card-span-4 framed">
+                    <h4 class="mono text-lavender" style="margin-bottom: 1rem;">PRODUCT OPS</h4>
+                    <h3 class="text-steel" style="font-size: 1.1rem;">SELF-HEALING INFRA</h3>
+                    <p style="font-size: 0.85rem; margin-top: 1rem;">Auto-syncs with your codebase. Bypass the enterprise IT bottleneck and maintenance drain entirely.</p>
+                    <div class="mono text-lavender" style="margin-top: 2rem; font-size: 0.7rem;">[ SYNC: REAL-TIME ]</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="container">
+        <div class="text-center" style="margin-bottom: 4rem;">
+            <p class="mono text-lavender" style="letter-spacing: 2px;">THE ALLIANCE</p>
+            <h2 class="text-steel">ENGINEERED BY FOUNDERS</h2>
+        </div>
+        <div class="bento-grid">
+            <div class="bento-card card-span-6 framed">
+                <h3 class="text-steel">DANIEL ROCHE</h3>
+                <p class="mono text-lavender" style="font-size: 0.8rem; margin-bottom: 1rem;">CEO | EX-MONDAY.COM</p>
+                <p style="font-size: 0.9rem;">Scaled engines from $380M to $1.2B ARR. Expert in hyper-scale commercial execution and GTM engines.</p>
+            </div>
+            <div class="bento-card card-span-6 framed">
+                <h3 class="text-steel">DANIEL BLOKH</h3>
+                <p class="mono text-lavender" style="font-size: 0.8rem; margin-bottom: 1rem;">CTO | EX-UNIT 8200</p>
+                <p style="font-size: 0.9rem;">2x CTO and Engine Architect. Specialized in LLM infrastructure and reliable processing engines.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="yono-widget" class="yono-widget framed">
+        <div class="mono" style="font-size: 0.6rem; color: var(--chaos-lavender);">[ ORCHESTRATOR_ONLINE ]</div>
+        <div id="widget-msg" style="font-size: 0.75rem; margin-top: 0.5rem; color: var(--beskar-steel);">
+            Monitoring Layer 2 stability...
+        </div>
+    </div>
+
+    <footer style="padding: 6rem 0; border-top: 1px solid rgba(255, 255, 255, 0.05); background: var(--bg-black);">
+        <div class="container text-center">
+            <div class="logo" style="margin-bottom: 2rem;">YONO</div>
+            <div class="mono" style="margin-bottom: 2rem; font-size: 0.7rem; color: var(--beskar-steel); opacity: 0.6;">
+                MILESTONE: $1M ARR TARGET (MONTH 12) | RAISING $4.5M SEED
+            </div>
+            <p class="mono" style="font-size: 0.6rem; color: var(--beskar-alloy);">© 2026 YONO INFRASTRUCTURE. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Layer Viz Animation on Scroll
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY;
+            const widget = document.getElementById('yono-widget');
+            const widgetMsg = document.getElementById('widget-msg');
+
+            if (scrollPos > 300) {
+                widget.classList.add('visible');
+            } else {
+                widget.classList.remove('visible');
+            }
+
+            // Contextual widget messages
+            if (scrollPos > 1500) {
+                widgetMsg.innerText = "Analyzing ROI metrics. Velocity confirmed.";
+            } else if (scrollPos > 800) {
+                widgetMsg.innerText = "Mapping Layer 2 to deterministic scripts...";
+            } else {
+                widgetMsg.innerText = "Monitoring Layer 2 stability...";
+            }
+
+            const layers = ['layer-directive', 'layer-orchestration', 'layer-execution'];
+            const sectionPos = document.getElementById('mission').offsetTop;
+
+            if (scrollPos > sectionPos - 300) {
+                document.getElementById('layer-execution').classList.add('active');
+                document.getElementById('layer-orchestration').classList.remove('active');
+            } else {
+                document.getElementById('layer-execution').classList.remove('active');
+                document.getElementById('layer-orchestration').classList.add('active');
+            }
+        });
+
+        // Staggered Reveal Animation
+        const cards = document.querySelectorAll('.bento-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

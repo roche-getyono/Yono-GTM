@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yono Design Kit - Options</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Satoshi (via Fontshare) -->
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+    <!-- Geist -->
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.0.1/400.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.0.1/500.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --terminal-black: #161618;
+            --grey-jedi: #232326;
+            --beskar-steel: #EDEDEF;
+            --beskar-alloy: #A09FA6;
+            --chaos-lavender: #6E56CF;
+            --chaos-light: #9E8CFC;
+            --vaporware-orange: #E54D2E;
+            --truth-cyan: #00E5FF;
+            --border-color: rgba(160, 159, 166, 0.2);
+        }
+
+        body {
+            background-color: var(--terminal-black);
+            color: var(--beskar-steel);
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin: 0 0 10px 0;
+        }
+
+        .header p {
+            color: var(--beskar-alloy);
+            font-size: 0.9rem;
+        }
+
+        .options-container {
+            display: flex;
+            gap: 30px;
+            width: 100%;
+            max-width: 1400px;
+            justify-content: center;
+        }
+
+        .option-card {
+            background-color: var(--terminal-black);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .option-header {
+            background-color: var(--grey-jedi);
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .option-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge {
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .option-body {
+            padding: 30px 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* The different body fonts */
+        .font-satoshi .option-body { font-family: 'Satoshi', sans-serif; }
+        .font-geist .option-body { font-family: 'Geist Sans', sans-serif; }
+        .font-inter .option-body { font-family: 'Inter', sans-serif; }
+
+        .ui-element {
+            background-color: var(--grey-jedi);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+        }
+
+        .ui-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            margin: 0 0 10px 0;
+            color: var(--beskar-steel);
+        }
+
+        .ui-text {
+            color: var(--beskar-alloy);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0 0 15px 0;
+        }
+
+        .btn-primary {
+            background-color: var(--chaos-lavender);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .status-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .status-pill {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            border: 1px solid var(--border-color);
+            background-color: var(--terminal-black);
+        }
+
+        .dot-truth { color: var(--truth-cyan); }
+        .dot-error { color: var(--vaporware-orange); }
+
+        .palette-preview {
+            display: flex;
+            height: 30px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .swatch { flex-grow: 1; }
+
+        .s-1 { background-color: var(--chaos-lavender); }
+        .s-2 { background-color: var(--chaos-light); }
+        .s-3 { background-color: var(--truth-cyan); }
+        .s-4 { background-color: var(--vaporware-orange); }
+        .s-5 { background-color: var(--beskar-steel); }
+
+        /* Option specific styling */
+        .opt-1-accent { color: var(--chaos-light); border-color: rgba(110, 86, 207, 0.4); }
+        .opt-2-accent { border-radius: 0; } /* Harder edges for engineer feel */
+        .opt-2-accent .ui-element, .opt-2-accent .btn-primary, .opt-2-accent .status-pill { border-radius: 2px; }
+        .opt-3-accent { border-color: rgba(0, 229, 255, 0.3); } /* Truth Cyan glow */
+        .opt-3-accent .option-card { box-shadow: 0 0 20px rgba(0, 229, 255, 0.05); }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Yono Visual Identity Options</h1>
+        <p>Reviewing Body Typography & "Anti-Hype" Component Styling</p>
+    </div>
+
+    <div class="options-container">
+        
+        <!-- OPTION 1: SATOSHI -->
+        <div class="option-card font-satoshi opt-1-accent">
+            <div class="option-header">
+                <h2 class="option-title">Option 1: Satoshi <span class="badge" style="color: var(--chaos-light); border-color: var(--chaos-light)">Premium SaaS</span></h2>
+            </div>
+            <div class="option-body">
+                <div>
+                    <h3 class="ui-title">The "Founding CMO" Standard</h3>
+                    <p class="ui-text">Satoshi brings a polished, geometric feel to the body text. It feels extremely high-end ($150k ACV ready) while keeping the technical edge intact.</p>
+                </div>
+
+                <div class="ui-element">
+                    <h4 class="ui-title">> INITIALIZE_CONTEXT</h4>
+                    <p class="ui-text">Reverse-engineering frontend repository... mapping abstract syntax trees. Ensuring zero semantic drift across modules.</p>
+                    <button class="btn-primary">DEPLOY AGENT</button>
+                    
+                    <div class="status-row">
+                        <div class="status-pill"><span class="dot-truth">●</span> Verified</div>
+                        <div class="status-pill"><span class="dot-error">●</span> 0 Errors</div>
+                    </div>
+                </div>
+
+                <div class="palette-preview">
+                    <div class="swatch s-1"></div>
+                    <div class="swatch s-2"></div>
+                    <div class="swatch s-3"></div>
+                    <div class="swatch s-4"></div>
+                    <div class="swatch s-5"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OPTION 2: GEIST -->
+        <div class="option-card font-geist opt-2-accent">
+            <div class="option-header">
+                <h2 class="option-title">Option 2: Geist <span class="badge" style="color: var(--beskar-steel)">Hardcore Infra</span></h2>
+            </div>
+            <div class="option-body">
+                <div>
+                    <h3 class="ui-title">The "Unit 8200" Standard</h3>
+                    <p class="ui-text">Geist (built by Vercel) is the ultimate developer body font. Paired with sharper 2px border radii, this option leans heavily into the "IDE as a product" Grey Jedi vibe.</p>
+                </div>
+
+                <div class="ui-element">
+                    <h4 class="ui-title">> INITIALIZE_CONTEXT</h4>
+                    <p class="ui-text">Reverse-engineering frontend repository... mapping abstract syntax trees. Ensuring zero semantic drift across modules.</p>
+                    <button class="btn-primary">DEPLOY AGENT</button>
+                    
+                    <div class="status-row">
+                        <div class="status-pill"><span class="dot-truth">●</span> Verified</div>
+                        <div class="status-pill"><span class="dot-error">●</span> 0 Errors</div>
+                    </div>
+                </div>
+
+                <div class="palette-preview">
+                    <div class="swatch s-1"></div>
+                    <div class="swatch s-2"></div>
+                    <div class="swatch s-3"></div>
+                    <div class="swatch s-4"></div>
+                    <div class="swatch s-5"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OPTION 3: INTER -->
+        <div class="option-card font-inter opt-3-accent">
+            <div class="option-header">
+                <h2 class="option-title">Option 3: Inter <span class="badge" style="color: var(--truth-cyan); border-color: var(--truth-cyan)">VC Execution</span></h2>
+            </div>
+            <div class="option-body">
+                <div>
+                    <h3 class="ui-title">The "Hyper-Scale" Standard</h3>
+                    <p class="ui-text">Inter is the industry standard for readability. It's safe, ubiquitous, and instantly recognizable. Emphasizes "Truth Cyan" for maximum verification trust.</p>
+                </div>
+
+                <div class="ui-element">
+                    <h4 class="ui-title">> INITIALIZE_CONTEXT</h4>
+                    <p class="ui-text">Reverse-engineering frontend repository... mapping abstract syntax trees. Ensuring zero semantic drift across modules.</p>
+                    <button class="btn-primary">DEPLOY AGENT</button>
+                    
+                    <div class="status-row">
+                        <div class="status-pill"><span class="dot-truth">●</span> Verified</div>
+                        <div class="status-pill"><span class="dot-error">●</span> 0 Errors</div>
+                    </div>
+                </div>
+
+                <div class="palette-preview">
+                    <div class="swatch s-1"></div>
+                    <div class="swatch s-2"></div>
+                    <div class="swatch s-3"></div>
+                    <div class="swatch s-4"></div>
+                    <div class="swatch s-5"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

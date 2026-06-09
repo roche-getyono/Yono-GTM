@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yono / Scientific Deck</title>
+
+    <!-- Fonts: Bricolage Grotesque & JetBrains Mono for Technical Authority -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,600;12..96,800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        bg: "var(--bg)",
+                        fg: "var(--fg)",
+                        muted: "var(--muted)",
+                        border: "var(--border)",
+                        accent: "var(--accent)"
+                    },
+                    fontFamily: {
+                        sans: ["Bricolage Grotesque", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"],
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        :root {
+            /* Paper & Ink - Light Mode */
+            --bg: #F5F5F3;
+            --fg: #0D0D0D;
+            --muted: #666666;
+            --border: #D1D1CE;
+            --accent: #E13D3D; /* Scientific red accent */
+        }
+
+        html.dark {
+            /* Chalk & Slate - Dark Mode */
+            --bg: #0A0A0A;
+            --fg: #F5F5F3;
+            --muted: #888888;
+            --border: #2A2A2A;
+            --accent: #FF4444;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--fg);
+            transition: background-color 0.1s, color 0.1s;
+            margin: 0;
+            overflow: hidden;
+            letter-spacing: -0.02em;
+        }
+
+        /* Physical Texture Overlay */
+        .grain::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.3'/%3E%3C/svg%3E");
+            opacity: 0.25;
+            mix-blend-mode: multiply;
+        }
+        
+        .dark .grain::before {
+            opacity: 0.15;
+            mix-blend-mode: overlay;
+        }
+
+        /* Scientific Background Grid */
+        .scientific-grid {
+            background-size: 40px 40px;
+            background-image:
+              linear-gradient(to right, var(--border) 1px, transparent 1px),
+              linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+            opacity: 0.6;
+        }
+
+        /* Framed Elements (Crosshairs) */
+        .framed {
+            border: 1px solid var(--border);
+            position: relative;
+        }
+        .framed::before, .framed::after {
+            content: "+";
+            position: absolute;
+            color: var(--muted);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 10px;
+            top: -6px;
+        }
+        .framed::before { left: -4px; }
+        .framed::after { right: -4px; }
+
+        .slide-frame {
+            width: 100%;
+            height: 100vh;
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        .slides-container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0s;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Navigation */
+        .slide-nav {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--fg);
+            width: 30px; height: 30px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover { background: var(--fg); color: var(--bg); }
+        .nav-btn.disabled { opacity: 0.2; pointer-events: none; }
+
+        /* Document Header */
+        .doc-header {
+            position: fixed;
+            top: 20px; left: 20px;
+            z-index: 100;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 10px;
+            text-transform: uppercase;
+            display: flex;
+            gap: 40px;
+            color: var(--muted);
+        }
+
+        /* Minimal scrollbars */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--border); }
+    </style>
+</head>
+
+<body class="grain selection:bg-fg selection:text-bg">
+
+    <div class="doc-header">
+        <a href="index.html" class="hover:text-fg">← Exit</a>
+        <div>YONO_MASTER_DECK.SYS</div>
+        <div><span id="slide-title-display"></span></div>
+    </div>
+
+    <button onclick="document.documentElement.classList.toggle('dark')" class="fixed top-5 right-5 z-[60] font-mono text-[10px] uppercase border border-border px-2 py-1 hover:bg-fg hover:text-bg">
+        INV Theme
+    </button>
+
+    <main class="slides-container">
+
+        <!-- SLIDE 1: INTRO -->
+        <div class="slide active" id="slide-1" data-title="01.SYS_INTRO">
+            <div class="slide-frame w-full h-full flex flex-col md:flex-row items-center justify-between px-8 md:px-24 relative">
+                <div class="flex flex-col border-l-2 border-fg pl-8 relative z-10 w-full md:w-2/3">
+                    <span class="absolute -left-8 top-0 rotate-[-90deg] font-mono text-[9px] uppercase tracking-widest text-muted origin-top-left">Ref_001</span>
+                    <h1 class="text-7xl md:text-[140px] font-extrabold uppercase tracking-tighter leading-none mb-6">YONO</h1>
+                    <div class="text-2xl md:text-5xl font-light tracking-tight border-b-2 border-border pb-8 max-w-2xl">
+                        Don’t Train Your Agents,<br>
+                        <span class="italic font-normal">Embed Them.</span>
+                    </div>
+                    <div class="pt-8 font-mono text-xs uppercase tracking-widest text-muted flex gap-4 items-center">
+                        <div class="w-2 h-2 bg-accent"></div>
+                        Automating Execution with Context
+                    </div>
+                </div>
+                <div class="hidden md:block w-1/3 h-full scientific-grid absolute right-0 top-0 bottom-0 pointer-events-none"></div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: PROBLEM -->
+        <div class="slide" id="slide-2" data-title="02.PROBLEM_STATE">
+            <div class="slide-frame px-8 md:px-24 w-full h-full flex flex-col justify-center max-w-[1400px] mx-auto">
+                <div class="border-b-2 border-fg pb-4 mb-12">
+                    <div class="font-mono text-accent text-[10px] uppercase tracking-widest mb-2 border-l border-accent pl-2">Error 0X FLAWED_FOUNDATION</div>
+                    <h2 class="text-4xl md:text-6xl font-bold tracking-tighter w-full md:w-3/4">
+                        Interface Agents Fail Without Frontend Context.
+                    </h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border border-border framed bg-bg">
+                    <!-- Col 1 -->
+                    <div class="p-8 border-b md:border-b-0 md:border-r border-border hover:bg-fg hover:text-bg transition-colors duration-200 group">
+                        <div class="font-mono flex justify-between text-xs mb-12 text-muted group-hover:text-bg/60">
+                            <span>Time_To_Market</span> <span>[1]</span>
+                        </div>
+                        <div class="text-6xl md:text-7xl font-bold mb-4 tracking-tighter">14<span class="text-2xl font-light">mo</span></div>
+                        <h3 class="text-xl font-bold mb-4 border-b border-border/50 pb-2">Strategic Delay</h3>
+                        <p class="text-sm font-mono text-muted group-hover:text-bg/80 leading-relaxed">
+                            Building actionable agents requires months of custom engineering. Endless manual mapping builds immediate tech debt.
+                        </p>
+                    </div>
+                    <!-- Col 2 -->
+                    <div class="p-8 border-b md:border-b-0 md:border-r border-border hover:bg-fg hover:text-bg transition-colors duration-200 group">
+                        <div class="font-mono flex justify-between text-xs mb-12 text-muted group-hover:text-bg/60">
+                            <span>Reliability</span> <span>[2]</span>
+                        </div>
+                        <div class="text-6xl md:text-7xl font-bold mb-4 tracking-tighter text-accent group-hover:text-accent">60%</div>
+                        <h3 class="text-xl font-bold mb-4 border-b border-border/50 pb-2">Failure Rate</h3>
+                        <p class="text-sm font-mono text-muted group-hover:text-bg/80 leading-relaxed">
+                            Enterprise agents fail, lack product context, and hallucinate actions. Untrusted agents are quickly abandoned.
+                        </p>
+                    </div>
+                    <!-- Col 3 -->
+                    <div class="p-8 hover:bg-fg hover:text-bg transition-colors duration-200 group">
+                        <div class="font-mono flex justify-between text-xs mb-12 text-muted group-hover:text-bg/60">
+                            <span>OpEx_Drain</span> <span>[3]</span>
+                        </div>
+                        <div class="text-6xl md:text-7xl font-bold mb-4 tracking-tighter">40%</div>
+                        <h3 class="text-xl font-bold mb-4 border-b border-border/50 pb-2">Maintenance Drain</h3>
+                        <p class="text-sm font-mono text-muted group-hover:text-bg/80 leading-relaxed">
+                            Drift management and evaluations consume engineering resources. Ongoing OpEx drain instead of product growth.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: SOLUTION -->
+        <div class="slide" id="slide-3" data-title="03.SYSTEM_ARCHITECTURE">
+            <div class="slide-frame px-8 md:px-24 w-full h-full flex flex-col justify-center max-w-[1400px] mx-auto">
+                <div class="flex flex-col md:flex-row items-start gap-6 md:gap-12 mb-12">
+                    <div class="text-accent text-6xl leading-none w-10">*</div>
+                    <div>
+                        <h2 class="text-3xl md:text-5xl font-bold tracking-tighter mb-4 pr-10">
+                            Auto-generating structured context <span class="italic font-light text-accent">natively</span> from the codebase.
+                        </h2>
+                        <p class="font-mono text-muted text-xs uppercase tracking-widest leading-relaxed border-l border-muted pl-4">
+                            We ingest a GitHub repository, map the internal workflows, and output a ready-to-use data layer.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row border-y-2 border-fg bg-bg">
+                    <div class="w-full md:w-1/3 border-b md:border-b-0 md:border-r border-border p-6 md:p-10 flex flex-col">
+                        <span class="font-mono text-[10px] text-muted mb-8 bg-border w-max px-2 py-0.5 text-fg">01 / VELOCITY</span>
+                        <h3 class="text-2xl font-bold mb-4">Deploy in Hours</h3>
+                        <p class="font-mono text-xs text-muted leading-relaxed">Deploy actionable agents in record time, bypassing months of custom architecture mapping.</p>
+                    </div>
+                    <div class="w-full md:w-1/3 border-b md:border-b-0 md:border-r border-border p-6 md:p-10 relative overflow-hidden flex flex-col justify-center bg-fg text-bg framed">
+                        <div class="absolute inset-0 scientific-grid opacity-10 pointer-events-none filter invert"></div>
+                        <div class="text-center relative z-10 border border-bg/20 p-6 bg-bg/5 backdrop-blur-sm">
+                            <div class="text-3xl md:text-4xl font-extrabold tracking-tighter uppercase mb-2 text-accent">YONO ENGINE</div>
+                            <div class="font-mono text-[9px] tracking-widest text-muted border-t border-bg/20 pt-2">READY-TO-USE DATA LAYER</div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 p-6 md:p-10 flex flex-col justify-between">
+                        <div class="mb-8">
+                            <span class="font-mono text-[10px] text-muted mb-3 bg-border w-max px-2 py-0.5 text-fg block">02 / RELIABILITY</span>
+                            <h3 class="text-xl font-bold mb-2">Grounded Execution</h3>
+                            <p class="font-mono text-xs text-muted leading-relaxed">Provide reliable product context bound perfectly to the product truth.</p>
+                        </div>
+                        <div>
+                            <span class="font-mono text-[10px] text-muted mb-3 bg-border w-max px-2 py-0.5 text-fg block">03 / MAINTENANCE</span>
+                            <h3 class="text-xl font-bold mb-2">Zero Maintenance</h3>
+                            <p class="font-mono text-xs text-muted leading-relaxed">Auto-sync directly with the codebase to bypass IT bottlenecks entirely.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: WHY NOW -->
+        <div class="slide" id="slide-4" data-title="04.MARKET_TIMING">
+            <div class="slide-frame px-8 md:px-24 w-full h-full flex flex-col justify-center max-w-[1400px] mx-auto">
+                <h2 class="text-3xl md:text-5xl font-bold tracking-tighter max-w-4xl mb-16 border-l-[6px] border-accent pl-6">
+                    The market is abandoning fragile chatbots for high-ROI, <span class="italic font-light">agentic infrastructure.</span>
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-0 relative border-t-2 border-b-2 border-fg">
+                    
+                    <div class="p-8 border-b md:border-b-0 md:border-r border-border hover:bg-muted/10 transition">
+                        <div class="font-mono text-[10px] text-muted mb-4 uppercase tracking-widest flex items-center justify-between">
+                            <span>Yesterday (2023-25)</span>
+                            <span class="font-bold border border-border px-2">1</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 uppercase tracking-tight">Fragile Experiments</h3>
+                        <p class="font-mono text-xs text-muted mb-6 h-12">Investors poured billions into fragile Chatbots and Copilots.</p>
+                        <div class="p-4 bg-muted/10 border-l border-fg text-xs font-mono">
+                            <span class="font-bold">Reality:</span> High churn. Models commoditized. Agents hallucinate without context.
+                        </div>
+                    </div>
+
+                    <div class="p-8 border-b md:border-b-0 md:border-r border-border bg-fg text-bg relative framed z-10">
+                        <div class="font-mono text-[10px] text-accent font-bold mb-4 uppercase tracking-widest flex items-center justify-between">
+                            <span>Today (2026)</span>
+                            <span class="font-bold bg-accent text-white px-2">2</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 uppercase tracking-tight text-accent">The Context Gap</h3>
+                        <p class="font-mono text-xs text-bg/70 mb-6 h-12">a16z confirms LLMs are generic engines needing a dedicated context layer.</p>
+                        <div class="p-4 bg-accent/20 border-l-2 border-accent text-xs font-mono text-accent">
+                            60% of GenAI projects abandoned due to lack of trust. (Gartner)
+                        </div>
+                    </div>
+
+                    <div class="p-8 hover:bg-muted/10 transition">
+                        <div class="font-mono text-[10px] text-muted mb-4 uppercase tracking-widest flex items-center justify-between">
+                            <span>Tomorrow (2026+)</span>
+                            <span class="font-bold border border-border px-2">3</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 uppercase tracking-tight">Agentic Dominance</h3>
+                        <p class="font-mono text-xs text-muted mb-6 h-12">Enterprise spending on autonomous agents surpasses chatbots by 2027.</p>
+                        <div class="p-4 bg-muted/10 border-l border-fg text-xs font-mono">
+                            Yields 49% ROI. Market hits $753B by 2030.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: COMPETITION -->
+        <div class="slide" id="slide-5" data-title="05.COMPETITIVE_MATRIX">
+            <div class="slide-frame px-8 md:px-24 w-full h-full flex flex-col justify-center max-w-[1400px] mx-auto">
+                <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between border-b-2 border-fg pb-6">
+                    <h2 class="text-3xl md:text-5xl font-bold tracking-tighter max-w-3xl leading-tight">
+                        Yono automates context directly <br>from the <span class="italic font-light">front-end.</span>
+                    </h2>
+                    <p class="font-mono text-[10px] text-muted uppercase tracking-widest w-48 md:text-right mt-4 md:mt-0">
+                        Bypassing chat wrappers & API orchestrators
+                    </p>
+                </div>
+
+                <div class="w-full">
+                    <!-- Header -->
+                    <div class="grid grid-cols-4 gap-4 py-3 border-b-2 border-fg font-mono text-[10px] uppercase font-bold text-muted bg-muted/5 px-4 mb-2">
+                        <div>Category</div>
+                        <div>Example</div>
+                        <div>Limitation</div>
+                        <div class="text-fg">Yono Fix</div>
+                    </div>
+                    
+                    <!-- Row 1 -->
+                    <div class="grid grid-cols-4 gap-4 py-6 border-b border-border items-start group hover:bg-fg hover:text-bg transition-colors px-4 duration-200">
+                        <div class="font-bold text-sm">Conversational Frontstage</div>
+                        <div class="font-mono text-[10px] text-muted group-hover:text-bg/60">Sierra, Wonderful</div>
+                        <div class="font-mono text-[11px] leading-relaxed opacity-80 pr-4">High OpEx. Requires armies of humans to manually script flows.</div>
+                        <div class="font-mono text-[11px] leading-relaxed font-bold border-l-2 border-accent pl-4 text-accent"><span class="block mb-1 text-fg group-hover:text-bg">Automated Setup.</span> Structurally map codebase to learn flows instantly.</div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="grid grid-cols-4 gap-4 py-6 border-b border-border items-start group hover:bg-fg hover:text-bg transition-colors px-4 duration-200">
+                        <div class="font-bold text-sm">Backend Integration</div>
+                        <div class="font-mono text-[10px] text-muted group-hover:text-bg/60">Adapt</div>
+                        <div class="font-mono text-[11px] leading-relaxed opacity-80 pr-4">Connects via backend APIs requiring lengthy integration cycles.</div>
+                        <div class="font-mono text-[11px] leading-relaxed font-bold border-l-2 border-accent pl-4 text-accent"><span class="block mb-1 text-fg group-hover:text-bg">Zero-Touch.</span> Natively parse UI state to bypass API bottlenecks.</div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="grid grid-cols-4 gap-4 py-6 border-b border-border items-start group hover:bg-fg hover:text-bg transition-colors px-4 duration-200">
+                        <div class="font-bold text-sm">Internal Build</div>
+                        <div class="font-mono text-[10px] text-muted group-hover:text-bg/60">DIY</div>
+                        <div class="font-mono text-[11px] leading-relaxed opacity-80 pr-4">Drift management takes 40%+ of enterprise engineering op-ex.</div>
+                        <div class="font-mono text-[11px] leading-relaxed font-bold border-l-2 border-accent pl-4 text-accent"><span class="block mb-1 text-fg group-hover:text-bg">Self-Healing.</span> Auto-syncs with codebase to eliminate maintenance.</div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 font-mono text-[10px] uppercase text-muted tracking-widest flex items-center justify-center gap-4">
+                    <div class="w-8 h-px bg-border"></div>
+                    <div><span class="text-fg font-bold">Foundation: YONO /</span> A reliable processing engine that reverse-engineers the frontend into a live state graph.</div>
+                    <div class="w-8 h-px bg-border"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: PRODUCT & GTM -->
+        <div class="slide" id="slide-6" data-title="06.PIPELINE_GTM">
+            <div class="slide-frame px-8 md:px-24 w-full h-full flex flex-col justify-center max-w-[1400px] mx-auto">
+                <h2 class="text-3xl md:text-5xl font-bold tracking-tighter mb-12 text-center">
+                    Bridging Immediate Revenue <br><span class="italic font-light">with</span> Enterprise Scale.
+                </h2>
+
+                <!-- Technical Pipeline -->
+                <div class="flex items-stretch justify-between border-2 border-fg mb-12 relative bg-fg text-bg framed">
+                    <div class="absolute inset-0 scientific-grid opacity-10 pointer-events-none filter invert"></div>
+                    <div class="w-1/4 text-center z-10 border-r border-bg/20 p-6 flex flex-col justify-center">
+                        <div class="font-mono text-[10px] text-muted mb-3 uppercase opacity-80 border-b border-bg/20 pb-2">01 / Input</div>
+                        <div class="font-bold text-sm uppercase">GitHub Repo</div>
+                        <div class="font-mono text-[9px] mt-1 opacity-50">+ Optional Enrichment</div>
+                    </div>
+                    <div class="w-1/4 text-center z-10 border-r border-bg/20 p-6 flex flex-col justify-center">
+                        <div class="font-mono text-[10px] text-muted mb-3 uppercase opacity-80 border-b border-bg/20 pb-2">02 / Process</div>
+                        <div class="font-bold text-sm uppercase">Map Workflows</div>
+                    </div>
+                    <div class="w-1/4 text-center z-10 border-r border-bg/20 p-6 flex flex-col justify-center bg-bg/5">
+                        <div class="font-mono text-[10px] text-accent mb-3 uppercase border-b border-accent/20 pb-2">03 / Tech</div>
+                        <div class="font-bold text-accent text-sm uppercase leading-tight">Reverse Eng<br>Gen Test<br>Agents</div>
+                    </div>
+                    <div class="w-1/4 text-center z-10 p-6 flex flex-col justify-center text-accent">
+                        <div class="font-mono text-[10px] text-accent/70 mb-3 uppercase border-b border-accent/20 pb-2">04 / Output</div>
+                        <div class="font-bold text-sm uppercase">Actionable Agents</div>
+                        <div class="font-mono text-[9px] mt-1 opacity-70">Bound to Live State</div>
+                    </div>
+                </div>
+
+                <!-- Go to Market -->
+                <div class="grid grid-cols-2 gap-0 border-y-2 border-fg">
+                    <div class="p-8 md:p-10 border-r border-border hover:bg-fg hover:text-bg group transition-colors">
+                        <div class="font-mono text-[10px] font-bold uppercase mb-6 bg-fg text-bg inline-block px-2 group-hover:bg-bg group-hover:text-fg py-1">Phase 1 / Immediate</div>
+                        <h3 class="text-2xl font-bold mb-4 uppercase">Actionable Agents</h3>
+                        <p class="font-mono text-xs text-muted group-hover:text-bg/80 leading-relaxed mb-6">Target mid-market and hyper-growth scaleups to capture <b>$50K ACV</b>. Harden the architecture & prove the rapid-deployment wedge.</p>
+                        <div class="text-[10px] font-mono text-accent">→ Capturing revenue immediately</div>
+                    </div>
+                    <div class="p-8 md:p-10 hover:bg-fg hover:text-bg group transition-colors">
+                        <div class="font-mono text-[10px] border border-fg font-bold uppercase mb-6 inline-block px-2 group-hover:border-bg py-1">Phase 2 / Enterprise</div>
+                        <h3 class="text-2xl font-bold mb-4 uppercase">Live-Sync Release</h3>
+                        <p class="font-mono text-xs text-muted group-hover:text-bg/80 leading-relaxed mb-6">Unlock 'High-Velocity' tier. Roll out on-prem modules to bypass security blockers, capturing <b>$150K legacy pipeline</b>.</p>
+                        <div class="text-[10px] font-mono text-muted group-hover:text-bg/60">→ Hardening for $100K+ enterprise scale</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: TEAM & TARGET -->
+        <div class="slide" id="slide-7" data-title="07.OPERATORS">
+            <div class="slide-frame px-8 md:px-24 w-full h-full flex flex-col justify-center max-w-[1400px] mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 border-2 border-fg">
+                    <div class="col-span-12 md:col-span-7 p-8 md:p-12 border-b md:border-b-0 md:border-r border-fg">
+                        <h2 class="text-4xl md:text-5xl font-bold tracking-tighter mb-12 uppercase border-b border-border pb-4 w-max">Operators.</h2>
+                        <div class="flex gap-8">
+                            <!-- Daniel Roche -->
+                            <div class="w-1/2 group">
+                                <div class="w-full aspect-square border border-border mb-4 bg-border overflow-hidden">
+                                     <img src="https://ui-avatars.com/api/?name=Daniel+Roche&background=000&color=fff&size=512" class="w-full h-full object-cover grayscale mix-blend-multiply group-hover:mix-blend-normal transition" />
+                                </div>
+                                <h3 class="text-xl font-bold uppercase">Daniel Roche</h3>
+                                <div class="font-mono text-[10px] text-muted mb-4 uppercase tracking-widest">CEO</div>
+                                <div class="border-t border-border pt-2 text-[11px] font-mono leading-relaxed text-muted group-hover:text-fg transition">
+                                    Ex-monday.com<br>
+                                    Scaled engine $380M to $1.2B ARR
+                                </div>
+                            </div>
+                            <!-- Daniel Blokh -->
+                            <div class="w-1/2 group">
+                                <div class="w-full aspect-square border border-border mb-4 bg-border overflow-hidden">
+                                     <img src="https://ui-avatars.com/api/?name=Daniel+Blokh&background=fff&color=000&size=512" class="w-full h-full object-cover grayscale mix-blend-multiply group-hover:mix-blend-normal transition" />
+                                </div>
+                                <h3 class="text-xl font-bold uppercase">Daniel Blokh</h3>
+                                <div class="font-mono text-[10px] text-muted mb-4 uppercase tracking-widest">CTO</div>
+                                <div class="border-t border-border pt-2 text-[11px] font-mono leading-relaxed text-muted group-hover:text-fg transition">
+                                    Ex-Unit 8200<br>
+                                    2x CTO, LLM/Engine Architect
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-span-12 md:col-span-5 flex flex-col justify-center p-8 md:p-12 bg-fg text-bg framed">
+                        <h3 class="text-2xl font-bold mb-10 uppercase tracking-tighter">The Target.</h3>
+                        
+                        <div class="mb-8 font-mono border-l border-bg/20 pl-4">
+                            <div class="text-[10px] text-muted uppercase mb-1 tracking-widest">Raising_Runway</div>
+                            <div class="text-3xl font-bold pb-2 tracking-tighter">$4.5M Seed <span class="text-sm font-normal text-muted ml-2">/ 24 Months</span></div>
+                        </div>
+                        
+                        <div class="mb-8 font-mono border-l border-bg/20 pl-4">
+                            <div class="text-[10px] text-muted uppercase mb-1 tracking-widest">Cap_Table</div>
+                            <div class="text-sm pb-2">2 Founders. 100% Owned. Bootstrapped.</div>
+                        </div>
+
+                        <div class="mb-10 font-mono border-l-2 border-accent pl-4">
+                            <div class="text-[10px] text-accent font-bold uppercase mb-1 tracking-widest">24_Month_ARR_Target</div>
+                            <div class="text-4xl text-accent font-bold tracking-tighter">~$1.7M <span class="text-sm font-normal text-muted ml-2">/ ~22 Deploy</span></div>
+                        </div>
+
+                        <div class="border border-bg/20 p-4 font-mono text-xs flex gap-3 items-start bg-bg/5">
+                            <span class="text-accent text-lg leading-none">*</span>
+                            <span class="opacity-80"><span class="text-accent font-bold">70% R&D</span> to finalize core engine. Milestone: zero-retention deployed.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: TIMELINE -->
+        <div class="slide" id="slide-8" data-title="08.TIMELINE_SCALE">
+            <div class="slide-frame px-8 md:px-24 w-full h-full flex flex-col justify-center max-w-[1200px] mx-auto">
+                <h2 class="text-3xl md:text-5xl font-bold tracking-tighter mb-16 text-center border-b-2 border-fg pb-4 uppercase">Roadmap to Scale.</h2>
+                
+                <div class="relative w-full">
+                    <div class="absolute left-[20%] top-0 bottom-0 w-px bg-border"></div>
+                    
+                    <div class="space-y-6">
+                        <!-- M 1-6 -->
+                        <div class="flex items-start relative group">
+                            <div class="w-[20%] pr-8 text-right pt-1">
+                                <div class="font-mono text-[10px] font-bold text-muted group-hover:text-fg transition-colors">MONTH 01-06</div>
+                            </div>
+                            <div class="absolute left-[20%] w-2 h-2 bg-bg border border-fg translate-x-[-4px] translate-y-[6px] group-hover:bg-fg transition-colors"></div>
+                            <div class="w-[80%] pl-10 border-b border-border/50 pb-6">
+                                <h3 class="text-xl font-bold uppercase mb-2 group-hover:text-accent transition-colors">HQ Expansion</h3>
+                                <p class="font-mono text-xs text-muted">US GTM, Hire GM (Israel), VP R&D, Product, SOC 2 Compliance</p>
+                            </div>
+                        </div>
+
+                        <!-- M 3 -->
+                        <div class="flex items-start relative group">
+                            <div class="w-[20%] pr-8 text-right pt-1">
+                                <div class="font-mono text-[10px] font-bold text-muted group-hover:text-fg transition-colors">MONTH 03</div>
+                            </div>
+                            <div class="absolute left-[20%] w-2 h-2 bg-bg border border-fg translate-x-[-4px] translate-y-[6px] group-hover:bg-fg transition-colors"></div>
+                            <div class="w-[80%] pl-10 border-b border-border/50 pb-6">
+                                <h3 class="text-xl font-bold uppercase mb-2 group-hover:text-accent transition-colors">Phase 1 Launch</h3>
+                                <p class="font-mono text-xs text-muted">Initial GTM deployment and early design partner onboarding.</p>
+                            </div>
+                        </div>
+
+                        <!-- M 12 -->
+                        <div class="flex items-start relative group">
+                            <div class="w-[20%] pr-8 text-right pt-1">
+                                <div class="font-mono text-[10px] font-bold text-accent transition-colors">MONTH 12</div>
+                            </div>
+                            <div class="absolute left-[20%] w-2 h-2 bg-accent border border-accent translate-x-[-4px] translate-y-[6px]"></div>
+                            <div class="w-[80%] pl-10 border-b border-border/50 pb-6">
+                                <h3 class="text-xl font-bold uppercase mb-2 text-accent">Mid-Market Scale</h3>
+                                <p class="font-mono text-xs text-muted">Capture volume scaleups. <span class="font-bold text-fg">Milestone: $1M ARR</span></p>
+                            </div>
+                        </div>
+
+                        <!-- M 18 -->
+                        <div class="flex items-start relative group">
+                            <div class="w-[20%] pr-8 text-right pt-1">
+                                <div class="font-mono text-[10px] font-bold text-muted group-hover:text-fg transition-colors">MONTH 18</div>
+                            </div>
+                            <div class="absolute left-[20%] w-2 h-2 bg-bg border border-fg translate-x-[-4px] translate-y-[6px] group-hover:bg-fg transition-colors"></div>
+                            <div class="w-[80%] pl-10 border-b border-border/50 pb-6">
+                                <h3 class="text-xl font-bold uppercase mb-2 group-hover:text-accent transition-colors">Enterprise Release</h3>
+                                <p class="font-mono text-xs text-muted">Fine-Tuning Module, Live Sync, On-Prem Security Deployments.</p>
+                            </div>
+                        </div>
+
+                        <!-- M 24 -->
+                        <div class="flex items-start relative group">
+                            <div class="w-[20%] pr-8 text-right pt-1">
+                                <div class="font-mono text-[10px] font-bold text-fg transition-colors">MONTH 24</div>
+                            </div>
+                            <div class="absolute left-[20%] w-3 h-3 bg-fg translate-x-[-6px] translate-y-[5px]"></div>
+                            <div class="w-[80%] pl-10 pt-1">
+                                <h3 class="text-xl font-bold uppercase mb-2">Enterprise Expansion</h3>
+                                <p class="font-mono text-xs text-muted">Scaling $150K+ ACVs. <span class="font-bold text-fg">Milestone: $4M ARR</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: FINANCIALS -->
+        <div class="slide" id="slide-9" data-title="09.FINANCIAL_MATRIX">
+            <div class="slide-frame px-8 md:px-24 w-full h-full flex flex-col justify-center max-w-[1400px] mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-0 border-2 border-fg items-stretch h-3/4">
+                    
+                    <!-- Metrics -->
+                    <div class="col-span-12 md:col-span-8 p-10 flex flex-col justify-between border-b md:border-b-0 md:border-r border-fg">
+                        <div>
+                            <h2 class="text-4xl md:text-5xl font-bold tracking-tighter mb-4 uppercase">Financials.</h2>
+                            <div class="font-mono text-[10px] text-muted uppercase tracking-widest border-l border-muted pl-4">Revenue & Pricing Model</div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-0 border-2 border-border my-8 bg-border">
+                            <div class="bg-bg p-6 flex flex-col justify-between col-span-3 border-b border-border hover:bg-fg hover:text-bg transition-colors duration-300">
+                                <span class="font-mono text-[10px] uppercase text-muted mb-2 tracking-widest">Methodology</span>
+                                <span class="font-bold uppercase text-lg">SaaS + Usage (Compute)</span>
+                            </div>
+                            
+                            <div class="bg-bg p-6 border-r border-border hover:bg-muted/10 transition-colors">
+                                <div class="font-mono text-[10px] uppercase text-muted mb-2 tracking-widest">Platform_Fee</div>
+                                <div class="text-3xl md:text-5xl font-bold tracking-tighter">$12K</div>
+                            </div>
+                            
+                            <div class="bg-bg p-6 border-r border-border hover:bg-muted/10 transition-colors">
+                                <div class="font-mono text-[10px] uppercase text-muted mb-2 tracking-widest">Addl_Repo</div>
+                                <div class="text-3xl md:text-4xl font-bold tracking-tighter">$5K</div>
+                            </div>
+
+                            <div class="bg-bg p-6 hover:bg-muted/10 transition-colors">
+                                <div class="font-mono text-[10px] uppercase text-muted mb-2 tracking-widest">Special_Agent</div>
+                                <div class="text-3xl md:text-4xl font-bold tracking-tighter">$3K</div>
+                            </div>
+                        </div>
+
+                        <div class="font-mono text-[10px] flex justify-between items-center p-4 border border-border">
+                            <span class="font-bold uppercase tracking-widest">Margin_Protection</span>
+                            <span>>80% SaaS Standard Maintained</span>
+                        </div>
+                    </div>
+
+                    <!-- Validation -->
+                    <div class="col-span-12 md:col-span-4 bg-fg text-bg p-10 flex flex-col justify-between group overflow-hidden relative">
+                        <div class="absolute -right-8 -bottom-16 text-[240px] text-bg/5 pointer-events-none transition-transform group-hover:scale-110 leading-none">V</div>
+                        <div>
+                            <h3 class="text-2xl font-bold uppercase mb-4 relative z-10">Market Check</h3>
+                            <div class="w-full h-px bg-bg/20 mb-10"></div>
+                        </div>
+
+                        <div class="space-y-10 relative z-10 font-mono">
+                            <div class="border-l-2 border-accent pl-4">
+                                <div class="text-3xl font-bold tracking-tighter mb-2 text-accent">~$200K LOI</div>
+                                <div class="text-[10px] text-muted uppercase tracking-widest">Secured intent from early adopters</div>
+                            </div>
+                            
+                            <div class="border-l border-bg/20 pl-4">
+                                <div class="text-2xl font-bold tracking-tighter mb-2">Live POCs</div>
+                                <div class="text-[10px] text-muted uppercase tracking-widest">Active design partners in SF & TLV</div>
+                            </div>
+                            
+                            <div class="border-l border-bg/20 pl-4">
+                                <div class="text-xl font-bold uppercase mb-2 tracking-tighter">Enterprise Ready</div>
+                                <div class="text-[10px] text-muted uppercase tracking-widest leading-relaxed opacity-80">Cleared infrastructure & security reviews with key engineering leads.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <nav class="slide-nav">
+        <button class="nav-btn" id="prev-btn" onclick="prevSlide()"><i class="fas fa-chevron-left text-[10px]"></i></button>
+        <span class="font-bold bg-fg text-bg px-2 py-1"><span id="current-slide">1</span>/<span id="total-slides">9</span></span>
+        <button class="nav-btn" id="next-btn" onclick="nextSlide()"><i class="fas fa-chevron-right text-[10px]"></i></button>
+    </nav>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const currentSlideEl = document.getElementById('current-slide');
+        const totalSlidesEl = document.getElementById('total-slides');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const titleDisplay = document.getElementById('slide-title-display');
+
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+        totalSlidesEl.textContent = totalSlides;
+
+        function updateNavButtons() {
+            if (currentSlide === 0) { prevBtn.classList.add('disabled'); } else { prevBtn.classList.remove('disabled'); }
+            if (currentSlide === totalSlides - 1) { nextBtn.classList.add('disabled'); } else { nextBtn.classList.remove('disabled'); }
+            titleDisplay.textContent = slides[currentSlide].getAttribute("data-title");
+        }
+
+        function goToSlide(index) {
+            if (index < 0 || index >= totalSlides) return;
+            slides[currentSlide].classList.remove('active');
+            currentSlide = index;
+            slides[currentSlide].classList.add('active');
+            currentSlideEl.textContent = currentSlide + 1;
+            updateNavButtons();
+        }
+
+        function nextSlide() { if (currentSlide < totalSlides - 1) goToSlide(currentSlide + 1); }
+        function prevSlide() { if (currentSlide > 0) goToSlide(currentSlide - 1); }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+            else if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+        });
+
+        updateNavButtons();
+    </script>
+</body>
+</html>

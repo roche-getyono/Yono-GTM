@@ -1,0 +1,193 @@
+Meeting Title: Learn more about Okteto between Ramiro Berrelleza and Daniel Blokh
+Date: Apr 17
+Meeting participants: Daniel Roche, Blokh, Ramiro Berrelleza
+
+Transcript:
+ 
+Them: Che fa so mi  
+Me: Mi guacamole. Ah, Cannes.  
+Them: Me  
+Me: Está aqui pé, full eight d Mas é? Quer? Ira s g. Ah, en el que mí se Opa. Yeah. La victoire.  
+Them: Ken kai pulåte dein lån nyvdeka det sof. Og hå gessil lem idag gäme med idag låya tekinlig får kutze låya argos.  
+Me: ¿Cómo ponen?  
+Them: Hello. How are you? All good. All good, man. How's it going? Not a not a good having What? We just wrapped up a PCDO incident. That,  
+Me: A what incident?  
+Them: yeah. Yeah. Yeah. Just a p zero we had to deal with internally. Few of our clusters were completely offline because of a bad configuration we applied.  
+Me: Fuck.  
+Them: Punching ourselves in the face,  
+Me: Is that why you're wearing a shirt with a different brand?  
+Them: Yeah. I'm like, I'm done.  
+Me: Just put the sweater on when they're fucking up.  
+Them: I'm hiding. I'm hiding.  
+Me: I love it.  
+Them: No. Every every week I I I change hoodie. So it's one in the rotation. This is from It's an old company that used to advise one of my friends was the the chief architect there. So  
+Me: Okay.  
+Them: held him with a couple of things and they gave me this. Gave me this hoodie, so it was good.  
+Me: Yeah. You'll be the first one to get the Yunno swag.  
+Them: You can see it, but it's a it's a it was like a design tool for Atlassian tools. Like, when you wanted to make diagrams and stuff. Kinda like Scalidra and those things. But it it has in the back a map of all the breweries of San Francisco. But made with their tools. It's kinda cool. I like  
+Me: It's actually not bad.  
+Them: I'm gonna go to have a beer later today. So it's kind of a cool mix intersection of Geekry and and craft beers. Are you used to for your service to go down? Or is it like a once in a I don't know. Few months in Oh, yeah. No. This this is the first time we have something of this caliber in a while. I normally don't get involved, Like, the platform team this with this, but, I get involved from a customer communications perspective. Yeah. But it's happened, Darwin. The team's pretty good. It's just, you know, every now and then, things happen. Yeah. In this case, our our Terraform automation deleted a bunch of DNS records. It's fine. Yeah. So I would say, it's not that they're, like, hard to get it back, but no. As long as the it's only DNS and then not something more Yeah. So the thing is, you know, with DNS is, like, it took a while to figure it out, and it's like, wow. Why did this happen? It's kinda like a weird error condition. So, yeah, it just takes time and distracts people from other things and as always, of course, it has to be done today when we're busy with other things. Yeah. But it's it happens. It's part of, that's what we have as LAs. It's part of it's part of setting a service. For sure.  
+Me: Yeah.  
+Them: So first of all, great to hear from you again. Likewise. Likewise. I'm excited for today. Back in Israel. I don't know. I was gonna go in May, but my partner was like, no. You're not going now. Crazy. I don't know. The news the news we get here now are, like, pretty dramatic. I know if it if it maps with the reality over there. How are you guys doing? Oh, like, there's a, like, a ceasefire, like, a whale. We'll don't have sirens for, like Oh, wow. Nice. Five days. So so far, so good. Well, you look so fresh and relaxed. For a week and a half? I know. Boom, Bob.  
+Me: Five days, I feel like it a week and a half. Even yeah. Yeah.  
+Them: Yeah. And that's, like so, yeah, we're not tired anymore. Nice. That's exciting. That's good for you.  
+Me: Yeah. Caught up covered up on sleep. My Oura Ring is happy.  
+Them: Nice.  
+Me: It's like, you're thriving.  
+Them: Yeah. Yeah. So I was thinking we're going in May, except we we we're gonna do our company up in May in in France.  
+Me: Oh, cool.  
+Them: And then I was thinking of going from there. But I don't I think so. What's that? Maybe we'll send Daniel to to meet you with you in France. And He is still living in France.  
+Me: Yeah.  
+Them: Oh, yeah. That's true. That's true. We're gonna do a  
+Me: Cool. Mompelia had a really good soccer team at one point.  
+Them: Ya, ya, ya.  
+Me: Yeah. But I can be a translator. I'll be the local, like, haggler. You know?  
+Them: The local guide. There you go. Well, one of my cofounders study in France, so he he already took that job.  
+Me: Oh, he's probably so excited too. Try his French out.  
+Them: He I know. That's the first thing he says, like, oh,  
+Me: Gonna be hilarious.  
+Them: get to practice my French again. I'm like, alright, man. You've been talking about this for so long.  
+Me: Make sure you record it.  
+Them: Let's see if it's true.  
+Me: Make sure you record the attempts. It's always good material, you know?  
+Them: Yeah. So I don't know. I I I still have to decide. We we were supposed to sponsor an event, have a booth and everything, but yeah. I don't know if I can make it in May. But if not, I'll make probably after the after the summer. Have a couple new customers there, so I have to go and make sure.  
+Me: Ya.  
+Them: Make sure they know who we are. So  
+Me: Абсолютно.  
+Them: remember previously, you spoken with Daniel, but you know, And wanting to integrate it. I just want to check from you what are your expectations that the owner will do. Right. So I was talking to to to We talked about kinda get a better understanding of of kinda your vision. Mhmm. And one of the things that we've been exploding is how can we help our customers learn how to use Obteto Troubleshoot issues. And discover what else can they do with Octetto. Nice. And as we as we grow, we're trying to figure out how much can we leverage AI to do this. Mhmm. You know, we have docs, our customers are developers. Our users are developers. So but what's happened? That our direct customers are the platform team. They great partners. At the same time, they can be a firewall. For us actually knowing how people are using our our tools. And we have telemetry all that stuff. No? But one of our problems is that, yeah, when a a developer gets stuck with something, they have to ask. And, like, Monday, know, for example, they have, like, 400 developers. Or something like that using Uptero So when somebody has a question, they go and they ask on a Slack. Mhmm. And then they have to wait for somebody to answer, and if nobody answers, then they check-in their knowledge base. And if nobody finds it, then they come to us.  
+Me: Yeah.  
+Them: So it's a very long cycle, and by then, unless it's something very critical, the the rep is like, you know what? I'm gonna do something else. It's Whatever. You know, that leads to kind of a vicious cycle where they see hotel is kinda something that, oh, didn't work out for me. It's more friction. I wanna use something else. So I've been thinking about when Dan told me about the your product kind of like, oh, interesting. Maybe that's something that could be helpful here. What was Dream of kinda having an agent that can just answer all these questions proactively. This point, it's just experimentation. It's not something that we're ready to prioritize or commit to, but I think it'll be interesting to explore. But if it's if it's as easy as as  
+Me: Is it sold?  
+Them: as I was told. Yeah. I know. Yeah. It's really So, like, what kind of information are are you willing to provide? For instance, your documentation as well as the What I like, the knowledge the knowledge base that your current programmers have, it's not the knowledge base that's currently in the documentation. There there might be some kind of drift between the application. Yeah. So so we we documentation, but a lot of the problems for example, our documentation is very it's lacking a lot on troubleshooting. Then, also, because we integrate with Kubernetes, there's also the entire world of Kubernetes of, you know, when when something fails at that layer, because our users are consuming that through us, they're like, oh, it's a And, yeah, I agree. It's Like, we are out of the the abstraction for them. So that's kinda what I'm thinking. Like, those are the two big pieces. We're using another tool called egg. To kinda automatically add more documentation. Mhmm. But the way I think about this is no one likes to use documentation. Yeah. That's like a last resource. Of course, the ideal is that you have all these error messages that are perfect and self and they guide you. Well, like I said, it is it never happens. But but it's that's not the reality. That's not where we are and and nobody can cover every single thing. Especially with an are very proud product from that perspective. So that's what I'm thinking is if there's an opportunity to automate and kinda have a a more interactive proactive way of helping customers. When they run into issues. Nice. So they want the agent to or to provide the link to the documentation where it can help or both? Ideally, respond because the the less hops the better. Yeah. I agree. Like, I I it's just all about know, the report tools are all about productivity, all about making your life easier. I think we I think AI is getting to a point where like, for example, I use CloudCore a lot. To just ask it about things. I go to docs anymore. I'm like, hey. How do I do this? So that's kinda what I'm thinking. Like, we're we're optimizing our our documentation to make it more agentic friendly as well, but we have a dashboard. And that's where a lot of our customers live. They go to the dashboard, they're seeing their their dev environment, That's where they in a lot of things. Have CLI as well. An ID plugin. Alright. And you give me, like, a few examples of issues that you might want to communicate to be able, like, for the agent to be able to answer? Yeah. So there's let's say, when you when you're launching, the the biggest friction point I would say we have is when a developer launches. Their dev environment. That is the riskiest because you have to build containers you have to deploy resources in You have to create endpoints, SSL, all that stuff. Mhmm. Each of these could fail. When it fails, I think helping the the user understand is this an obteto failure? Is this a failure in your code? No, like, typical example. Is the build service broken, or is your Docker file has an issue? It happens a lot, for example, when on builds, NPM fails for whatever reason. Mhmm. And then they're like, oh, Otero's broken. What do I do now? And I'm like, wait. It's not Otero. Like, somebody in your teammate has changed. Yeah. Now you need to build the logs to understand what's going on there. Uh-huh. I I find I'm looking and I know it's a lot of this are not. So as product to make this more obvious, but I'm trying to find shortcuts of, like, can we help our customers reach the conclusion, do this root cause analysis faster. Mhmm. Understood. And tell them, yeah, your Docker file is missing don't know. NPM failed to install this library. So try again. Or it's it's a it's a network issue. Try again. Or, yeah, somebody else broke it, and imagine the ideal world. Yes. We're seeing this across all their environments, so this is pointing to something systemic. Talk to your platform team. It's not just you kinda think or so, yeah, stuff like that.  
+Me: Yeah.  
+Them: That's kinda my dream. I know it'll take time to get there. I'm sure we have to build a lot a lot of that ourselves, but that is the kind of, like, self-service guidance that I think would be really useful, and I think that AI can get us there. Alright. Dream about this. We try to build agents or stuff internally. A couple of times, but I think we did we did what we did last year. We tried to build this. But I think technology there.  
+Me: Yeah.  
+Them: The same way it is now. And for instance, what are your requirements currently? Then the in terms of, like, sub tool, if we'll give you a platform that will be on prem, which will will be running on your side. Question. So SOC two we're SOC two compliant, as you know. Yeah. SOC two is a racket, and the moment is like a pyramid scheme. You're in Soc two, everything has to be Soc two. That's one. I think we can start this. So Have our customers are on or bring your own cloud customer. The rest are on our self hosted platform. So If they're seeing posted We'll have to do it on prem. So self hosted is, I would say, 80% on public clouds. Okay. It's just running on like, everything Obteno runs on public cloud or mostly. We have some customers on on Verintmental, but those are, like, a whole different world. Like, the AirGap customers, they they don't have access to any of these things. Now what I'm thinking is, like, realistically, we can make this, an add on for, like, the more permissive customers. We can, like, turn on, turn off. The data privacy would be an issue, but I think for us and and and to be fully transparent, no, like, this is still kinda, like, research. It's, like, is this possible? Is this beneficial? So the way I see this working is we'll we'll figure out do something where we can prove value then show it to a few customers, see what they say. A lot of our customers are getting more comfortable with the idea of their data leaving the cluster. If they get value. I think with AI, everybody's making that everybody's adapting to, like, hey. Yeah. I'm showing a lot of privilege information with Claude code, but I'm getting all of this value back, so it's okay.  
+Me: Yeah. The question is if if and the question to Bloch, I guess. The Octettos client information, like, the clients of their data is not exposed to us at all. Right?  
+Them: Yeah. So so pretty much what we'll do Yeah. For bring your own key. So all the agents are actually running on your tenants, on your with your own with your own we want to log anything and do want to do anything. Everything will be provided in your tenant. Mhmm. Especially if it's on prem, then it's all you You'll just you'll just receive a helm helm Okay. So how does that work? Is that, like, you install, like, models are you using? Is that kinda like a bring you a key, like, I give you a key to my account? So so And that's it. We're we're mostly vertex based. Okay. But the way we do use group for 4.1 for specialized things in for for instance, for the agent. And we do use OpenAI for embeddings. But we can move move everything to to and then it will be a little bit slower, but at first, you won't have to onboard all those systems. Yeah. You you just go to GCP, which probably have credits there. And there and you'll have it for free. Right? And the main thing that I want to understand is, for instance, once you're, like, onboarding it into your system, you'll have to run the process of the reverse engineering engine in order to understand the full scope of the application. Mhmm. And afterwards, we'll like, you you'll have the the easier documentation is set on some kind of repository, or is it a part of your front of code? No. It's a it's a separate thing. It's on octetter.com/docs. And it's a open source repo. Oh, so it's open source? It's what we're saying. Amazing. So I can actually test it myself. Okay. To evaluate the the outputs. From there, I want to, like, go straight into, like, reverse engineering. I'll use Yonolite, which is, like, scraping engine over your in your to provide, like, a beer context. And from there, we can go go to towards like, I'll show you what we've we've got. And then Yeah. I can I can give you a if you want, I can give you a a free key for Octero, and you can get your own instance of Octetter running on your own queue clusters if it's helpful? Firstly, I have it already. Oh, yeah. That's true. That's true. Forgot that. This is how we met. That's true. That's true. That's how bad it was this person I am. My CRMs are not up to date. And from there, we'll make make some kind of demo. We'll show you what's an answer and what it cannot. And we're gonna just continue from there. Then I have, like, few more questions, like, how would you like the agent to make actions for the user or for now only fetch information Because if you'll say, Uh-huh. If you'll tell the agent fix my CICD or something through Okteto, it might be able to do it, but it won't be always perfect. It might break stuff. So it's I think for now, I mean, ideally, it's like all of you want all that to happen on and the the the long term is kinda like we could have our own agent that makes all these suggestions. Mhmm. That's been interesting. But I think it start just by by so I see this as it's still gonna, like, extend on kinda what I'm seeing here. I think it's an opportunity I'm seeing an opportunity at two different levels. One is for platform engineers. To have agents that can help them identify systemic issues. Staging is broken because somebody merged a bad thing and now every single deployment of Octave is failing. A Docker file has the wrong key. This happened, like, last week at one of our customers. And then having the individual user know, hey, dude, this is not on you, Raise an issue on this channel or whatever. Then there is individual usage where I'm doing something. I make some code changes. I push. Fails. Okay. How do I deal with that? Which is where or how do I get started? How do I, like, go file? Whatever. So there's those two. Think right now having something just as as I think the first level of validation will be can we give the end user help so they get stuck. Sorry. And when they get stuck, they know what to do.  
+Me: Yes. Stuck in terms of the product, like, understanding where they are, what they're about to do with Okay.  
+Them: And when something fails, understand. What to do next. Like like, you ended up on an air condition.  
+Me: Right. So that's more the troubleshooting you're referring to.  
+Them: Where do I go from here? Yeah. Exactly. Exactly.  
+Me: Yeah. Okay.  
+Them: Yeah. Feature discovery is very interesting, but I I think that's where I know if an agent can really help there. I think a little of I think that's more on us. Product and and stuff, but I love love your thought your take on this. Maybe the experts  
+Me: Yeah.  
+Them: on on this agent stuff.  
+Me: So I I can say for future discovery, one of the things about just AI interface in general, agentic interfaces, is that most times, the a lot of the features of SaaS, especially complex SaaS like yours, they're there. They're just hidden behind  
+Them: Right.  
+Me: so many places to go. So, actually, a language based model where So here's the vision, right, for how we see it in general. Is how can I do this one thing? Right? How can I commit this action on this platform And then what Jono will tell you here's how you do it? I can do it for you, or I can show you how to do it. Or, like, either step by step or the action for you. So the feature discovery, the element that's really strong, for language based interface is the fact that it's not buried behind things like, can I do this? Yes, no. And you discover features through questions. So it's more proactive. Yeah.  
+Them: Okay. Justin?  
+Me: But, I mean, yeah, testing it with you would be interesting. I mean, that's what we see from research that we we look around. We see  
+Them: Interesting. Yeah.  
+Me: a lot of research, and we understand, okay, what are all the research entities and institutes are bringing back with For example, McKinsey and Gartner did a collab in okay, 50% more adoption. For platforms that have a language based interface. So that's massive. Right? So that's really the premise of what we're doing. Like, that's where we see a lot of the value is future discovery, because it's one thing to understand how things work, general. Like, what do I do from here? So, for example, the user is on the dashboard. Like, on Noctero's dashboard. He looks, he's like, alright. I wonder if I can do this thing. I don't know what the thing would be.  
+Them: Right.  
+Me: But whatever idea you have in your head, you'd be like, can I do this? And then instead of asking a chat, like, the chat in terms of, like, chatting with your agent,  
+Them: Ajá.  
+Me: When I say agent, I mean a human being, like, talking to a CX or customer success or whatever, you just interacts with you, and I was like, can I do this thing? And then he gets an answer, and he's he's trained on it. He discovers what he's able to do.  
+Them: Okay.  
+Me: And that's sort of the happy flow that we have in mind.  
+Them: Interesting. I have do some more thinking there. Because, I mean, you're you're opening you were opening a big kinda direction that I hadn't talked about.  
+Me: Yeah.  
+Them: She's a lot more advanced than the  
+Me: Yeah.  
+Them: hey, this is broken, go here to, like, anticipate. Hey. Have you tried about this? Hey. Noticed giving these patterns, this feature, you should be using this feature more. But I think that's I don't know if that's it makes sense to start there. Maybe maybe  
+Me: Yeah. No. That's a later thing. But in general,  
+Them: it's very interesting.  
+Me: yeah. In general, because Woodblock has built in terms of the reverse  
+Them: Yeah.  
+Me: engineering, the indexing, it it's off the bat we understand all the things that you allow us to understand. Right? So it's there. It's not like  
+Them: Yeah, the data layer. Yeah. Yeah. That's what I'm curious.  
+Me: an advanced feature.  
+Them: Curious to understand how far can we get with with you know? And  
+Me: Bloch, do you think it's more of a, like, will it require a heavier lift? Like, to know all the features that exist and, you know, the entities and the domains?  
+Them: So not really. This will pretty much what we do.  
+Me: Yeah.  
+Them: The the the overall functionality will be just so we'll provide the the reverse engineering agent as an on prem service when where you'll have to, like, open it and put a put in the installation install it yourself. Yeah. But this or provided, for instance, the of of of the of the application, provided name, We'll be able to some kind of feel like really quick CLI where you can just say insert all the things that you want to reverse engineer what what's you're ready That's something we can worry about later. Like, we could start like, when you on cloud customers, we have a lot of large customers there that can control the full thing. So those are easy to pilot. Also thinking about building something more of a SaaS this year. So we might go in that direction later in the year, which will make even things easier for us. Because right now, the bringing it on cloud is very much a wide globe service. Like, it's we operated. It's not really exposed. To the public. Like, you can go and up and get started in in, minutes yet. We've been discussing that internally. But it's interesting. Thanks. What do you recommend as as next steps? Where do we go from here? So from here, I'm going to to build a feature list that that they will require for you. Okay. I'll I'll need that from you. Few questions that you know that the, that the agent must answer. And answer it, and and then proper way. Mhmm. Okay. I'll provide you after a week or a week and a half. I'll we'll probably have a demo for you. Have a call. I'll show I'll show you how it works. I will do my magic to reverse proxy to your actual open open application. And from there, you'll it running it live. In, Uktera. Uh-huh. And afterwards, we'll continue from there if you want to to put it on prem. We'll begin. Let's let's, yeah. Let's let's let's see it running. A bit exciting. And then we can we can decide what's, if it makes sense too. Yeah. So so To put in front of our customers. So what I'll need from you, just, providing a list questions that usually your team is incurring, like, phrases wise into, like, the the plan working or something like that. And then Okay.  
+Me: If you have FAQs or anything like that or, like, the most submitted ticket on your support team and things like that. Yeah.  
+Them: Yeah. That's a good one. Let me I I I I am overdue for that analysis regardless. And that's part of the challenge because yeah. Let me see which ones our customers escalate. We have a couple of channels that our customers created where  
+Me: Yeah.  
+Them: their developers just ask questions, kind of for us to monitor. So I think those could be a good a good source of this. And so so What is missing? If you want to be more, like, more, like, synced with us, I'll be happy to add you to our Slack channel. Yeah. Sure. To the Yeah. We can do it. We use Slack too soon. Can create, like, a shared channel and and it's easier than email, for sure. Yeah.  
+Me: Sure. Yeah. And, yeah, like, so just a clarification just so we know we get it right in terms of  
+Them: Okay.  
+Me: specifically the SOC two. So the Yono product and, bluff, correct me if I'm wrong. Yeah? Because, Ramiro, as you know, this is gonna be our our first US onboarding. And it's really important for us. And like I told you before, it means a lot to us. And the way the world looks at Yono as well. So what we do Yono sits on application alone. It doesn't touch  
+Them: Ya.  
+Me: any of your end users. Block, right? Yeah. So in terms of the SOC two, for you to deploy it, at what level does it become critical? For you to have to have the certification at full or my understanding, and, again, correct me if I'm wrong, we understood that once you commence the process of SOC two, you have the letter of intent or the letter of a commitment that we're building it, and it should be enough for most companies. So, let me know what you think is the critical point. And then if  
+Them: For those, that's fine because and and this is where  
+Me: that letter is enough or yeah. Yep.  
+Them: why should we align? Like, the way I'm thinking about this, at this stage, this is still kinda like a we're still in the experimentation phases. Let's see  
+Me: Ya. Perfect. Yeah. Great.  
+Them: At this point, doesn't matter. Like, it's fine. Once we see, hey, there's value here, let's say that after this effort two weeks, we say, hey. Yeah. There is value here. It is solving this clear effort. Then at that point, I would like to discuss, okay, what would a pilot looks like? What does it look like for us to roll this out? To a couple of our of our instances? At that point, SOC two discussion will need to happen.  
+Me: Amazing.  
+Them: Which thing we talk to and and you'll see this when you go through the audit. It's kind of like a fake Of course. Thing. Yeah. Because it's completely defined by it's like we do what we said we were gonna do.  
+Me: Arbitrary. Yeah.  
+Them: So we have a lot of discretion. Around exceptions. Like, we can work with vendors who are not SOC two as long as can have an exception to explain why. So if a customer asks and, for example, if there's no access to customer data, that's an easy one. Mhmm. If it's only running on the total systems, that's an easy one too.  
+Me: Yeah.  
+Them: That's why it's it's very different if we roll it out to a couple of kinda soft customers that we know they're okay with this kinda thing versus, I mean, rolling it out to one of our customers and governments. Or or health care or financial services. Those are, like,  
+Me: No, thank you. We don't want our responsibility.  
+Them: the last ones, and and they require so much, and you don't want those. Until until you're ready, we kinda landed there, and I'm like, why?  
+Me: Yeah.  
+Them: Yeah. I think we need to send a a a this communication on Monday, and I'm like, oh, this guy's gonna give us some strong.  
+Me: Oh, yeah.  
+Them: For, like, nothing. For, like, nothing. But, anyway, so let's take it from that. So from that perspective, don't don't don't worry about it.  
+Me: Yeah. Okay, cool. And I have a last question.  
+Them: Mhmm.  
+Me: And this is both to you as know, you mentioned when we talked how Monday was such a like, a North Star for you in terms of the, you know, the build of Hocteto. So you are going to be the same thing for us. I'm asking you both as our most valued  
+Them: Thank you.  
+Me: valued customer and also as a colleague and a co CEO that I consult with  
+Them: Uh-huh.  
+Me: you know, on a real level, what do you think would be the best measurements of success So the KPIs for the experiment and for the pilot, just so we know  
+Them: Right.  
+Me: okay, how do you measure success in your eyes?  
+Them: From a pilot perspective, for this kind of tools, it's kinda same as our docs. Success, it's hard to track it, but I think we can track it by usage.  
+Me: Usage of the bot.  
+Them: Like, would would  
+Me: Or, or less usage of support chat, etcetera?  
+Them: yeah. Yeah. No. I I would say usage of the bot.  
+Me: Okay.  
+Them: Because anything different is gonna be too long to measure. You Like,  
+Me: Mhmm.  
+Them: adoption of Obtero or like, of course, all all I'm doing is to increase our monthly active users. I wanna increase the amount of time people are in Octero and reduce the the kind of time we spend troubleshooting. That's very hard to measure. So I would suggest that and I think it's something that as as you talk to more people, the better price are pretty good. At they're gonna use the stuff that they find useful, and they're gonna not use the stuff they don't find useful. So I think just measuring how many people use the agent over a period of time, Just a good measure.  
+Me: Yeah. And reduction of tickets, for example?  
+Them: I think before that, that would be even better, but the problem with that, as I as I think about this, is that and this is one of our challenges. In in the way in our business model is we don't get those tickets. Like, when when Monday, for example, you know, our customers when they have a problem, they go and they put a message on Slack. And they have a Slack channel where they're using they have a tool that they build internally, to answer questions. And if that is not enough, they ask their platform team. And if that is not enough, then they come to us. So it's really rare at this point that they come to They can have a really good internal but what I want to minimize is the need for them to go to Slack. I want a developer that if they run into something,  
+Me: Yeah.  
+Them: I want it to be fixed immediately. Like, I want them to have the tools to do it themselves because  
+Me: And we don't yeah.  
+Them: every help you make is a point of annoyance. For everybody. No? Like, if something fails, I have to go to the docs, like, oh, okay. If that's not enough, then I have to ask my colleague.  
+Me: Ya.  
+Them: Double sigh. If I have to open a ticket, oh my god. Like, fuck this shit now.  
+Me: Oh my god. Yeah.  
+Them: Like, nobody wants to do those things. So I think for us, like, how do you how do you measure the absence of an action? Kinda hard.  
+Me: Yep.  
+Them: So I think measuring the interaction which does something interesting for you to think about. Because I think there's a certain interesting perverse incentive, I guess. Where the better my product is,  
+Me: So last day heals the butt.  
+Them: the less we need you. Yeah. So how do how do you turn that into kind of a grow together narrative? Because has a problem. No? But they know it. It's like, I don't wanna use SendDesk. The the least, the less is like a I was chatting with a friend that works. He runs the New Year in Century. And I said, hey. I hate paying for your bill. Like, what write better code? And then you and then you have less intellect. I'm like, yeah. Forgot. I know.  
+Me: Yeah.  
+Them: So if I read preferred code, you are out of business. Like, yeah, but that will never happen. I'm like, yeah. Of course. So you have it's interesting in in in in how we measure success because if we are successful, and that's why Monday is not gonna be a target for this because they've already appealed this very mature.  
+Me: Yeah.  
+Them: Knowledge base. We have other customers who don't have the size or the focus to build those knowledge bases. And they shouldn't. Right? Monday because we kinda grow grew with them, and they saw the gap. In the perspective. That should have been built by us.  
+Me: Right.  
+Them: So now it's an opportunity to  
+Me: Yep.  
+Them: use tools like like, you know, to capture that information, turn it into actionable insights, and hopefully, this becomes something that benefits initially the the one customer who's using it, but then it something that improves because it's very clear to me that you guys are on the way out. Agentic workflows are the thing. Like, I use the UI less and less. I have, you know, Cloud Code with our with our skill. That's all I do these days. I rarely go to the UI. So that is something else we have to think about too is what happens when there's no UI, which means agents do other work for you. I know if you wanna this is helping us there, or if Jono is an intermediate, but become fully agentic. I think that's something we can discuss. I think as as you develop your vision, curious to see what you think there. But it's, to me, something that I I I don't know if you saw this announcement, but Salesforce announced this morning that everything Salesforce and Slack, is gonna be exposed through MCP, CLI, and APIs because they see the UI of Salesforce as a and and Slack as a relic of the past. Yeah. So I'll tell you what we're seeing right now. Like, every everyone is running so fast this before understanding, what they're actually doing. So for instance Silicon Valley Way. No.  
+Me: Yeah.  
+Them: So for instance, in order to create that, you a deployment, you need the prerequisite actions of one, two, three, four until you get to the actual deployment, for instance, and and until you get to the status of the Right now, MCPS provide you the option creating all of those actions, but somebody needs to turn what what deterministic workflow you're going to run with all those tools that you have in your in the MCPIN. So this is actually what we're doing. We're reverse engineering your application to understand how it works currently. And how we're how to build this workflow. And from this workflow, I can I will show you later some videos that we took of the v two version, which is coming out pretty soon? And how it connects all the dots and then resents how to actually build a deterministic, workflow Uh-huh. Identical workflow. Right? Because it's not agents are not the deterministic, but workflows are. Right? So how the agent understands Interesting. Other things. Okay. Makes sense.  
+Me: Yeah. It's gonna be fun, man.  
+Them: Yeah. This is gonna change in a week. It's it's very exciting how things are are changing, and yeah, we have a big hackathon on on next week on Wednesday and Thursday to AI, everything.  
+Me: Amazing.  
+Them: Nice. I'm I'm trying to, yeah, get the teams just go crazy, people whatever. A lot of internal tasks as well. I don't think we're at the at the stage of building kinda, like, custom agents, but we're getting there. But but, yeah, mean, I I agree with you. I mean, the the thing you you guys pitch me on, like, kinda, like, understand the workflows. And and kinda rest engineer here. What we build. Once you get there It's been interesting. Once you get there, then talk with us. We'll have probably the knowledge to get getting the correct way. Yeah. This is what you should be doing. Exciting. Exciting.  
+Me: Ja, wenn.  
+Them: Well, let's do that. Can you send me an invite for the or let me just Anyway, we just let's just create a shared stock channel. And I'll I'll put the link to our docs there. Let me think of what are the questions. I'm gonna scrape some of our Slack channels. To see kinda, like, the last six months what kind of questions are coming up. And I'll share those with you.  
+Me: Me dicen.  
+Them: And, yeah, let's let's go. Let's see what's up, and and, hopefully, we can help each other. And as I get better understanding of your of your product, let me see who else could be a good fit. And I'll I'll try to bring in touch with some people here in The US. I think that will make a difference also.  
+Me: Oh, for sure, man. That's where it's at.  
+Them: No. I mean  
+Me: Really appreciate it.  
+Them: you so much. Alright, guys. No. No. Happy to help, and thank you for I mean, I'm I'm hoping we can make this mutually beneficial. So we  
+Me: Absolutely.  
+Them: that way we can do less and you guys can do take off some of this work for us. Yeah. Well, is they is they is they  
+Me: Appreciate it, man.  
+Them: on your time of the world, so thank you for taking this call. It is late. Hope you have a something planned fun for tonight.  
+Me: Coding.  
+Them: Since since there's no no alarms, Okay.  
+Me: Appreciate it so much, man. Have a good weekend.  
+Them: Thank you. You too. Thanks, man. Bye. Bye. 

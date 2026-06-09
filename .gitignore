@@ -1,0 +1,8 @@
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+chrome_err.log
+edge_err.log

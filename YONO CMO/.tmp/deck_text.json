@@ -1,0 +1,38 @@
+[
+    {
+        "page": 1,
+        "content": "YONO\nDon\u2019t Train Your Agents, Embed Them\nAutomating Execution with Context"
+    },
+    {
+        "page": 2,
+        "content": "Massive investments in interface agents are not delivering ROI\nDeployments fail due to hallucinated actions and code drift\nProblem\n\ue9e4\nTime to Market\nBuilding actionable \nagents requires months \nof custom engineering.\n\ue001\nReliability\n60% of enterprise \nagents fail. They lack \nproduct context and \nhallucinate actions.\n\uea3d\nMaintenance Drain\nDrift management and \nevaluations consume \nup to 40% of \nengineering resources."
+    },
+    {
+        "page": 3,
+        "content": "Auto-generating structured context directly from the front-end \ncodebase\nEngine: We ingest a GitHub repository, map the internal work\ufb02ows, and output a \nready-to-use data layer.\n\ue9e4\nVelocity\nDeploy actionable \nagents in hours, not \nmonths.\n\ue8e8\nGrounded Execution\nProvide reliable product \ncontext so agents can \nexecute actions bound to \nthe product truth.\n\uea18\nZero Maintenance\nAuto-sync directly with \nthe codebase to bypass \nthe enterprise IT \nbottleneck entirely.\nSolution"
+    },
+    {
+        "page": 4,
+        "content": "The enterprise market is abandoning fragile chatbots for \nhigh-ROI, agentic infrastructure\nYesterday (2023-25)\nFragile Experiments\nInvestors poured billions \ninto fragile Chatbots and \nCopilots.\nReality: High churn. \nModels commoditized. \nAgents hallucinated \nwithout business context.\nToday (2026)\nContext Gap\na16z con\ufb01rms LLMs are \ngeneric reasoning \nengines that require a \ndedicated context layer.\n60% GenAI projects \nabandoned due to lack of \ntrust. (Gartner)\nTomorrow (2026+)\nAgentic Dominance\nEnterprise spending on \nautonomous agents \nsurpasses chatbots by \n2027.\nAgentic interfaces yield \n49% ROI. Market hits \n$753B by 2030.\nSources: Gartner (2026) \u2022 Omdia & Snow\ufb02ake (2026) \u2022 MarketsandMarkets (2030)\nWhy Now?"
+    },
+    {
+        "page": 5,
+        "content": "ARR\nValidation from the \ufb01eld\nSecured pipeline gated by SOC2 & 90-day product milestones\nTraction\nLevel 1: Discovery\n45 Active Conversations\nTargeted outbound & discovery\nLevel 2: Validation\n35 Validated Intent\nCon\ufb01rmed pain & architecture \ufb01t\nLevel 3: Pipeline\n1 Customer, 1 Pilot\n1 Signed LOI ($100K) + 2 Verbal ($150K)\n\ue897SOC 2 Compliance Action Engine Release \ue86f\n(SF)\nBlockers"
+    },
+    {
+        "page": 6,
+        "content": "The market is split between chat wrappers and API \norchestrators\nYono bypasses both by automating context directly from the front-end.\nCategory Example Limitation Yono Fix\nConversational \nFront-Ends\nSierra, \nWonderful\nHigh OpEx. Requires armies of \nhumans to manually script \nconversation \ufb02ows.\nAutomated Setup. Structurally \nmap frontend codebase to learn \nthe \ufb02ows instantly.\nBackend \nIntegration Adapt\nConnects via backend APIs, \nrequiring lengthy integration \ncycles.\nZero-Touch. Natively parse UI \nstate to bypass backend API \nbottlenecks.\nInternal Build DIY Drift management takes 40%+ of \nenterprise engineering resources.\nSelf-Healing. Auto-syncs with \ncodebase to eliminate \nmaintenance drain.\nFoundation: YONO \u2014 A reliable processing engine that reverse-engineers the frontend into a live state graph.\nCompetition"
+    },
+    {
+        "page": 7,
+        "content": "INPUT\nGitHub Repository and \noptional enrichment\nPROCESS\nMap entities, \nrelationships, \nwork\ufb02ows, and user \nstories.\nTECH\n\u25cfReverse Engineering\n\u25cfGen Testing Module\n\u25cfAgent Platform\nOUTPUT\nActionable Agents\nReliable, Self-Healing, and \nbound to live state.\nPhase 1: Immediate Revenue\nOvernight Actionable Agents\nTarget mid-market and hyper-growth scaleups to \ncapture $50K ACV. Harden the architecture and \nprove the rapid-deployment wedge.\nPhase 2: Enterprise Scale\nLive-Sync Release\nUnlock the 'High-Velocity, High-ACV' Enterprise tier. \nRoll out on-prem modules to bypass \ufb01nal security \nblockers, capturing the $150K legacy pipeline.\nProduct & GTM Strategy\nCapturing mid-market revenue immediately while hardening \nthe architecture for $100K+ enterprise deployments"
+    },
+    {
+        "page": 8,
+        "content": "Team & Opportunity\nDaniel Roche (CEO)\nEx-monday.com\nScaled engine from $380M to $1.2B ARR\nDaniel Blokh (CTO)\nEx-Unit 8200\n2x CTO, LLM/Engine Architect\nQ226\nUS HQ Expansion\n\u25cf CEO leads US GTM\n\u25cf Hire GM (Ops & GTM)\n\u25cf Hire VP R&D, Product\n\u25cf Soc 2 Compliance\nQ326\nGTM Phase 1 Launch\nQ227\nMid-Market\nCapture scaleups\nMilestone: $1M ARR\nQ427\nEnterprise GTM\n\u25cf Fine-Tuning Module\n\u25cf Live Sync Module\n\u25cf On Prem\nQ228\nExpansion\nScale $150K+ \nACVs\nMilestone: \n$3M ARR\nRaising $4.5M to scale MM revenue & accelerate ENT rollout"
+    },
+    {
+        "page": 9,
+        "content": "Revenue Model\nSubscription (SaaS) + Usage (Compute)\nMargin Protection\n80%+ standard SaaS gross margins maintained via \nfront-end state parsing.\nInitial Pricing\n$12K Platform Fee\n$5K Additional Repo\n$3K Specialized Agent\nProjected Estimated ACV\n$50K\nHypergrowth Segment\n$150K\nEnterprise Segment\nFinancials"
+    }
+]

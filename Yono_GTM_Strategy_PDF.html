@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YONO - GTM Strategy (PDF Export)</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables - Yono Premium Light Theme & Print Overrides */
+        :root {
+            --color-bg: #F7F6FA;
+            --color-card: #FFFFFF;
+            --color-text-primary: #121115;
+            --color-text-secondary: #42404A;
+            --color-accent: #5A45BA;
+            --color-success: #007C8A;
+            --color-warning: #C23B22;
+            --color-border: rgba(110, 86, 207, 0.12);
+            --font-sans: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Layout Container */
+        .doc-container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        /* Title block */
+        .page-header {
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-title {
+            font-family: var(--font-mono);
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--color-text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .page-title span {
+            color: var(--color-accent);
+        }
+
+        /* Sections and Card layouts */
+        .pdf-section {
+            background-color: #FFFFFF;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+        }
+
+        .pdf-section-title {
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        /* Phase overview grid */
+        .phase-summary-grid {
+            display: grid;
+            grid-template-columns: 2fr 2fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .three-column-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .phase-summary-card {
+            background-color: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .phase-summary-card.active {
+            border-left: 4px solid var(--color-accent);
+        }
+
+        .phase-summary-header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .phase-summary-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+
+        .phase-summary-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .phase-summary-time {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--color-text-secondary);
+        }
+
+        .phase-profile-list {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.35rem 0.75rem;
+            font-size: 0.8rem;
+            border-top: 1px solid var(--color-border);
+            padding-top: 0.5rem;
+        }
+
+        .phase-profile-list strong {
+            color: var(--color-text-primary);
+        }
+
+        .phase-profile-list span {
+            color: var(--color-text-secondary);
+        }
+
+        /* Telemetry Dashboard Styles (Static High-Contrast Print Theme) */
+        .metrics-dashboard {
+            background-color: #F7F6FA;
+            border: 1px solid #D1D0D5;
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dashboard-title {
+            font-family: var(--font-sans);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+
+        .dashboard-subtitle {
+            font-size: 0.8rem;
+            color: var(--color-text-secondary);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .metric-card {
+            background-color: #FFFFFF;
+            border: 1px solid #D1D0D5;
+            border-radius: 6px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--color-text-secondary);
+            font-weight: 600;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-accent);
+        }
+
+        .metric-subtext {
+            font-size: 0.7rem;
+            color: #5F6E80;
+        }
+
+        .metric-details-panel {
+            background-color: #FFFFFF;
+            border: 1px solid #D1D0D5;
+            border-radius: 6px;
+            padding: 1.25rem;
+        }
+
+        .details-panel-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .details-column {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .details-column-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.35rem;
+        }
+
+        .details-metric-name {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+
+        .details-panel-formula {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--color-accent);
+            background-color: rgba(90, 69, 186, 0.05);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            border: 1px solid rgba(90, 69, 186, 0.15);
+        }
+
+        .details-panel-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .details-panel-item strong {
+            font-size: 0.65rem;
+            color: var(--color-text-primary);
+            text-transform: uppercase;
+        }
+
+        .details-panel-item span {
+            font-size: 0.8rem;
+            color: var(--color-text-secondary);
+            line-height: 1.35;
+        }
+
+        /* Detail Blocks sequential stack */
+        .phase-block {
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            background-color: #FFFFFF;
+        }
+
+        .phase-block-header {
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .phase-block-title {
+            font-family: var(--font-sans);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+
+        .phase-badge {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--color-success);
+            background-color: rgba(0, 124, 138, 0.06);
+            border: 1px solid rgba(0, 124, 138, 0.15);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 1.25rem;
+        }
+
+        .calc-card {
+            border: 1px solid var(--color-border);
+            background-color: var(--color-bg);
+            border-radius: 6px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .calc-title {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-primary);
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.5rem;
+        }
+
+        .decision-flow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .decision-step {
+            font-size: 0.82rem;
+            color: var(--color-text-secondary);
+            line-height: 1.45;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            background-color: #FFFFFF;
+            border-left: 3px solid var(--color-accent);
+        }
+
+        .decision-step strong {
+            color: var(--color-text-primary);
+        }
+
+        /* Funnel layout */
+        .funnel-container {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .funnel-stage {
+            flex: 1;
+            background-color: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 0.85rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .funnel-stage-name {
+            font-size: 0.7rem;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .funnel-stage-value {
+            font-family: var(--font-mono);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+
+        .funnel-stage-conversion {
+            font-size: 0.62rem;
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+
+        /* Sourcing processes */
+        .process-flow {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.75rem;
+        }
+
+        .process-step {
+            background-color: #FFFFFF;
+            border: 1px solid var(--color-border);
+            border-top: 3px solid var(--color-accent);
+            border-radius: 6px;
+            padding: 1rem 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .process-step-num {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--color-accent);
+        }
+
+        .process-step-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .process-step-desc {
+            font-size: 0.78rem;
+            color: var(--color-text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Tables */
+        .table-wrapper {
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            overflow: hidden;
+            background-color: #FFFFFF;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        th {
+            background-color: rgba(110, 86, 207, 0.03);
+            font-family: var(--font-mono);
+            font-weight: 600;
+            color: var(--color-text-primary);
+            text-transform: uppercase;
+            font-size: 0.72rem;
+        }
+
+        td {
+            color: var(--color-text-secondary);
+        }
+
+        td.highlight-mono {
+            font-family: var(--font-mono);
+            font-weight: 600;
+            color: var(--color-accent);
+        }
+
+        /* Drawer details represented static/flat in PDF */
+        .pdf-details-flat {
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            background-color: var(--color-bg);
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .pdf-details-flat-title {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            text-transform: uppercase;
+        }
+
+        /* Page breaks control for PDF rendering */
+        .page-break {
+            page-break-before: always;
+        }
+
+        .avoid-break {
+            page-break-inside: avoid;
+        }
+
+        /* PDF print-friendly style overrides */
+        @media print {
+            body {
+                background-color: #FFFFFF;
+                color: #000000;
+            }
+            .doc-container {
+                padding: 0;
+                max-width: 100%;
+            }
+            .pdf-section {
+                border: none;
+                padding: 0;
+                background-color: transparent;
+                box-shadow: none;
+            }
+            .phase-block {
+                border: 1px solid #D1D0D5;
+                background-color: #FFFFFF;
+            }
+            .calc-card, .phase-summary-card, .pdf-details-flat, .funnel-stage {
+                background-color: #FFFFFF !important;
+                border: 1px solid #D1D0D5 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="doc-container">
+        
+        <!-- Header -->
+        <header class="page-header">
+            <h1 class="page-title"><span>YONO</span> - GTM Strategy</h1>
+        </header>
+
+        <!-- ================== SECTION 1: GTM PHASES OVERVIEW ================== -->
+        <section class="pdf-section">
+            <h2 class="pdf-section-title">1. GTM Phases Summary</h2>
+            
+            <div class="phase-summary-grid">
+                <!-- Card 1 -->
+                <div class="phase-summary-card active">
+                    <div class="phase-summary-header">
+                        <span class="phase-summary-eyebrow">// Phase 1</span>
+                        <h3 class="phase-summary-name">Startup Urgency</h3>
+                        <span class="phase-summary-time">Months 1-6</span>
+                    </div>
+                    <div class="phase-profile-list">
+                        <strong>Industry:</strong> <span>DevOps &amp; Cyber SaaS</span>
+                        <strong>Geography:</strong> <span>SF &amp; NY Hubs</span>
+                        <strong>Size:</strong> <span>Series A-C (50-200 FTE)</span>
+                        <strong>Key Buyer:</strong> <span>CEO / CPO</span>
+                        <strong>Target ACV:</strong> <span>15K DP / 40K ARR</span>
+                        <strong>Primary Pain:</strong> <span>Engineering bandwidth</span>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="phase-summary-card">
+                    <div class="phase-summary-header">
+                        <span class="phase-summary-eyebrow">// Phase 2</span>
+                        <h3 class="phase-summary-name">Mid-Market Expansion</h3>
+                        <span class="phase-summary-time">Months 7-16</span>
+                    </div>
+                    <div class="phase-profile-list">
+                        <strong>Industry:</strong> <span>Profitable B2B SaaS</span>
+                        <strong>Geography:</strong> <span>United States</span>
+                        <strong>Size:</strong> <span>F1000-3000 / 150-500 FTE</span>
+                        <strong>Key Buyer:</strong> <span>CPO &amp; CTO</span>
+                        <strong>Target ACV:</strong> <span>100K ARR</span>
+                        <strong>Primary Pain:</strong> <span>Product Adoption</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="phase-summary-card">
+                    <div class="phase-summary-header">
+                        <span class="phase-summary-eyebrow">// Phase 3</span>
+                        <h3 class="phase-summary-name">Up-Market Scale</h3>
+                        <span class="phase-summary-time">Future Vision</span>
+                    </div>
+                    <div class="phase-profile-list">
+                        <strong>Industry:</strong> <span>Enterprise Platforms</span>
+                        <strong>Geography:</strong> <span>US &amp; Global</span>
+                        <strong>Size:</strong> <span>Fortune 500 Divisions</span>
+                        <strong>Key Buyer:</strong> <span>VP Product &amp; CISO</span>
+                        <strong>Target ACV:</strong> <span>$150K+ ACV</span>
+                        <strong>Primary Pain:</strong> <span>Maintenance costs</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================== PHASE 1 DETAILED WORK ================== -->
+        <section class="pdf-section phase-block page-break avoid-break">
+            <div class="phase-block-header">
+                <h3 class="phase-block-title">Phase 1: Startup Urgency (Months 1–6)</h3>
+                <span class="phase-badge">Reference Proof Engine</span>
+            </div>
+
+            <div class="calc-grid">
+                <div class="calc-card">
+                    <h4 class="calc-title">// Target Cohort &amp; ICP Sizing</h4>
+                    <div style="font-size: 0.8rem; display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.25rem;">
+                        <p><strong>Total Verified ICP Startups:</strong> <span style="color: var(--color-accent); font-weight: bold;">245 Companies</span></p>
+                        <p><strong>San Francisco Bay Area:</strong> 170 active (100 Cyber / 70 DevOps)</p>
+                        <p><strong>New York Metropolitan Area:</strong> 75 active (50 Cyber / 25 DevOps)</p>
+                    </div>
+                </div>
+                
+                <div class="calc-card">
+                    <h4 class="calc-title">// Target Cohort Criteria</h4>
+                    <p style="font-size: 0.78rem; line-height: 1.4; color: var(--color-text-secondary); margin-top: 0.25rem;">
+                        B2B SaaS startups in the DevOps and Cybersecurity sectors at Series A-C stages with 50-200 employees (equivalent to an estimated 20-60 R&D headcount).
+                    </p>
+                </div>
+            </div>
+
+            <!-- ICP Selection Rationale -->
+            <div class="calc-card">
+                <h4 class="calc-title">// ICP Selection Rationale (Why DevOps &amp; Cyber Startups?)</h4>
+                <div class="decision-flow-steps" style="margin-top: 0.35rem;">
+                    <div class="decision-step">
+                        <strong>Highly Complex Products:</strong> DevOps and Cybersecurity platforms feature dense graph UIs and complex workflows, where Yono's self-healing is most valuable.
+                    </div>
+                    <div class="decision-step">
+                        <strong>Natural Language Adoption:</strong> Technical user bases in these sectors are already accustomed to command-line interfaces and natural language operations.
+                    </div>
+                    <div class="decision-step">
+                        <strong>Impatient End Users:</strong> DevOps and cybersecurity professionals expect quick value and have low tolerance for complex, high-friction user interfaces.
+                    </div>
+                    <div class="decision-step">
+                        <strong>Well-Funded Beachhead:</strong> Recently funded (Series A-C) DevOps and Cyber startups represent a stable, well-capitalized beachhead.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 1 Telemetry Metrics -->
+            <div class="metrics-dashboard avoid-break">
+                <div class="dashboard-header">
+                    <div>
+                        <h4 class="dashboard-title">Phase 1 Metrics Dashboard</h4>
+                        <span class="dashboard-subtitle">Platform success metrics proving initial engineering value.</span>
+                    </div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <span class="metric-label">Clicks Saved per Task</span>
+                        <span class="metric-value">24 Clicks</span>
+                        <span class="metric-subtext">average per task workflow</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-label">AST Schema Generation Time</span>
+                        <span class="metric-value">96 Minutes</span>
+                        <span class="metric-subtext">from GitHub repository connection to live sandbox</span>
+                    </div>
+                </div>
+
+                <div class="metric-details-panel">
+                    <div class="details-panel-grid">
+                        <div class="details-column">
+                            <div class="details-column-header">
+                                <span class="details-metric-name">Clicks Saved per Task</span>
+                                <span class="details-panel-formula">Manual UI Steps - Yono Steps</span>
+                            </div>
+                            <div class="details-panel-item">
+                                <strong>What:</strong>
+                                <span>Tracks the number of manual clicks and form fields bypassed by using natural language actions.</span>
+                            </div>
+                            <div class="details-panel-item" style="margin-top: 0.25rem;">
+                                <strong>Why:</strong>
+                                <span>Directly measures user friction reduction and speed to value, driving product engagement.</span>
+                            </div>
+                        </div>
+                        <div class="details-column">
+                            <div class="details-column-header">
+                                <span class="details-metric-name">AST Schema Generation Time</span>
+                                <span class="details-panel-formula">Connection to Sandbox Execution</span>
+                            </div>
+                            <div class="details-panel-item">
+                                <strong>What:</strong>
+                                <span>Tracks the time from initial GitHub repository connection to the creation of a verified AST schema and live sandbox execution.</span>
+                            </div>
+                            <div class="details-panel-item" style="margin-top: 0.25rem;">
+                                <strong>Why:</strong>
+                                <span>An empirical measurement of setup velocity, proving that Yono reverse-engineers codebase logic automatically. [⚠️ Aim: less than 12 hours]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Funnel -->
+            <div class="calc-card avoid-break">
+                <h4 class="calc-title">// Conversion Funnel Pipeline (Target: Close 10 Accounts)</h4>
+                <div class="funnel-container">
+                    <div class="funnel-stage">
+                        <span class="funnel-stage-name">1. Segment Pool</span>
+                        <span class="funnel-stage-value">245</span>
+                        <span class="funnel-stage-conversion">Target Segment</span>
+                    </div>
+                    <div class="funnel-stage">
+                        <span class="funnel-stage-name">2. Approached</span>
+                        <span class="funnel-stage-value">235</span>
+                        <span class="funnel-stage-conversion">95.9% Contact Rate</span>
+                    </div>
+                    <div class="funnel-stage">
+                        <span class="funnel-stage-name">3. Demos / Meetings</span>
+                        <span class="funnel-stage-value">40</span>
+                        <span class="funnel-stage-conversion">17.0% Meeting Rate</span>
+                    </div>
+                    <div class="funnel-stage">
+                        <span class="funnel-stage-name">4. Pilots / POVs</span>
+                        <span class="funnel-stage-value">15</span>
+                        <span class="funnel-stage-conversion">37.5% Pilot Rate</span>
+                    </div>
+                    <div class="funnel-stage" style="border-bottom: 3px solid var(--color-accent);">
+                        <span class="funnel-stage-name">5. Closed Accounts</span>
+                        <span class="funnel-stage-value">10</span>
+                        <span class="funnel-stage-conversion">66.7% Close Rate</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales Execution Process -->
+            <div class="calc-card avoid-break">
+                <h4 class="calc-title">// Step-by-Step Sales Execution Flow</h4>
+                <div class="process-flow">
+                    <div class="process-step">
+                        <span class="process-step-num">Step 1</span>
+                        <span class="process-step-title">Targeting &amp; Triggers</span>
+                        <span class="process-step-desc">Scrape active job posts (AI PM, Copilot Developer) and funding announcements.</span>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-step-num">Step 2</span>
+                        <span class="process-step-title">Outreach &amp; Intro</span>
+                        <span class="process-step-desc">Leverage US founder networks and VC introductions directly to the CPO/CEO.</span>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-step-num">Step 3</span>
+                        <span class="process-step-title">Demo &amp; Yono Lite</span>
+                        <span class="process-step-desc">Present a Yono Lite frontend sandbox to show automated execution on their own UI.</span>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-step-num">Step 4</span>
+                        <span class="process-step-title">Zero-DB Pilot</span>
+                        <span class="process-step-desc">Run a 2-week local sandbox pilot. Bypasses database security checks to accelerate validation.</span>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-step-num">Step 5</span>
+                        <span class="process-step-title">Contract Close</span>
+                        <span class="process-step-desc">Secure Design Partner agreements ($15K pilot ACV converting to $40K ARR).</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Targets Table -->
+            <div class="calc-card avoid-break">
+                <h4 class="calc-title">// Target Account Sourced Index</h4>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Target Startup</th>
+                                <th>Location</th>
+                                <th>Funding Round &amp; Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="highlight-mono">Oasis Security</td>
+                                <td>New York, NY</td>
+                                <td><strong>Series A</strong> ($35.0M) – January 22, 2026</td>
+                            </tr>
+                            <tr>
+                                <td class="highlight-mono">Wordsmith</td>
+                                <td>New York, NY</td>
+                                <td><strong>Series B</strong> ($70.0M) – June 3, 2026</td>
+                            </tr>
+                            <tr>
+                                <td class="highlight-mono">Handle.com</td>
+                                <td>San Francisco, CA</td>
+                                <td><strong>Series B</strong> ($27.0M) – May 25, 2026</td>
+                            </tr>
+                            <tr>
+                                <td class="highlight-mono">Cinder</td>
+                                <td>New York, NY</td>
+                                <td><strong>Series B</strong> ($41.0M) – May 13, 2026</td>
+                            </tr>
+                            <tr>
+                                <td class="highlight-mono">Manifest OS</td>
+                                <td>New York, NY</td>
+                                <td><strong>Series A</strong> ($60.0M) – April 30, 2026</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Deep Dive Flat Block -->
+            <div class="pdf-details-flat avoid-break">
+                <span class="pdf-details-flat-title">// Outbound Sourcing Index &amp; Timelines</span>
+                <div style="font-size: 0.8rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                    <p>
+                        <strong>Network Outreach Approach:</strong> Our founder and VC network introduce Yono directly to peer companies. For VCs, this helps their portfolio companies operate more efficiently and leanly. For founders, it saves valuable engineering resources, allowing them to remain focused on building their core products.
+                    </p>
+                    <p>
+                        <strong>Hiring Triggers:</strong> We monitor job boards for target startups hiring AI-related engineering roles, using these hiring triggers to launch cold outreach or secure warm introductions through our network.
+                    </p>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Target Account</th>
+                                <th>Location</th>
+                                <th>Funding Round</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Kodem</td><td>New York, NY</td><td>Series A ($18.0M) – April 23, 2026</td></tr>
+                            <tr><td>Artemis</td><td>New York, NY</td><td>Series A ($70.0M) – April 15, 2026</td></tr>
+                            <tr><td>depthfirst</td><td>San Francisco, CA</td><td>Series B ($80.0M) – March 31, 2026</td></tr>
+                            <tr><td>BlueFlag Security</td><td>San Francisco, CA</td><td>Series A ($28.0M) – March 25, 2026</td></tr>
+                            <tr><td>Qovery</td><td>San Francisco, CA</td><td>Series A ($13.0M) – March 24, 2026</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================== PHASE 2 DETAILED WORK ================== -->
+        <section class="pdf-section phase-block page-break avoid-break">
+            <div class="phase-block-header">
+                <h3 class="phase-block-title">Phase 2: Mid-Market Expansion (Months 7–16)</h3>
+                <span class="phase-badge" style="color: var(--color-accent); background-color: rgba(90, 69, 186, 0.05); border-color: rgba(90, 69, 186, 0.15);">Commercial ICP Core</span>
+            </div>
+
+            <div class="calc-grid">
+                <div class="calc-card">
+                    <h4 class="calc-title">// Target Cohort &amp; ICP Sizing</h4>
+                    <div style="font-size: 0.8rem; display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.25rem;">
+                        <p><strong>Primary Public ICP Startups:</strong> <span style="color: var(--color-accent); font-weight: bold;">154 to 168 Companies</span></p>
+                        <p><strong>Scale Profile:</strong> Fortune 1000 to 3000 tier (Avg $3B market cap)</p>
+                        <p><strong>Private Market Scale:</strong> 150-500 FTEs ($20M-$60M ARR)</p>
+                    </div>
+                </div>
+                
+                <div class="calc-card">
+                    <h4 class="calc-title">// Private Market Expansion Note</h4>
+                    <p style="font-size: 0.78rem; line-height: 1.4; color: var(--color-text-secondary); margin-top: 0.25rem;">
+                        Outbound sequences target private B2B SaaS platforms with 150–500 employees. Median headcounts stand at 165 for the $20M–$50M band, where ~30% of companies operate at net profitability.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ICP Selection Rationale -->
+            <div class="calc-card">
+                <h4 class="calc-title">// ICP Selection Rationale (Why Mid-Market SaaS?)</h4>
+                <div class="decision-flow-steps" style="margin-top: 0.35rem;">
+                    <div class="decision-step">
+                        <strong>Stable Pipeline:</strong> Profitable mid-market SaaS companies represent stable, long-term clients with predictable software budgets.
+                    </div>
+                    <div class="decision-step">
+                        <strong>Market Pressure to Innovate:</strong> With Gartner projecting natural language interfaces to reach 81% adoption at a 99.9% CAGR, mid-market companies must adapt quickly to stay competitive.
+                    </div>
+                    <div class="decision-step">
+                        <strong>Legacy Architecture Constraints:</strong> Core software products were built for a traditional UI era, making custom action execution layers extremely difficult to both build and maintain in-house.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2 Telemetry Metrics -->
+            <div class="metrics-dashboard avoid-break">
+                <div class="dashboard-header">
+                    <div>
+                        <h4 class="dashboard-title">Phase 2 Metrics Dashboard</h4>
+                        <span class="dashboard-subtitle">Platform adoption metrics driving software utilization.</span>
+                    </div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <span class="metric-label">Feature Discovery Rate</span>
+                        <span class="metric-value">84.2%</span>
+                        <span class="metric-subtext">vs. 6.5% legacy baseline</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-label">Cross/Upsell Opportunities Created</span>
+                        <span class="metric-value">18.6%</span>
+                        <span class="metric-subtext">contextual upgrade conversion rate</span>
+                    </div>
+                </div>
+
+                <div class="metric-details-panel">
+                    <div class="details-panel-grid">
+                        <div class="details-column">
+                            <div class="details-column-header">
+                                <span class="details-metric-name">Feature Discovery Rate</span>
+                                <span class="details-panel-formula">Premium Features via Language / Total Executions</span>
+                            </div>
+                            <div class="details-panel-item">
+                                <strong>What:</strong>
+                                <span>Measures the percentage of active users discovering secondary or premium features via language-driven execution paths rather than static UI navigation.</span>
+                            </div>
+                            <div class="details-panel-item" style="margin-top: 0.25rem;">
+                                <strong>Why:</strong>
+                                <span>Shows how natural language interfaces help users easily discover the full capability of the product, increasing feature utilization and overall adoption.</span>
+                            </div>
+                        </div>
+                        <div class="details-column">
+                            <div class="details-column-header">
+                                <span class="details-metric-name">Cross/Upsell Opportunities Created</span>
+                                <span class="details-panel-formula">Upgrade Conversions / Contextual Prompts</span>
+                            </div>
+                            <div class="details-panel-item">
+                                <strong>What:</strong>
+                                <span>Measures end-user conversion of contextual upgrade prompts triggered by high-intent, complex execution workflows.</span>
+                            </div>
+                            <div class="details-panel-item" style="margin-top: 0.25rem;">
+                                <strong>Why:</strong>
+                                <span>Directly drives expansion revenue by presenting upgrade options to users at the moment they need them most.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Funnel -->
+            <div class="calc-card avoid-break">
+                <h4 class="calc-title">// Conversion Funnel Pipeline (Target: Close 35 Accounts)</h4>
+                <div class="funnel-container">
+                    <div class="funnel-stage">
+                        <span class="funnel-stage-name">1. Segment Pool</span>
+                        <span class="funnel-stage-value">1,200</span>
+                        <span class="funnel-stage-conversion">Target Segment</span>
+                    </div>
+                    <div class="funnel-stage">
+                        <span class="funnel-stage-name">2. Approached</span>
+                        <span class="funnel-stage-value">500</span>
+                        <span class="funnel-stage-conversion">41.7% Sourced Rate</span>
+                    </div>
+                    <div class="funnel-stage">
+                        <span class="funnel-stage-name">3. Demos / Meetings</span>
+                        <span class="funnel-stage-value">100</span>
+                        <span class="funnel-stage-conversion">20.0% Meeting Rate</span>
+                    </div>
+                    <div class="funnel-stage">
+                        <span class="funnel-stage-name">4. POVs</span>
+                        <span class="funnel-stage-value">60</span>
+                        <span class="funnel-stage-conversion">60.0% POV Rate</span>
+                    </div>
+                    <div class="funnel-stage">
+                        <span class="funnel-stage-name">5. InfoSec Cleared</span>
+                        <span class="funnel-stage-value">45</span>
+                        <span class="funnel-stage-conversion">75.0% Security Clear</span>
+                    </div>
+                    <div class="funnel-stage" style="border-bottom: 3px solid var(--color-accent);">
+                        <span class="funnel-stage-name">6. Closed Won</span>
+                        <span class="funnel-stage-value">35</span>
+                        <span class="funnel-stage-conversion">77.8% Close Rate</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales Execution Process -->
+            <div class="calc-card avoid-break">
+                <h4 class="calc-title">// Step-by-Step Sales Execution Flow</h4>
+                <div class="process-flow">
+                    <div class="process-step">
+                        <span class="process-step-num">Step 1</span>
+                        <span class="process-step-title">Targeting &amp; Scale</span>
+                        <span class="process-step-desc">Filter Fortune 1000–3000 tier and profitable private B2B SaaS ($20M–$100M ARR).</span>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-step-num">Step 2</span>
+                        <span class="process-step-title">Outbound Prep</span>
+                        <span class="process-step-desc">Deliver custom Yono Lite sandbox demos built with early success case-studies.</span>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-step-num">Step 3</span>
+                        <span class="process-step-title">Demo &amp; Alignment</span>
+                        <span class="process-step-desc">Align with the CPO (on user adoption and expansion) and CTO (on infrastructure).</span>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-step-num">Step 4</span>
+                        <span class="process-step-title">Technical POV</span>
+                        <span class="process-step-desc">Run a 30-day technical POV mapping core complex workflows to show adoption metrics.</span>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-step-num">Step 5</span>
+                        <span class="process-step-title">Security &amp; Close</span>
+                        <span class="process-step-desc">Review SOC-2 compliance and configure customer-managed keys (BYOK) to close.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Targets Table -->
+            <div class="calc-card avoid-break">
+                <h4 class="calc-title">// Target Mid-Market Accounts</h4>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Target Mid-Market SaaS</th>
+                                <th>Location</th>
+                                <th>Scale / Revenue</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="highlight-mono">ClickUp</td>
+                                <td>San Diego, CA</td>
+                                <td><strong>~1,000 FTE</strong> / $100M+ ARR</td>
+                            </tr>
+                            <tr>
+                                <td class="highlight-mono">Vercel</td>
+                                <td>San Francisco, CA</td>
+                                <td><strong>~450 FTE</strong> / $50M+ ARR</td>
+                            </tr>
+                            <tr>
+                                <td class="highlight-mono">Sentry</td>
+                                <td>San Francisco, CA</td>
+                                <td><strong>~350 FTE</strong> / $60M+ ARR</td>
+                            </tr>
+                            <tr>
+                                <td class="highlight-mono">Algolia</td>
+                                <td>San Francisco, CA</td>
+                                <td><strong>~400 FTE</strong> / $70M+ ARR</td>
+                            </tr>
+                            <tr>
+                                <td class="highlight-mono">Auth0</td>
+                                <td>Bellevue, WA</td>
+                                <td><strong>~800 FTE</strong> / $100M+ ARR</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Deep Dive Flat Block -->
+            <div class="pdf-details-flat avoid-break">
+                <span class="pdf-details-flat-title">// Commercial Expansion Narrative &amp; Milestones</span>
+                <div style="font-size: 0.8rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                    <p>
+                        <strong>SaaS Product Stagnation:</strong> Mid-market software companies have stable budgets but face low feature utilization and product stagnation—an industry-wide SaaS challenge right now. Helping users easily discover secondary features directly drives adoption, unlocks expansion revenue, and protects Net Dollar Retention. To support runway growth, we collect payments annually in advance.
+                    </p>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">Month</th>
+                                <th style="width: 30%;">Milestone Focus</th>
+                                <th>Key Directives</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="highlight-mono">Months 7-8</td><td><strong>Outbound Scaling</strong></td><td>Onboard GTM Rep #1. Extract mid-market lists and launch trigger-based campaigns.</td></tr>
+                            <tr><td class="highlight-mono">Months 9-10</td><td><strong>Plugins &amp; SOC-2 II</strong></td><td>Deploy WordPress/Shopify plugins and complete SOC-2 Type II audit.</td></tr>
+                            <tr><td class="highlight-mono">Months 11-12</td><td><strong>CS Quota Guard</strong></td><td>Onboard GTM Success Rep #2. Secure advance annual cash collections.</td></tr>
+                            <tr><td class="highlight-mono">Months 13-16</td><td><strong>$1.0M ARR Run-Rate</strong></td><td>Cross $1.0M ARR run-rate milestone (22 commercial accounts at $40K ARR + 8 Design Partners at $15K ARR).</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================== PHASE 3 DETAILED WORK ================== -->
+        <section class="pdf-section phase-block page-break avoid-break">
+            <div class="phase-block-header">
+                <h3 class="phase-block-title">Phase 3: Up-Market Scale (Future Vision)</h3>
+                <span class="phase-badge" style="color: var(--color-warning); background-color: rgba(194, 59, 34, 0.05); border-color: rgba(194, 59, 34, 0.15);">Enterprise Scaling</span>
+            </div>
+
+            <!-- Target Cohort & ICP Sizing and Target Criteria Grid -->
+            <div class="calc-grid">
+                <div class="calc-card">
+                    <h4 class="calc-title">// Target Cohort &amp; ICP Sizing</h4>
+                    <div style="font-size: 0.8rem; display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.25rem;">
+                        <p><strong>Target Enterprise Count:</strong> <span style="color: var(--color-accent); font-weight: bold;">TBD</span></p>
+                        <p><strong>Scale Definition:</strong> Enterprise Platforms &amp; Fortune 500 Divisions</p>
+                        <p><strong>Sourcing Stance:</strong> To be mapped and triaged post-Seed raise</p>
+                    </div>
+                </div>
+                
+                <div class="calc-card">
+                    <h4 class="calc-title">// Enterprise Target Criteria</h4>
+                    <p style="font-size: 0.78rem; line-height: 1.4; color: var(--color-text-secondary); margin-top: 0.25rem;">
+                        Large technology divisions and Fortune 500 enterprises experiencing compounding developer resource drains spent maintaining custom copilot integrations.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Sourcing & Alliance Channels -->
+            <div class="calc-card">
+                <h4 class="calc-title">// Sourcing &amp; Alliance Channels</h4>
+                <div class="decision-flow-steps" style="margin-top: 0.5rem;">
+                    <div class="decision-step">
+                        <strong>Step 1: Warm Network Mapping:</strong> Secure warm executive introductions from peer founder networks and partner connections directly to enterprise CPOs and CTOs.
+                    </div>
+                    <div class="decision-step">
+                        <strong>Step 2: Channel Partner Program:</strong> Launch alliance playbooks with global systems integrators and enterprise development consultants.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3 Telemetry Metrics -->
+            <div class="metrics-dashboard avoid-break">
+                <div class="dashboard-header">
+                    <div>
+                        <h4 class="dashboard-title">Phase 3 Value Metrics</h4>
+                        <span class="dashboard-subtitle">Long-term reliability and autonomous transaction metrics.</span>
+                    </div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <span class="metric-label">AST Auto-Sync Success</span>
+                        <span class="metric-value">99.85%</span>
+                        <span class="metric-subtext">UI selector auto-heals</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-label">M2M Transaction Success</span>
+                        <span class="metric-value">99.98%</span>
+                        <span class="metric-subtext">Autonomous user executions</span>
+                    </div>
+                </div>
+
+                <div class="metric-details-panel">
+                    <div class="details-panel-grid">
+                        <div class="details-column">
+                            <div class="details-column-header">
+                                <span class="details-metric-name">AST Auto-Sync Success</span>
+                                <span class="details-panel-formula">Auto-Healed UI Selectors / Total UI Updates</span>
+                            </div>
+                            <div class="details-panel-item">
+                                <strong>What:</strong>
+                                <span>Measures the reliability of automated UI selector mappings healing themselves during rapid product code updates.</span>
+                            </div>
+                            <div class="details-panel-item" style="margin-top: 0.25rem;">
+                                <strong>Why:</strong>
+                                <span>Mitigates ongoing developer maintenance overhead and prevents broken user automation pipelines.</span>
+                            </div>
+                        </div>
+                        <div class="details-column">
+                            <div class="details-column-header">
+                                <span class="details-metric-name">M2M Transaction Success</span>
+                                <span class="details-panel-formula">Successful Autonomous Actions / Total M2M Requests</span>
+                            </div>
+                            <div class="details-panel-item">
+                                <strong>What:</strong>
+                                <span>Tracks execution accuracy of autonomous machine-to-machine workflow transactions without human intervention.</span>
+                            </div>
+                            <div class="details-panel-item" style="margin-top: 0.25rem;">
+                                <strong>Why:</strong>
+                                <span>Secures high-margin enterprise process scale and enables high-volume transactional pricing models.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post-Seed Enterprise Vision -->
+            <div class="calc-card">
+                <h4 class="calc-title">// Post-Seed Enterprise Vision</h4>
+                <div style="font-size: 0.82rem; color: var(--color-text-secondary); line-height: 1.5; display: flex; flex-direction: column; gap: 0.85rem; margin-top: 0.25rem;">
+                    <p>
+                        Phase 3 represents our long-term enterprise scale and market consolidation. To maintain rigorous focus during the Pre-Seed stage, detailed funnel execution, step-by-step closing flows, and target accounts lists for Phase 3 will be mapped and triaged post-Seed raise.
+                    </p>
+                    <p>
+                        <strong>Economic Rationale:</strong> Enterprise software divisions spend millions in engineering resources trying to build and support custom user action interfaces. Packaging Helm charts for private cloud deployment and offering SSO and customer-managed keys bypasses security concerns, turning custom builds into Yono platform accounts.
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.5rem;">
+                        <div style="background-color: var(--color-bg); border: 1px solid var(--color-border); padding: 0.75rem; border-radius: 6px;">
+                            <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--color-accent); font-weight: 700; text-transform: uppercase;">Packaging</span>
+                            <h5 style="font-size: 0.8rem; margin: 0.15rem 0; font-weight: 700;">Helm Deployments</h5>
+                            <p style="font-size: 0.7rem; color: var(--color-text-secondary); line-height: 1.35;">Private cloud installation to satisfy data privacy.</p>
+                        </div>
+                        <div style="background-color: var(--color-bg); border: 1px solid var(--color-border); padding: 0.75rem; border-radius: 6px;">
+                            <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--color-accent); font-weight: 700; text-transform: uppercase;">Compliance</span>
+                            <h5 style="font-size: 0.8rem; margin: 0.15rem 0; font-weight: 700;">SSO / BYOK Encryption</h5>
+                            <p style="font-size: 0.7rem; color: var(--color-text-secondary); line-height: 1.35;">Enterprise auth integration and customer-managed keys.</p>
+                        </div>
+                        <div style="background-color: var(--color-bg); border: 1px solid var(--color-border); padding: 0.75rem; border-radius: 6px;">
+                            <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--color-accent); font-weight: 700; text-transform: uppercase;">Scale</span>
+                            <h5 style="font-size: 0.8rem; margin: 0.15rem 0; font-weight: 700;">M2M Transactions</h5>
+                            <p style="font-size: 0.7rem; color: var(--color-text-secondary); line-height: 1.35;">Moving beyond human interfaces to support high-margin machine-to-machine integrations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deep Dive Flat Block -->
+            <div class="pdf-details-flat avoid-break">
+                <span class="pdf-details-flat-title">// Long-Term Enterprise Narrative &amp; Future Milestones</span>
+                <div style="font-size: 0.8rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                    <p>
+                        Enterprise SaaS divisions spend millions in engineering time building and supporting custom action endpoints. Offering private cloud deployment bypasses security reviews and converts expensive custom projects into Yono platform accounts. This phase enables true autonomous machine transactions.
+                    </p>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">Milestone</th>
+                                <th style="width: 30%;">Milestone Focus</th>
+                                <th>Key Directives</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="highlight-mono">Milestone 1</td><td><strong>SSO &amp; Seed Close</strong></td><td>Close Seed round. Deploy enterprise SSO, multi-tenant RBAC permissions, and team settings.</td></tr>
+                            <tr><td class="highlight-mono">Milestone 2</td><td><strong>Enterprise Retention</strong></td><td>Secure contract renewals to lock enterprise customer accounts and protect Net Dollar Retention.</td></tr>
+                            <tr><td class="highlight-mono">Milestone 3</td><td><strong>A2A Transactions</strong></td><td>Deploy self-healing AST delta sync engine to support automated machine-to-machine transactions. Launch Series A.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================== SECTION 2: OPPORTUNITY COST CALCULATOR ================== -->
+        <section class="pdf-section page-break avoid-break">
+            <h2 class="pdf-section-title">2. Opportunity Cost Calculator (Static Model)</h2>
+            <p style="font-size: 0.85rem; color: var(--color-text-secondary);">
+                Comparing the financial comparison of building and maintaining custom interfaces in-house vs. Yono's platform pricing.
+            </p>
+
+            <div class="calc-grid">
+                <div class="calc-card">
+                    <h4 class="calc-title">// In-House Team Profile (Sample Group)</h4>
+                    <div style="font-size: 0.8rem; display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.25rem;">
+                        <p><strong>Engineering Team Size:</strong> 3 FTEs</p>
+                        <p><strong>Average Annual Compensation:</strong> $300,000</p>
+                        <p><strong>Build &amp; Support Duration:</strong> Year 1 (6 months build + 6 months support)</p>
+                    </div>
+                </div>
+                
+                <div class="calc-card">
+                    <h4 class="calc-title">// Financial Sink Comparison (3 FTE Model)</h4>
+                    <div style="font-size: 0.8rem; display: flex; flex-direction: column; gap: 0.45rem; margin-top: 0.25rem;">
+                        <p><strong>Raw Annual Salaries:</strong> $900,000</p>
+                        <p><strong>Recruitment &amp; Overhead (25%):</strong> $225,000</p>
+                        <p><strong>Initial Build Cost (Year 1):</strong> $1,125,000</p>
+                        <p><strong>Annual UI Maintenance (40%):</strong> $450,000</p>
+                        <p style="color: var(--color-warning); font-weight: bold;">Total In-House Sink: $1,575,000</p>
+                        <p style="color: var(--color-success); font-weight: bold; border-top: 1px solid var(--color-border); padding-top: 0.4rem; margin-top: 0.4rem;">
+                            Yono Standard Cost: $40,000 | Reclaimed Capital: $1,535,000
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pdf-details-flat avoid-break">
+                <span class="pdf-details-flat-title">// In-House Failure Case Studies</span>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">Cohort / Scale</th>
+                                <th style="width: 30%;">R&amp;D Resources Spent</th>
+                                <th>Outcome &amp; Failure Mode</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="highlight-mono">Series C SaaS (Workflow)</td>
+                                <td><strong>37.5 Dev-Months</strong> (5 FTEs for 7.5 months)</td>
+                                <td>Built only 4 basic agents. High resource burn with zero modular scaling capacity. Highly validates the massive resource drain of building LLMOps internally.</td>
+                            </tr>
+                            <tr>
+                                <td class="highlight-mono">Series E Enterprise (Logistics)</td>
+                                <td><strong>70-80 Engineers</strong> for 7 months</td>
+                                <td>Achieved zero product execution actions. System restricted entirely to delivery tracking.</td>
+                            </tr>
+                            <tr>
+                                <td class="highlight-mono">Billion-Dollar SaaS (Marketing)</td>
+                                <td><strong>18 Months</strong> initial build + <strong>40% dev tax</strong></td>
+                                <td>Operational wrapper built, but consumes 40% of their platform team just to keep alive against UI updates.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================== SECTION 3: CHANNELS & PLAYBOOKS ================== -->
+        <section class="pdf-section page-break avoid-break">
+            <h2 class="pdf-section-title">3. Outreach &amp; Sourcing Channels</h2>
+            <p style="font-size: 0.85rem; color: var(--color-text-secondary);">
+                Leveraging network introductions and pre-configured Yono Lite demos to drive high outbound conversion.
+            </p>
+
+            <div class="three-column-grid">
+                <div class="phase-summary-card">
+                    <span class="phase-summary-eyebrow">// Channel 1</span>
+                    <h4 class="phase-summary-name">Network Dogfooding</h4>
+                    <p style="font-size: 0.78rem; color: var(--color-text-secondary); line-height: 1.45; margin-top: 0.25rem;">
+                        Warm introductions to target company CPOs. Leveraging the founder's extensive network and founder contacts in the US market to secure warm entry points and bypass cold outbound walls.
+                    </p>
+                </div>
+                
+                <div class="phase-summary-card">
+                    <span class="phase-summary-eyebrow">// Channel 2</span>
+                    <h4 class="phase-summary-name">Tech-Trigger Outbound</h4>
+                    <p style="font-size: 0.78rem; color: var(--color-text-secondary); line-height: 1.45; margin-top: 0.25rem;">
+                        Intercepting build plans. We scan boards for startups hiring AI PMs or Copilot Developers, pitching Yono before they allocate dev headcount.
+                    </p>
+                </div>
+
+                <div class="phase-summary-card">
+                    <span class="phase-summary-eyebrow">// Channel 3</span>
+                    <h4 class="phase-summary-name">Yono Lite Demos</h4>
+                    <p style="font-size: 0.78rem; color: var(--color-text-secondary); line-height: 1.45; margin-top: 0.25rem;">
+                        Pre-configured demo outreach. We reverse-engineer target frontends at the AST level prior to contact, sending functioning demos to CPOs/CEOs to prove value instantly.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
