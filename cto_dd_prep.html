@@ -261,7 +261,7 @@
         <header>
             <span class="badge">Horizon Due Diligence Intel</span>
             <h1>Rep.ai Technical Sync Briefing</h1>
-            <p class="meta-text">Prepared for: <strong>Danny (CTO, Yono)</strong> | Source Call: <strong>Aron Vuijsje (VP of Sales, Rep.ai)</strong></p>
+            <p class="meta-text">Prepared for: <strong>Danny (CTO, Yono)</strong> | Reviewer: <strong>Shauli Mizrahi (CTO, Rep.ai)</strong></p>
         </header>
 
         <!-- Context Banner -->
@@ -270,57 +270,56 @@
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
             </svg>
             <p>
-                <strong>Briefing Objective:</strong> This document summarizes direct product intelligence and customer data gathered during the sync with Rep.ai. Use this context to align talking points before your technical due diligence call with their CTO, <strong>Shauli Mizrahi</strong> (who is reviewing Yono on behalf of Horizon Partners).
+                <strong>Briefing Objective:</strong> This document synthesizes the technical intelligence from the call with Aron Vuijsje (VP of Sales, Rep.ai) and R&D research on their CTO, <strong>Shauli Mizrahi</strong> (who is reviewing Yono for Horizon Partners). Use this context to align talking points for the due diligence call.
             </p>
         </div>
 
-        <!-- Row 1: Rep.ai Architecture & Capabilities -->
+        <!-- Row 1: Shauli Mizrahi's Technical DNA -->
         <div class="grid grid-2">
-            <!-- Rep.ai Tech Stack -->
+            <!-- Shauli's Background -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">👤</div>
+                    <h2>The Reviewer: Shauli Mizrahi</h2>
+                </div>
+                <ul>
+                    <li><strong>IDF MAMRAM Alumnus:</strong> Graduate of the IDF's elite Center of Computing and Information Systems (MAMRAM). He has a highly structured software engineering pedigree.</li>
+                    <li><strong>Ad-Tech & Behavioral Tracking DNA:</strong> Prior to Rep.ai, Shauli was the **Head of R&D at Browsi** (an ad-tech platform that optimizes web ad layouts in real-time based on live user browser events).</li>
+                    <li><strong>Tech Focus at Rep.ai:</strong> He architected the core behavioral engine that tracks **500+ browser data points** (mouse moves, exit intent, scroll) to capture shopper attention and trigger conversational actions.</li>
+                    <li><strong>Operational Stature:</strong> Lead engineer who scaled their Shopify/Salesforce API integrations, recently closed a $6.2M round (Zendesk-backed), and is currently building a Salesforce commerce engine.</li>
+                </ul>
+            </div>
+
+            <!-- Rep.ai Operations & Architecture -->
             <div class="card">
                 <div class="card-header">
                     <div class="card-icon">⚙️</div>
-                    <h2>Rep.ai Product Architecture</h2>
+                    <h2>Rep.ai Technical Operations</h2>
                 </div>
                 <ul>
-                    <li><strong>Proactive Behavioral Triggering:</strong> Their primary moat is a proprietary algorithm tracking **500+ browser data points** (exit intent, scroll rate, hover depth) to detect churn risk and launch prompts.</li>
-                    <li><strong>In-Chat Transaction Execution:</strong> Unlike simple conversational widgets, their system processes transactional flows (sizes, colors, and add-to-cart checkouts) natively without forcing users to navigate away from the chat window.</li>
-                    <li><strong>Headless & Platform Support:</strong> Natively integrated with Shopify APIs, WooCommerce, and Salesforce. Headless Shopify architectures require minor custom changes.</li>
-                    <li><strong>Growth Metrics:</strong> Zendesk-backed, record sales month in June 2026, and recently expanded to omnichannel messaging (email, Instagram, WhatsApp, and TikTok).</li>
-                </ul>
-            </div>
-
-            <!-- Operational Synergies -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">🤝</div>
-                    <h2>GTM & Technical Synergies</h2>
-                </div>
-                <ul>
-                    <li><strong>Market Segments:</strong> Rep.ai focuses strictly on standard B2C e-commerce catalogs. Yono operates in complex, unstructured enterprise SaaS (cyber, fintech, devops).</li>
-                    <li><strong>Integration Agency Play:</strong> For headless and complex enterprise clients (e.g. Salesforce commerce setups like Sketchers), Rep.ai works with integration agencies to set up their SDK. Yono's automated mapping logic has potential utility in streamlining these setups.</li>
-                    <li><strong>CISO Alignment:</strong> Both companies face similar enterprise security bottlenecks. Rep.ai's experience navigating corporate compliance reviews (SOC2/GDPR) directly aligns with Yono's Vertex AI private key deployment strategy.</li>
+                    <li><strong>SDK & Integration Model:</strong> Their frontend integrates via a custom SDK. While Shopify is native, headless Shopify requires manual SDK configuration changes. WooCommerce and Salesforce Commerce Cloud require heavy custom development work.</li>
+                    <li><strong>Agency-Heavy Deployment:</strong> To scale integrations outside of Shopify, Rep.ai works with third-party web development agencies to install and configure their SDK on client websites.</li>
+                    <li><strong>In-Chat Transactional Engine:</strong> Built custom handlers to support full transactional checkout (selecting sizes/colors, adding to cart, managing refunds, and page redirects) directly inside the iframe chat client.</li>
+                    <li><strong>Scale:</strong> Managing omnichannel event routing across Shopify, email, Instagram, WhatsApp, and TikTok.</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Row 2: The On Cloud Case Study -->
+        <!-- Row 2: Deep Intel from the Aron Vuijsje Sync -->
         <div class="card" style="margin-bottom: 2rem;">
             <div class="card-header">
-                <div class="card-icon">👟</div>
-                <h2>On Cloud (on.com) Case Study: The "DIY Trap"</h2>
+                <div class="card-icon">📡</div>
+                <h2>Aron Vuijsje Call Intelligence</h2>
             </div>
             <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
-                A critical piece of intelligence from the call was the specific failure metrics of a major public brand attempting an in-house agentic build:
+                Key takeaways from the discussion with Rep.ai's VP of Sales regarding their business model, key clients, and organizational history:
             </p>
             <ul>
-                <li class="alert"><strong>The Target:</strong> On Cloud is a **$15B public shoe brand** hosted on WooCommerce.</li>
-                <li><strong>The In-house Resource Drain:</strong> They deployed a team of **70+ engineers** over **8 months** to build their own custom in-house AI assistant.</li>
-                <li><strong>The Result:</strong> The live assistant is extremely limited. It is restricted to returns tracking and simple search queries, completely failing to handle transactional workflows (e.g., adding to cart or resolving specific product availability). Aron confirmed: <em>"They build their own... that always goes wrong."</em></li>
+                <li><strong>Serial Leadership:</strong> Rep.ai's CEO, Yoav Oz, is a serial founder with a prior successful tech exit. Aron himself is ex-Monday.com and ex-Do (which raised $60M).</li>
+                <li><strong>Strategic Investment:</strong> The Zendesk funding round is actively fueling their mid-market expansion. June 2026 was their strongest sales month in company history.</li>
+                <li><strong>Enterprise Salesforce Target:</strong> They are currently in advanced negotiations with **Sketchers** (on Salesforce Commerce Cloud). Because this is a massive enterprise platform, the integration requires complex custom development. Aron is sending a video demo showing their Salesforce commerce capabilities by Thursday.</li>
+                <li><strong>Technical DD Mandate:</strong> Horizon Partners specifically requested Shauli to conduct the technical DD on Yono because of their overlapping expertise in front-end AI agents. Shauli is frequently in the US for technical and commerce conferences.</li>
             </ul>
-            <div class="highlight-box">
-                <strong>How to Leverage This with Shauli:</strong> Reference this specific case study when discussing Yono's value proposition. It proves that even massive, resource-rich enterprise engineering teams cannot build or maintain reliable, self-healing execution layers in-house.
-            </div>
         </div>
 
         <!-- Row 3: Talk Tracks for Danny (Yono CTO) -->
@@ -330,13 +329,13 @@
                 <h2>Shauli Mizrahi Call Preparation Guide</h2>
             </div>
             <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">
-                When aligning with Shauli on the call, do not waste time explaining Yono's baseline codebase parser. Focus the conversation on these hard technical talking points:
+                Danny can establish immediate technical rapport and authority by focusing the due diligence discussion on these specific operational topics:
             </p>
             <ul>
-                <li class="check"><strong>Establish Peer Alignment:</strong> Open by discussing the complexities of e-commerce Salesforce integrations (referencing Rep.ai's current enterprise discussions with Sketchers) and WooCommerce.</li>
-                <li class="check"><strong>Frame the Moat Around "Execution":</strong> Agree with Shauli on the limits of standard LLM/cloud APIs. Highlight that raw prediction models cannot own write-actions due to corporate liability (citing legal precedents like Germany's Google rulings). Discuss how Yono secures this "last mile of execution" through deterministic maps.</li>
-                <li class="check"><strong>Discuss Sandbox Isolation:</strong> Discuss sandbox execution and Vertex AI key setups. Shauli will immediately appreciate a deployment model that solves the CISO source-code sharing objection while retaining full determinism.</li>
-                <li class="check"><strong>Acknowledge the Video Demo:</strong> Aron is recording a simulated product demo on Sketchers. Mention that you are reviewing their product catalog integration flow to understand how Yono's execution mapping can interface with external e-commerce engines in the future.</li>
+                <li class="check"><strong>Connect on Ad-Tech & Event Optimization:</strong> Open by discussing Shauli's background at Browsi and MAMRAM. Align on the technical complexities of processing real-time, high-volume browser event streams (like mouse moves and exit intent) without impacting client-side page load performance.</li>
+                <li class="check"><strong>Target the Salesforce Integration Pain:</strong> Bring up their current Salesforce Commerce Cloud efforts (referencing the Sketchers deal). Emphasize how difficult it is to build and maintain standard API integrations across headless e-commerce setups and complex CRM dashboards, highlighting the development bottleneck they face.</li>
+                <li class="check"><strong>Discuss SDK vs. Automated Mapping:</strong> Compare the architectural overhead. While Rep.ai requires third-party web agencies or manual code modifications to configure SDKs for headless/Salesforce setups, discuss how automated AST codebase parsing eliminates this manual engineering dependency.</li>
+                <li class="check"><strong>Align on CISO Compliance:</strong> Both companies face similar enterprise security bottlenecks. Discuss the common corporate objections around data privacy (SOC2, GDPR zero-retention) and outline the deployment patterns Yono uses to resolve these, such as local AST compilation and Vertex AI cloud keys.</li>
             </ul>
         </div>
 
