@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yono / Rep.ai — CTO Technical DD Briefing</title>
+    <title>Yono / Rep.ai — Technical Due Diligence Intel</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,9 +15,9 @@
             --border-color: rgba(255, 255, 255, 0.08);
             --text-primary: #f3f4f6;
             --text-secondary: #9ca3af;
-            --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-            --accent-color: #6366f1;
-            --accent-bright: #a855f7;
+            --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --accent-color: #3b82f6;
+            --accent-bright: #8b5cf6;
             --success-color: #10b981;
             --warning-color: #f59e0b;
             --danger-color: #ef4444;
@@ -34,8 +34,8 @@
         body {
             background-color: var(--bg-color);
             background-image: 
-                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.12) 0px, transparent 50%);
+                radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.12) 0px, transparent 50%);
             background-attachment: fixed;
             color: var(--text-primary);
             font-family: var(--font-body);
@@ -83,7 +83,7 @@
             letter-spacing: 0.05em;
             display: inline-block;
             margin-bottom: 1rem;
-            box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
         }
 
         h1 {
@@ -132,8 +132,8 @@
 
         .card:hover {
             transform: translateY(-5px);
-            border-color: rgba(99, 102, 241, 0.3);
-            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.1);
         }
 
         .card-header {
@@ -147,7 +147,7 @@
 
         .card-icon {
             font-size: 1.5rem;
-            background: rgba(99, 102, 241, 0.1);
+            background: rgba(59, 130, 246, 0.1);
             color: var(--accent-bright);
             width: 40px;
             height: 40px;
@@ -155,7 +155,7 @@
             align-items: center;
             justify-content: center;
             border-radius: 12px;
-            border: 1px solid rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         h2 {
@@ -204,91 +204,17 @@
             top: 0.05rem;
         }
 
-        /* Comparison Table */
-        .table-container {
-            overflow-x: auto;
-            margin-top: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            font-size: 0.9rem;
-        }
-
-        th {
-            background: rgba(17, 24, 39, 0.8);
-            color: var(--text-primary);
-            font-weight: 600;
-            padding: 1rem;
-            border-bottom: 2px solid var(--border-color);
-        }
-
-        td {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            vertical-align: top;
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tr:hover td {
-            background: rgba(255, 255, 255, 0.02);
-            color: var(--text-primary);
-        }
-
-        /* Q&A Accordion Style */
-        .qa-section {
-            margin-top: 1.5rem;
-        }
-
-        .qa-item {
-            margin-bottom: 1.25rem;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.25rem;
-            background: rgba(17, 24, 39, 0.3);
-            transition: all 0.2s ease;
-        }
-
-        .qa-item:hover {
-            border-color: rgba(99, 102, 241, 0.2);
-            background: rgba(17, 24, 39, 0.5);
-        }
-
-        .question {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
-        }
-
-        .question-label {
-            background: rgba(239, 68, 68, 0.15);
-            color: var(--danger-color);
-            padding: 0.1rem 0.5rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-top: 0.1rem;
-            flex-shrink: 0;
-        }
-
-        .answer {
-            color: var(--text-secondary);
+        .highlight-box {
+            background: rgba(59, 130, 246, 0.08);
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem 1.25rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1rem 0;
             font-size: 0.925rem;
-            padding-left: 3rem;
-            border-left: 2px solid var(--accent-color);
-            margin-left: 0.5rem;
+        }
+
+        .highlight-box strong {
+            color: var(--text-primary);
         }
 
         .alert-box {
@@ -333,9 +259,9 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <span class="badge">Technical Due Diligence Prep</span>
-            <h1>Yono / Rep.ai Architectural Sync</h1>
-            <p class="meta-text">Prepared for: <strong>Danny (CTO, Yono)</strong> | Reviewer: <strong>Shauli Mizrahi (CTO, Rep.ai)</strong></p>
+            <span class="badge">Horizon Due Diligence Intel</span>
+            <h1>Rep.ai Technical Sync Briefing</h1>
+            <p class="meta-text">Prepared for: <strong>Danny (CTO, Yono)</strong> | Source Call: <strong>Aron Vuijsje (VP of Sales, Rep.ai)</strong></p>
         </header>
 
         <!-- Context Banner -->
@@ -344,123 +270,74 @@
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
             </svg>
             <p>
-                <strong>Background Context:</strong> Rep.ai is a Zendesk-backed, growth-stage AI shopping assistant. Their CTO, <strong>Shauli Mizrahi</strong>, has been requested by Horizon Partners to conduct the technical due diligence review on Yono. Because both companies operate in the AI-agent space, Shauli will quickly isolate core engineering complexities. Use this briefing to align your talking points.
+                <strong>Briefing Objective:</strong> This document summarizes direct product intelligence and customer data gathered during the sync with Rep.ai. Use this context to align talking points before your technical due diligence call with their CTO, <strong>Shauli Mizrahi</strong> (who is reviewing Yono on behalf of Horizon Partners).
             </p>
         </div>
 
-        <!-- Row 1: Who is the Reviewer & What to Expect -->
+        <!-- Row 1: Rep.ai Architecture & Capabilities -->
         <div class="grid grid-2">
-            <!-- Reviewer Profile -->
+            <!-- Rep.ai Tech Stack -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon">👤</div>
-                    <h2>The Reviewer: Shauli Mizrahi</h2>
+                    <div class="card-icon">⚙️</div>
+                    <h2>Rep.ai Product Architecture</h2>
                 </div>
                 <ul>
-                    <li><strong>E-Commerce Native:</strong> Shauli co-founded Rep.ai to solve shopper drop-off. He thinks in terms of live catalogs, checkout redirects, and proactive browser triggers.</li>
-                    <li><strong>Engineering Mentality:</strong> He understands the pain of front-end SDKs and standard API integrations (Shopify/Salesforce). He will be skeptical of any claim that "automates frontends overnight" without breaking.</li>
-                    <li><strong>Key Concern:</strong> He will want to ensure Yono is not a wrapper around probabilistic LLM APIs, and that our codebase-to-workflow automation holds up under enterprise code shifts.</li>
+                    <li><strong>Proactive Behavioral Triggering:</strong> Their primary moat is a proprietary algorithm tracking **500+ browser data points** (exit intent, scroll rate, hover depth) to detect churn risk and launch prompts.</li>
+                    <li><strong>In-Chat Transaction Execution:</strong> Unlike simple conversational widgets, their system processes transactional flows (sizes, colors, and add-to-cart checkouts) natively without forcing users to navigate away from the chat window.</li>
+                    <li><strong>Headless & Platform Support:</strong> Natively integrated with Shopify APIs, WooCommerce, and Salesforce. Headless Shopify architectures require minor custom changes.</li>
+                    <li><strong>Growth Metrics:</strong> Zendesk-backed, record sales month in June 2026, and recently expanded to omnichannel messaging (email, Instagram, WhatsApp, and TikTok).</li>
                 </ul>
             </div>
 
-            <!-- Core Moat Strategy -->
+            <!-- Operational Synergies -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon">🛡️</div>
-                    <h2>The Core Moat Discussion</h2>
+                    <div class="card-icon">🤝</div>
+                    <h2>GTM & Technical Synergies</h2>
                 </div>
                 <ul>
-                    <li class="alert"><strong>The LLM Moat Question:</strong> Shauli will likely ask: <em>"Why can't companies just plug a general model like Google Gemini or OpenAI into their UI and do what you do?"</em></li>
-                    <li class="check"><strong>The Answer:</strong> Large model providers cannot own the **last-mile execution layer** due to liability. For example, EU/German precedents hold AI providers liable for system mistakes. No enterprise will let a probabilistic LLM issue refunds or configure firewalls directly.</li>
-                    <li class="check"><strong>Yono's Edge:</strong> Yono maps the codebase to create a <strong>deterministic execution path (AXP)</strong>, transforming the process from unsafe text prediction to secure, linear workflow automation.</li>
+                    <li><strong>Market Segments:</strong> Rep.ai focuses strictly on standard B2C e-commerce catalogs. Yono operates in complex, unstructured enterprise SaaS (cyber, fintech, devops).</li>
+                    <li><strong>Integration Agency Play:</strong> For headless and complex enterprise clients (e.g. Salesforce commerce setups like Sketchers), Rep.ai works with integration agencies to set up their SDK. Yono's automated mapping logic has potential utility in streamlining these setups.</li>
+                    <li><strong>CISO Alignment:</strong> Both companies face similar enterprise security bottlenecks. Rep.ai's experience navigating corporate compliance reviews (SOC2/GDPR) directly aligns with Yono's Vertex AI private key deployment strategy.</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Row 2: Architecture Comparison Table -->
+        <!-- Row 2: The On Cloud Case Study -->
+        <div class="card" style="margin-bottom: 2rem;">
+            <div class="card-header">
+                <div class="card-icon">👟</div>
+                <h2>On Cloud (on.com) Case Study: The "DIY Trap"</h2>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
+                A critical piece of intelligence from the call was the specific failure metrics of a major public brand attempting an in-house agentic build:
+            </p>
+            <ul>
+                <li class="alert"><strong>The Target:</strong> On Cloud is a **$15B public shoe brand** hosted on WooCommerce.</li>
+                <li><strong>The In-house Resource Drain:</strong> They deployed a team of **70+ engineers** over **8 months** to build their own custom in-house AI assistant.</li>
+                <li><strong>The Result:</strong> The live assistant is extremely limited. It is restricted to returns tracking and simple search queries, completely failing to handle transactional workflows (e.g., adding to cart or resolving specific product availability). Aron confirmed: <em>"They build their own... that always goes wrong."</em></li>
+            </ul>
+            <div class="highlight-box">
+                <strong>How to Leverage This with Shauli:</strong> Reference this specific case study when discussing Yono's value proposition. It proves that even massive, resource-rich enterprise engineering teams cannot build or maintain reliable, self-healing execution layers in-house.
+            </div>
+        </div>
+
+        <!-- Row 3: Talk Tracks for Danny (Yono CTO) -->
         <div class="card">
             <div class="card-header">
-                <div class="card-icon">⚙️</div>
-                <h2>Architectural Comparison</h2>
-            </div>
-            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
-                Frame the discussion by showing that Yono does not compete with Rep.ai's conversational domain; rather, Yono builds the deterministic infrastructure for operating complex enterprise software.
-            </p>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Architectural Metric</th>
-                            <th>Rep.ai (Shopping Concierge)</th>
-                            <th>Yono (SaaS Action Engine)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Integration Model</strong></td>
-                            <td>Platform APIs / Native SDKs (Shopify, Salesforce, WooCommerce). Highly standard schemas.</td>
-                            <td><strong>AST Codebase Mapping.</strong> Auto-discovers UI nodes, routes, and API schemas from arbitrary codebases.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Execution Layer</strong></td>
-                            <td>Pre-configured e-commerce transaction APIs (Add-to-cart redirect, API refund requests).</td>
-                            <td><strong>Agentic Execution Path (AXP).</strong> Generates linear, deterministic execution maps for deep SaaS workflows.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Moat & Triggers</strong></td>
-                            <td>Behavioral algorithm (500+ points on exits, mouse moves, scroll) to drive proactive sales conversions.</td>
-                            <td>Deterministic routing and self-healing codebase synchronization. Eliminates the cost of custom DIY UI engines.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Target Verticals</strong></td>
-                            <td>B2C E-Commerce, Retail platforms, Support ticketing channels.</td>
-                            <td>Highly complex B2B SaaS (Cyber security, Fintech dashboard workflows, Devops consoles).</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Row 3: Expected Q&A Grilling Prep -->
-        <div class="card" style="margin-top: 2rem;">
-            <div class="card-header">
                 <div class="card-icon">💬</div>
-                <h2>Expected Due Diligence Q&A</h2>
+                <h2>Shauli Mizrahi Call Preparation Guide</h2>
             </div>
-            <div class="qa-section">
-                <!-- Q1 -->
-                <div class="qa-item">
-                    <div class="question">
-                        <span class="question-label">Shauli's Angle</span>
-                        <span>"Frontend logic changes continuously. How does Yono prevent its execution map from constantly breaking when developers push code?"</span>
-                    </div>
-                    <div class="answer">
-                        <strong>Danny's Response:</strong> "Unlike standard xpath/crawling solutions that break on UI layout shifts, Yono reads the underlying codebase logic. We parse the application's AST (Abstract Syntax Tree) to map data-binding states and router components. If developers push a new UI version, Yono's self-healing compiler runs in the CI/CD pipeline, automatically identifies structural shifts, re-maps the flows, and repairs the agent's path without developer intervention."
-                    </div>
-                </div>
-
-                <!-- Q2 -->
-                <div class="qa-item">
-                    <div class="question">
-                        <span class="question-label">Shauli's Angle</span>
-                        <span>"Enterprises are highly sensitive about code security and data leakage. How do you address CISO objections to parsing their proprietary code?"</span>
-                    </div>
-                    <div class="answer">
-                        <strong>Danny's Response:</strong> "We do not store or exfiltrate customer codebases. Yono runs its code parsing engine locally (or within the client's secure private cloud VPC). The only artifact generated is the lightweight execution map (graph endpoints and state boundaries). When executing live, Yono routes LLM payloads using enterprise cloud keys—such as GCP Vertex AI—which guarantees zero data retention and keeps all code completely private."
-                    </div>
-                </div>
-
-                <!-- Q3 -->
-                <div class="qa-item">
-                    <div class="question">
-                        <span class="question-label">Shauli's Angle</span>
-                        <span>"Building this in-house seems like something a SaaS company's internal platform team would eventually try to do themselves. What's the build vs. buy argument?"</span>
-                    </div>
-                    <div class="answer">
-                        <strong>Danny's Response:</strong> "We see the 'DIY Trap' frequently. For example, mid-market platforms like Workiz spend over 7 dev-months with a 5-person team just to bootstrap 4 basic agents. Large brands like On Cloud (on.com) allocated 70+ engineers for 8 months trying to build a custom front-end AI execution assistant and still struggled with reliability and maintenance. Yono provides an out-of-the-box self-healing infrastructure, reducing setup time to overnight and eliminating the ongoing engineering overhead."
-                    </div>
-                </div>
-            </div>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                When aligning with Shauli on the call, do not waste time explaining Yono's baseline codebase parser. Focus the conversation on these hard technical talking points:
+            </p>
+            <ul>
+                <li class="check"><strong>Establish Peer Alignment:</strong> Open by discussing the complexities of e-commerce Salesforce integrations (referencing Rep.ai's current enterprise discussions with Sketchers) and WooCommerce.</li>
+                <li class="check"><strong>Frame the Moat Around "Execution":</strong> Agree with Shauli on the limits of standard LLM/cloud APIs. Highlight that raw prediction models cannot own write-actions due to corporate liability (citing legal precedents like Germany's Google rulings). Discuss how Yono secures this "last mile of execution" through deterministic maps.</li>
+                <li class="check"><strong>Discuss Sandbox Isolation:</strong> Discuss sandbox execution and Vertex AI key setups. Shauli will immediately appreciate a deployment model that solves the CISO source-code sharing objection while retaining full determinism.</li>
+                <li class="check"><strong>Acknowledge the Video Demo:</strong> Aron is recording a simulated product demo on Sketchers. Mention that you are reviewing their product catalog integration flow to understand how Yono's execution mapping can interface with external e-commerce engines in the future.</li>
+            </ul>
         </div>
 
         <!-- Footer -->
