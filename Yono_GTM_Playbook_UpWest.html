@@ -2015,7 +2015,7 @@
 </div>
 </div>
 <!-- Phase 1 Details -->
-<div class="tab-content hidden" id="sec-phases" style="display:flex; flex-direction:column; gap:4rem; margin-top:2rem;"><div class="phase-details" id="phase-details-1">
+<div class="phase-details" id="phase-details-1">
 <div class="details-header">
 <h2 class="details-title">Phase 1: Startup Urgency (Months 1-6)</h2>
 <span class="details-badge">Reference Proof Engine</span>
@@ -2084,71 +2084,6 @@
                             </p>
 </div>
 </div>
-<div class="metrics-dashboard" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
-<div class="dashboard-header">
-<div class="dashboard-title-block">
-<h3 class="dashboard-title">Metrics Dashboard</h3>
-<p class="dashboard-subtitle">Phase 1: Startup Urgency. At this stage, complex integration builds require immense engineering bandwidth. We target smaller, agile startups to gradually harden the Yono infrastructure, ensuring technical ripeness and reliability before we scale up to enterprise-grade integrations.</p>
-</div>
-</div>
-<div class="metrics-grid">
-<div class="metric-card">
-<div class="metric-card-top">
-<span class="metric-label">Clicks Saved per Task</span>
-<div class="metric-icon-wrapper">
-<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-</div>
-</div>
-<div class="metric-value">24 Clicks</div>
-<div class="metric-subtext">average per task workflow</div>
-<details class="deep-dive-drawer" style="margin-top: 1rem;">
-<summary class="deep-dive-summary" style="padding: 0.5rem 0.75rem; font-size: 0.75rem;">Metric Deep Dive</summary>
-<div class="deep-dive-inner" style="padding: 1rem;">
-<div class="details-panel-item">
-<strong>Calculation Formula</strong>
-<div class="details-panel-formula" style="margin-top: 0.25rem;">Manual UI Steps - Yono Language Steps</div>
-</div>
-<div class="details-panel-item" style="margin-top: 0.75rem;">
-<strong>What it measures</strong>
-<span>Tracks the number of manual clicks and form fields bypassed by using natural language actions.</span>
-</div>
-<div class="details-panel-item" style="margin-top: 0.75rem;">
-<strong>Why it matters (ROI)</strong>
-<span>Directly measures user friction reduction and speed to value, driving product engagement.</span>
-</div>
-</div>
-</details>
-</div>
-<div class="metric-card">
-<div class="metric-card-top">
-<span class="metric-label">AST Schema Generation Time</span>
-<div class="metric-icon-wrapper purple">
-<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-</div>
-</div>
-<div class="metric-value">96 Minutes</div>
-<div class="metric-subtext">from GitHub repository connection to live frontend execution sandbox</div>
-<details class="deep-dive-drawer" style="margin-top: 1rem;">
-<summary class="deep-dive-summary" style="padding: 0.5rem 0.75rem; font-size: 0.75rem;">Metric Deep Dive</summary>
-<div class="deep-dive-inner" style="padding: 1rem;">
-<div class="details-panel-item">
-<strong>Calculation Formula</strong>
-<div class="details-panel-formula" style="margin-top: 0.25rem;">Connection to Sandbox Execution</div>
-</div>
-<div class="details-panel-item" style="margin-top: 0.75rem;">
-<strong>What it measures</strong>
-<span>Tracks the time from initial GitHub repository connection to the creation of a verified AST schema and live sandbox execution.</span>
-</div>
-<div class="details-panel-item" style="margin-top: 0.75rem;">
-<strong>Why it matters (ROI)</strong>
-<span>An empirical measurement of setup velocity, proving that Yono reverse-engineers codebase logic automatically, saving devs from months of manual API mapping and backend wrapper development. [⚠️ Aim: less than 12 hours]</span>
-</div>
-</div>
-</details>
-</div>
-</div>
-</div>
-
 <div class="calc-card metrics-dashboard-anchor" style="margin-top: 0.25rem;">
 <h4 class="calc-title">// ICP Selection Rationale (Why this ICP?)</h4>
 <div class="decision-flow-steps" style="margin-top: 0.5rem;">
@@ -2167,239 +2102,23 @@
 </div>
 </div>
 <!-- Sourcing Sequence Card -->
-<div class="calc-card" style="margin-top: 0.25rem;">
-<h4 class="calc-title">// Sourcing Sequence (How we get to them)</h4>
-<div class="decision-flow-steps">
-<div class="decision-step">
-<strong>Step 1: Warm Network Introductions:</strong> Map and leverage the founder's extensive network and founder contacts in the US market to secure warm entry points directly to CEOs and CPOs.
-                            </div>
-<div class="decision-step">
-<strong>Step 2: Hiring Trigger Scrapes:</strong> Programmatically scrape LinkedIn, GitHub, and job boards for target companies listing roles like "AI Product Manager," "Copilot Engineer," or "AI UI Developer."
-                            </div>
-<div class="decision-step">
-<strong>Step 3: Trigger-Based Outreach &amp; Yono Lite:</strong> Monitor recent funding alerts and hiring triggers to launch immediate outreach, using 'Yono Lite' (our interactive sandbox demo) to show instant frontend value.
-                            </div>
-</div>
-</div>
+
 <!-- Target Pipeline Funnel -->
-<div class="calc-card" style="margin-top: 0.25rem;">
-<h4 class="calc-title">// Conversion Funnel Pipeline (Target: Close 8 Accounts)</h4>
-<div style="font-size: 0.8rem; color: var(--color-text-secondary); margin-bottom: 0.5rem; line-height: 1.4;">
-                            To secure 8 closed accounts (8 Startups), we run a targeted outreach sequence approaching 200 companies. The funnel operates at: <strong>15.0% demo/meeting rate</strong> → <strong>33.3% pilot rate</strong> → <strong>80.0% signature rate</strong>.
-                        </div>
-<div class="funnel-container">
-<div class="funnel-stage">
-<span class="funnel-stage-name">1. Segment Pool</span>
-<span class="funnel-stage-value">245</span>
-<span class="funnel-stage-conversion">Target Segment</span>
-</div>
-<div class="funnel-stage">
-<span class="funnel-stage-name">2. Approached</span>
-<span class="funnel-stage-value">200</span>
-<span class="funnel-stage-conversion">81.6% Contact Rate</span>
-</div>
-<div class="funnel-stage">
-<span class="funnel-stage-name">3. Demos / Meetings</span>
-<span class="funnel-stage-value">30</span>
-<span class="funnel-stage-conversion">15.0% Meeting Rate</span>
-</div>
-<div class="funnel-stage">
-<span class="funnel-stage-name">4. Pilots / POVs</span>
-<span class="funnel-stage-value">10</span>
-<span class="funnel-stage-conversion">33.3% Pilot Rate</span>
-</div>
-<div class="funnel-stage closed">
-<span class="funnel-stage-name">5. Closed Accounts</span>
-<span class="funnel-stage-value">8</span>
-<span class="funnel-stage-conversion">80.0% Close Rate</span>
-</div>
-</div>
-</div>
+
 <!-- Sales Execution Process -->
-<div class="calc-card" style="margin-top: 0.25rem;">
-<h4 class="calc-title">// Step-by-Step Sales Execution &amp; Internal Closing Flow</h4>
-<div class="process-flow">
-<div class="process-step">
-<span class="process-step-num">Step 1</span>
-<span class="process-step-title">Targeting &amp; Triggers</span>
-<span class="process-step-desc"><strong>Signals</strong>: Scrape active job posts (AI PM, Copilot Developer) and funding announcements for Series A-C DevOps/Cyber startups.</span>
-</div>
-<div class="process-step">
-<span class="process-step-num">Step 2</span>
-<span class="process-step-title">Outreach &amp; Intro</span>
-<span class="process-step-desc"><strong>Approach</strong>: Leverage US founder networks and warm contacts to secure referrals directly to the CEO/CPO.</span>
-</div>
-<div class="process-step">
-<span class="process-step-num">Step 3</span>
-<span class="process-step-title">Demo &amp; Yono Lite</span>
-<span class="process-step-desc"><strong>Selling Tool</strong>: Present a pre-configured Yono Lite frontend sandbox to show automated UI execution to the CPO/CEO.</span>
-</div>
-<div class="process-step">
-<span class="process-step-num">Step 4</span>
-<span class="process-step-title">Zero-DB Pilot</span>
-<span class="process-step-desc"><strong>Internal Process</strong>: Run a 2-week local sandbox pilot. Bypasses databases to avoid security friction and accelerate validation.</span>
-</div>
-<div class="process-step">
-<span class="process-step-num">Step 5</span>
-<span class="process-step-title">Contract Close</span>
-<span class="process-step-desc"><strong>Mechanics</strong>: Secure signed startup agreements ($40K ARR).</span>
-</div>
-</div>
-</div>
+
+
 <!-- Collapsible details for pros/cons and timelines -->
-<details class="deep-dive-drawer">
-<summary class="deep-dive-summary">Phase 1 Deep Dive: Sourcing Index &amp; Timeline Roadmap</summary>
-<div class="deep-dive-inner">
-<div class="narrative-block">
-<span class="narrative-title">// Sourcing Index (3 Examples)</span>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-<th>Target Account</th>
-<th>Location</th>
-<th>Funding Round</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>Kodem</td><td>New York, NY</td><td>Series A ($18.0M) – April 23, 2026</td></tr>
-<tr><td>Artemis</td><td>New York, NY</td><td>Series A ($70.0M) – April 15, 2026</td></tr>
-<tr><td>depthfirst</td><td>San Francisco, CA</td><td>Series B ($80.0M) – March 31, 2026</td></tr>
-</tbody>
-</table>
+
+
+<div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); display: flex; justify-content: flex-end;">
+<button class="tab-btn" onclick="switchTab('phase-details-2')" style="background-color: var(--color-accent); color: white; padding: 12px 24px; font-size: 1rem;">
+                        Next Phase →
+                    </button>
 </div>
 </div>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-<th style="width: 15%;">Month</th>
-<th style="width: 30%;">Milestone Focus</th>
-<th>Key Directives</th>
-</tr>
-</thead>
-<tbody>
-<tr><td class="highlight-mono">Months 1-2</td><td><strong>Gated Ingestion</strong></td><td>Deploy core AST codebase compiler. Ingest startup codebases as early startups to refine compiler handling.</td></tr>
-<tr><td class="highlight-mono">Month 3</td><td><strong>LOI Conversion</strong></td><td>Silicon Valley sales roadshow. Convert active pilots, including our DevOps pilot $100K LOI, into signed startup agreements.</td></tr>
-<tr><td class="highlight-mono">Months 4-6</td><td><strong>Pipeline Maturation &amp; Closing</strong></td><td>Mature active pipeline and close remaining target accounts to secure our initial cohort of startups and early commercial deals.</td></tr>
-</tbody>
-</table>
-</div>
-<!-- Onboarding Diagnostics Block -->
-<div class="narrative-block" style="margin-top: 1.5rem; border-top: 1px dashed var(--color-border); padding-top: 1.5rem;">
-<span class="narrative-title">// Onboarding Diagnostics (0-90 Day Early Churn vs. PMF)</span>
-<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1rem;">
-                                    Failed onboarding is the single largest driver of early customer churn, accounting for <strong>40% to 60%</strong> of all B2B SaaS cancellations. Approximately <strong>43% of logo churn</strong> in mid-market/SMB accounts occurs within the first 90 days. Users who do not perform a core product action within the first 72 hours of signup carry a <strong>90% probability of eventual churn</strong>.
-                                </p>
-<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1rem;">
-<strong>PMF Cohort Baseline</strong>: A healthy cohort retention curve stabilizes at Month 3, flattening around 60%. Continuous linear decay without stabilization indicates a core PMF deficiency rather than onboarding friction. To defend against involuntary credit card failure (accounting for 20%-40% of mid-market churn), Yono deploys a structured dunning sequence.
-                                </p>
-<span class="narrative-title" style="font-size: 0.8rem; opacity: 0.8; display: block; margin-bottom: 0.5rem;">[21-Day Dunning &amp; Revenue Recovery Sequence]</span>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-<th>Timeline</th>
-<th>Action Triggered</th>
-<th>Communication Channel</th>
-<th>Primary Objective</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="highlight-mono">Day 0</td>
-<td>Payment failure detected</td>
-<td>Automated notification email</td>
-<td>Immediate alert with embedded update link</td>
-</tr>
-<tr>
-<td class="highlight-mono">Day 3</td>
-<td>Second payment retry</td>
-<td>Second automated email</td>
-<td>Escalate urgency and billing discrepancy alert</td>
-</tr>
-<tr>
-<td class="highlight-mono">Day 7</td>
-<td>Third payment retry</td>
-<td>Personalized outreach</td>
-<td>Warning of automated account suspension</td>
-</tr>
-<tr>
-<td class="highlight-mono">Day 14</td>
-<td>Final payment retry</td>
-<td>Urgent warning email</td>
-<td>Final warning detailing platform access block</td>
-</tr>
-<tr>
-<td class="highlight-mono">Day 21</td>
-<td>Account deactivation</td>
-<td>System status change</td>
-<td>Workspace suspension; preserve data for 90 days</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<!-- Developer Activation Milestones Block -->
-<div class="narrative-block" style="margin-top: 1.5rem; border-top: 1px dashed var(--color-border); padding-top: 1.5rem;">
-<span class="narrative-title">// Developer Activation Milestone Hierarchy</span>
-<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1rem;">
-                                    In developer-led GTM motions, Time-to-Value (TTV) is the single most critical predictor of self-serve conversion. Every <strong>10 minutes</strong> of onboarding delay before a user reaches their first "aha" moment drops trial-to-paid conversion by <strong>8%</strong>. This decay is modeled as: <code>C(t) = C_0 * (0.92)^(t/10)</code>. Focused 7-day trials achieve a <strong>40.4% conversion rate</strong>, outperforming unstructured 60-day trials (30.6%).
-                                </p>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-<th>Activation Level</th>
-<th>Defined Product Action</th>
-<th>Target Onboarding Window</th>
-<th>Day 30 Retention</th>
-<th>Trial Conversion Uplift</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Pre-Activation</td>
-<td>User account creation / signup</td>
-<td>Session 1 (Under 5 mins)</td>
-<td class="highlight-mono">8.2%</td>
-<td>Baseline (Unqualified)</td>
-</tr>
-<tr>
-<td>Setup Action</td>
-<td>Workspace naming / profile setup</td>
-<td>Session 1 (Under 10 mins)</td>
-<td class="highlight-mono">12.5%</td>
-<td>Minimal correlation to buy</td>
-</tr>
-<tr>
-<td>Primary Activation</td>
-<td>First compile-time AST verification</td>
-<td>First 24 Hours</td>
-<td class="highlight-mono">47.3%</td>
-<td><strong>2.5x conversion uplift</strong></td>
-</tr>
-<tr>
-<td>Secondary Activation</td>
-<td>First teammate invitation / share</td>
-<td>First 3 Days</td>
-<td class="highlight-mono">68.7%</td>
-<td><strong>5.0x conversion uplift</strong></td>
-</tr>
-<tr>
-<td>Habit Activation</td>
-<td>3+ active code execution sessions</td>
-<td>First 7 Days</td>
-<td class="highlight-mono">65.8%</td>
-<td>Maximum expansion potential</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</details>
-</div><div class="phase-details" id="phase-details-2">
+<!-- Phase 2 Details -->
+<div class="phase-details hidden" id="phase-details-2">
 <div class="details-header">
 <h2 class="details-title">Phase 2: Mid-Market Expansion (Months 7-16)</h2>
 <span class="details-badge">Commercial ICP Core</span>
@@ -2436,71 +2155,6 @@
                             </p>
 </div>
 </div>
-<div class="metrics-dashboard" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
-<div class="dashboard-header">
-<div class="dashboard-title-block">
-<h3 class="dashboard-title">Metrics Dashboard</h3>
-<p class="dashboard-subtitle">Phase 2: Driving feature discovery, product adoption, and expansion revenue.</p>
-</div>
-</div>
-<div class="metrics-grid">
-<div class="metric-card">
-<div class="metric-card-top">
-<span class="metric-label">Feature Discovery Rate</span>
-<div class="metric-icon-wrapper">
-<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-</div>
-</div>
-<div class="metric-value">84.2%</div>
-<div class="metric-subtext">vs. 6.5% legacy baseline</div>
-<details class="deep-dive-drawer" style="margin-top: 1rem;">
-<summary class="deep-dive-summary" style="padding: 0.5rem 0.75rem; font-size: 0.75rem;">Metric Deep Dive</summary>
-<div class="deep-dive-inner" style="padding: 1rem;">
-<div class="details-panel-item">
-<strong>Calculation Formula</strong>
-<div class="details-panel-formula" style="margin-top: 0.25rem;">Premium Features via Language / Total Executions</div>
-</div>
-<div class="details-panel-item" style="margin-top: 0.75rem;">
-<strong>What it measures</strong>
-<span>Measures the percentage of active users discovering secondary or premium features via language-driven execution paths rather than static UI navigation.</span>
-</div>
-<div class="details-panel-item" style="margin-top: 0.75rem;">
-<strong>Why it matters (ROI)</strong>
-<span>Shows how natural language interfaces help users easily discover the full capability of the product, increasing feature utilization and overall adoption.</span>
-</div>
-</div>
-</details>
-</div>
-<div class="metric-card">
-<div class="metric-card-top">
-<span class="metric-label">Cross/Upsell Opportunities Created</span>
-<div class="metric-icon-wrapper purple">
-<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-</div>
-</div>
-<div class="metric-value">18.6%</div>
-<div class="metric-subtext">Trial to Paid Conversion</div>
-<details class="deep-dive-drawer" style="margin-top: 1rem;">
-<summary class="deep-dive-summary" style="padding: 0.5rem 0.75rem; font-size: 0.75rem;">Metric Deep Dive</summary>
-<div class="deep-dive-inner" style="padding: 1rem;">
-<div class="details-panel-item">
-<strong>Calculation Formula</strong>
-<div class="details-panel-formula" style="margin-top: 0.25rem;">Users Requesting Paid Feature / Total Free Users</div>
-</div>
-<div class="details-panel-item" style="margin-top: 0.75rem;">
-<strong>What it measures</strong>
-<span>Tracks when a user attempts a workflow that involves a gated or premium feature, seamlessly prompting an upgrade or expansion pathway.</span>
-</div>
-<div class="details-panel-item" style="margin-top: 0.75rem;">
-<strong>Why it matters (ROI)</strong>
-<span>Turns organic usage into qualified sales intent without the user having to manually navigate pricing pages or understand complex packaging.</span>
-</div>
-</div>
-</details>
-</div>
-</div>
-</div>
-
 <div class="calc-card metrics-dashboard-anchor" style="margin-top: 0.25rem;">
 <h4 class="calc-title">// ICP Selection Rationale (Why this ICP?)</h4>
 <div class="decision-flow-steps" style="margin-top: 0.5rem;">
@@ -2519,345 +2173,23 @@
 </div>
 </div>
 <!-- Sourcing Sequence Card -->
-<div class="calc-card" style="margin-top: 0.25rem;">
-<h4 class="calc-title">// Sourcing Sequence (How we get to them)</h4>
-<div class="decision-flow-steps">
-<div class="decision-step">
-<strong>Step 1: Segment Filtering:</strong> Query B2B SaaS platforms in the Fortune 1000–3000 tier, as well as private SaaS with 150–500 employees ($15M–$60M ARR) operating at cash-flow break-even or net profitability.
-                            </div>
-<div class="decision-step">
-<strong>Step 2: Warm Network Introductions:</strong> Leverage extensive founder network connections in the US market to secure warm introductions directly to CPOs and CTOs.
-                            </div>
-<div class="decision-step">
-<strong>Step 3: Case-Study Led Outbound:</strong> Combine targeted Yono Lite sandbox demos with verified results from early customers (such as clicks saved and setup speed) to prove value before the first meeting.
-                            </div>
-</div>
-</div>
+
 <!-- Target Pipeline Funnel -->
-<div class="calc-card" style="margin-top: 0.25rem;">
-<h4 class="calc-title">// Conversion Funnel Pipeline (Target: Close 10 Accounts)</h4>
-<div style="font-size: 0.8rem; color: var(--color-text-secondary); margin-bottom: 0.5rem; line-height: 1.4;">
-                            To secure 10 closed Mid-Market accounts, we source and approach 200 accounts. The funnel operates at: <strong>20.0% demo/meeting rate</strong> → <strong>50.0% POV rate</strong> → <strong>75.0% InfoSec clearance rate</strong> → <strong>66.7% signature rate</strong>.
-                        </div>
-<div class="funnel-container">
-<div class="funnel-stage">
-<span class="funnel-stage-name">1. Segment Pool</span>
-<span class="funnel-stage-value">1,200</span>
-<span class="funnel-stage-conversion">Target Segment</span>
-</div>
-<div class="funnel-stage">
-<span class="funnel-stage-name">2. Approached</span>
-<span class="funnel-stage-value">200</span>
-<span class="funnel-stage-conversion">16.7% Sourced Rate</span>
-</div>
-<div class="funnel-stage">
-<span class="funnel-stage-name">3. Demos / Meetings</span>
-<span class="funnel-stage-value">40</span>
-<span class="funnel-stage-conversion">20.0% Meeting Rate</span>
-</div>
-<div class="funnel-stage">
-<span class="funnel-stage-name">4. POVs</span>
-<span class="funnel-stage-value">20</span>
-<span class="funnel-stage-conversion">50.0% POV Rate</span>
-</div>
-<div class="funnel-stage">
-<span class="funnel-stage-name">5. InfoSec Cleared</span>
-<span class="funnel-stage-value">15</span>
-<span class="funnel-stage-conversion">75.0% Security Clear</span>
-</div>
-<div class="funnel-stage closed">
-<span class="funnel-stage-name">6. Closed Won</span>
-<span class="funnel-stage-value">10</span>
-<span class="funnel-stage-conversion">66.7% Close Rate</span>
-</div>
-</div>
-</div>
+
 <!-- Sales Execution Process -->
-<div class="calc-card" style="margin-top: 0.25rem;">
-<h4 class="calc-title">// Step-by-Step Sales Execution &amp; Internal Closing Flow</h4>
-<div class="process-flow">
-<div class="process-step">
-<span class="process-step-num">Step 1</span>
-<span class="process-step-title">Targeting &amp; Scale</span>
-<span class="process-step-desc"><strong>Signals</strong>: Filter B2B SaaS platforms in the Fortune 1000–3000 tier and profitable private SaaS ($20M–$100M ARR).</span>
-</div>
-<div class="process-step">
-<span class="process-step-num">Step 2</span>
-<span class="process-step-title">Outbound Prep</span>
-<span class="process-step-desc"><strong>Approach</strong>: Deliver custom Yono Lite sandboxes that demonstrate deterministic execution. The core objective is technical hardening—testing edge cases and building the necessary engineering readiness required for mid-market scale without prematurely burning enterprise leads.</span>
-</div>
-<div class="process-step">
-<span class="process-step-num">Step 3</span>
-<span class="process-step-title">Demo &amp; CPO Alignment</span>
-<span class="process-step-desc"><strong>Buying Center</strong>: Align with the CPO (on UX adoption and feature expansion) and CTO (on technical infrastructure).</span>
-</div>
-<div class="process-step">
-<span class="process-step-num">Step 4</span>
-<span class="process-step-title">Technical POV</span>
-<span class="process-step-desc"><strong>Internal Process</strong>: Run a 30-day technical POV mapping core workflows, demonstrating adoption metrics directly to CPO.</span>
-</div>
-<div class="process-step">
-<span class="process-step-num">Step 5</span>
-<span class="process-step-title">Security &amp; Close</span>
-<span class="process-step-desc"><strong>Mechanics</strong>: Review SOC-2 Type II and configure BYOK to clear CISO/CTO objections. Invoiced annually in advance.</span>
-</div>
-</div>
-</div>
+
+
 <!-- Collapsible details for roadmaps -->
-<details class="deep-dive-drawer">
-<summary class="deep-dive-summary">Phase 2 Deep Dive: Narrative &amp; Timeline Roadmap</summary>
-<div class="deep-dive-inner">
-<div class="narrative-block">
-<span class="narrative-title">// Strategic Narrative</span>
-<p class="narrative-text">
-                                    Mid-market software companies have stable budgets but face low feature utilization and product stagnation—an industry-wide SaaS challenge right now. Helping users easily discover secondary features directly drives adoption, unlocks expansion revenue, and protects Net Dollar Retention. To support runway growth, we collect payments annually in advance.
-                                </p>
-</div>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-<th style="width: 15%;">Month</th>
-<th style="width: 30%;">Milestone Focus</th>
-<th>Key Directives</th>
-</tr>
-</thead>
-<tbody>
-<tr><td class="highlight-mono">Months 7-8</td><td><strong>Outbound Scaling</strong></td><td>Onboard GTM Rep #1. Extract mid-market target lists and launch structured tech-trigger email campaigns.</td></tr>
-<tr><td class="highlight-mono">Months 9-10</td><td><strong>Plugins &amp; SOC-2 II</strong></td><td>Deploy native plugins for Shopify and WordPress ecosystems. Complete SOC-2 Type II audit to support mid-market accounts.</td></tr>
-<tr><td class="highlight-mono">Months 11-12</td><td><strong>$1.0M ARR Milestone</strong></td><td>Cross $1.0M ARR run-rate milestone by Month 12 (10 SMB + 12 Mid-Market accounts at $40K ACV, plus 8 Design Partners at $15K ACV). Secure advance annual cash collections and begin Seed round preparation.</td></tr>
-</tbody>
-</table>
-</div>
-<!-- Onboarding & Friction Diagnostics Block -->
-<div class="narrative-block" style="margin-top: 1.5rem; border-top: 1px dashed var(--color-border); padding-top: 1.5rem;">
-<span class="narrative-title">// Onboarding &amp; Friction Diagnostics</span>
-<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1rem;">
-                                    Enterprise onboarding across cybersecurity and fintech is characterized by massive technical friction, resulting in prolonged stabilization runways. In security, initial log ingestion and validated detection coverage takes <strong>8 to 12 weeks</strong>, stretching to <strong>16 weeks</strong> in highly regulated environments, with an additional <strong>6 months</strong> of use-case tuning required to establish an operational baseline. In corporate fintech, onboarding clients averages <strong>49 days</strong>, with <strong>5% to 10%</strong> of applications abandoned entirely due to manual document collection and red-tape KYC friction.
-                                </p>
-<span class="narrative-title" style="font-size: 0.8rem; opacity: 0.8; display: block; margin-bottom: 0.5rem;">[Onboarding Parameter Comparison Table]</span>
-<div class="table-wrapper" style="margin-bottom: 1.5rem;">
-<table>
-<thead>
-<tr>
-<th>Onboarding Parameter</th>
-<th>Cybersecurity Platforms (SIEM/SOAR/SOC)</th>
-<th>Fintech Platforms (Treasury/AML/KYC)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Average Technical Setup</td>
-<td>8 to 12 weeks (standard) | 6 to 12 months (self-managed)</td>
-<td>49 days (treasury client) | 6 to 12 months (core AML)</td>
-</tr>
-<tr>
-<td>Stabilization Runway</td>
-<td>6 months for tuning | 9 months for deep integration</td>
-<td>3 to 8 months for internal staff competency</td>
-</tr>
-<tr>
-<td>Key Inefficiencies</td>
-<td>Parser development, log configuration, false positive tuning</td>
-<td>Redundant data entry (61% of asks), manual KYC verification</td>
-</tr>
-<tr>
-<td>GTM Impact of Delay</td>
-<td>Continued threat exposure, security team fatigue</td>
-<td>Deferred revenue recognition, 5%-10% client application drop-off</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1rem;">
-<strong>Workflow Friction &amp; Support Costs</strong>: Alert overload in security centers (averaging 22,111 alerts per week with a 90% false-positive rate) causes analyst burnout, leading to <strong>42% to 63%</strong> of security alerts going completely uninvestigated. In fintech, friction-driven drop-off is penalized by a high <strong>$14,700 CAC</strong> for mid-market accounts. Repetitive "Tier-0" help desk tickets (such as password resets costing $70 per human incident) account for <strong>35% to 50%</strong> of overall support ticket volume. Yono bypasses these manual UI steps, completing actions via natural language in the backend at an automated cost of <strong>$0.50 to $2.37</strong> per execution.
-                                </p>
-<span class="narrative-title" style="font-size: 0.8rem; opacity: 0.8; display: block; margin-bottom: 0.5rem;">[Friction &amp; Support Metric Comparison]</span>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-<th>Friction and Support Metric</th>
-<th>Cybersecurity SOC Environments</th>
-<th>Fintech B2B Platforms</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Workflow/Alert Abandonment</td>
-<td class="highlight-mono">42% – 63% of alerts ignored</td>
-<td class="highlight-mono">7.7% – 10% onboarding abandonment</td>
-</tr>
-<tr>
-<td>Weekly Alert / Monthly Ticket Volume</td>
-<td>22,111 alerts per week (Avg. SOC)</td>
-<td>0.4 – 1.2 tickets per customer per month</td>
-</tr>
-<tr>
-<td>Primary Driver of Friction</td>
-<td>90% false-positive rate, tool sprawl</td>
-<td>Redundant data entry (61% of users), KYC collection</td>
-</tr>
-<tr>
-<td>Tier-0 Repetitive Ticket %</td>
-<td class="highlight-mono">35% – 50% of tickets</td>
-<td class="highlight-mono">35% – 40% of tickets</td>
-</tr>
-<tr>
-<td>Cost Per Human-Handled Incident</td>
-<td class="highlight-mono">$25 – $40+ ($70 password resets)</td>
-<td class="highlight-mono">$18 – $35 (SaaS) | $30 – $60 (Enterprise)</td>
-</tr>
-</tbody>
-</table>
+
+
+<div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); display: flex; justify-content: flex-end;">
+<button class="tab-btn" onclick="switchTab('phase-details-3')" style="background-color: var(--color-accent); color: white; padding: 12px 24px; font-size: 1rem;">
+                        Next Phase →
+                    </button>
 </div>
 </div>
-<!-- Platform Technical Debt & Feature Stagnation Block -->
-<div class="narrative-block" style="margin-top: 1.5rem; border-top: 1px dashed var(--color-border); padding-top: 1.5rem;">
-<span class="narrative-title">// Platform Technical Debt &amp; Legacy Architecture</span>
-<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1rem;">
-                                    Profitable SaaS platforms built before 2018 carry severe security debt. Approximately <strong>32% of codebases</strong> continue to run outdated jQuery dependencies, and many run End-of-Life (EOL) AngularJS frameworks that are vulnerable to high-severity XSS and ReDoS exploits (e.g. CVE-2024-21490 CVSS 7.5, which drives CPU utilization to 100%). With the median time to remediate security debt rising to <strong>252 days</strong>, completely refactoring these frontends is a massive bottleneck. Yono's AXP bypasses vulnerable UI layers, ingesting codebase syntax to execute backend logic natively.
-                                </p>
-<span class="narrative-title" style="font-size: 0.8rem; opacity: 0.8; display: block; margin-bottom: 0.5rem;">[Legacy Stack Component Comparison]</span>
-<div class="table-wrapper" style="margin-bottom: 1.5rem;">
-<table>
-<thead>
-<tr>
-<th>Legacy Stack Component</th>
-<th>Production Prevalence</th>
-<th>End-of-Life / Support Status</th>
-<th>Key High-Severity Security Risks</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="highlight-mono">jQuery (Pre-v3.4.0)</td>
-<td>32% of enterprise codebases | 73% of web properties</td>
-<td>Active, but 90% of instances are 4+ years out of date</td>
-<td>Cross-Site Scripting (XSS) via HTML parser (CVE-2020-11023)</td>
-</tr>
-<tr>
-<td class="highlight-mono">AngularJS (v1.x)</td>
-<td>Widespread in pre-2018 enterprise/financial portals</td>
-<td>Reached EOL on Dec 31, 2021; no official patches</td>
-<td>Regular Expression Denial of Service (ReDoS) (CVE-2024-21490)</td>
-</tr>
-<tr>
-<td class="highlight-mono">Open Source Supply Chain</td>
-<td>97% of codebases contain open-source components</td>
-<td>91% of codebases contain outdated libraries</td>
-<td>70% of critical security debt is in 3rd-party components</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1rem;">
-<strong>Feature Stagnation &amp; Net Dollar Retention (NDR)</strong>: Approximately <strong>80% of built B2B features are rarely or never used</strong>. An application's features are highly congested; users engage regularly with only 5 to 8 features out of 40–60. This discovery bottleneck directly drives NDR stagnation: companies in the bottom quartile of adoption struggle with <strong>85% to 95% NDR</strong>, whereas top-quartile performers achieve <strong>115% to 125% NDR</strong>. At scale, expansion must drive up to <strong>58% of new ARR</strong> ($50M-$100M ARR range), making Yono's natural language feature-activation capability a key NDR booster.
-                                </p>
-<span class="narrative-title" style="font-size: 0.8rem; opacity: 0.8; display: block; margin-bottom: 0.5rem;">[Product Adoption &amp; NDR Metrics]</span>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-<th>Product Adoption Metric</th>
-<th>Bottom-Quartile Performers</th>
-<th>Median SaaS Benchmark</th>
-<th>Top-Quartile / Elite Performers</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Net Dollar Retention (NDR)</td>
-<td class="highlight-mono">85% – 95%</td>
-<td class="highlight-mono">101% (Private) | 110% (Public)</td>
-<td class="highlight-mono">115% – 125% (Private) | &gt;130% (Public)</td>
-</tr>
-<tr>
-<td>Feature Adoption Rate (30-day)</td>
-<td class="highlight-mono">&lt; 35%</td>
-<td class="highlight-mono">35% – 45%</td>
-<td class="highlight-mono">60% – 70%+</td>
-</tr>
-<tr>
-<td>Month-3 User Retention Rate</td>
-<td class="highlight-mono">&lt; 2.0%</td>
-<td class="highlight-mono">3.8%</td>
-<td class="highlight-mono">18.5%+</td>
-</tr>
-<tr>
-<td>Expansion % of New ARR</td>
-<td class="highlight-mono">&lt; 25%</td>
-<td class="highlight-mono">40% overall median</td>
-<td class="highlight-mono">58% ($50M–$100M) | 67% (&gt;$100M)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border);">
-<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1rem;">
-<strong>GTM Unit Economics &amp; Scalability Projections (Theoretical Sizing Model)</strong>:
-                                        This section presents our theoretical planning targets mapped against institutional investment benchmarks (such as a 3:1 LTV:CAC threshold). 
-                                        <br/><br/>
-<span style="display: block; font-style: italic; border-left: 2px solid var(--color-accent); padding-left: 0.5rem;">
-<strong>Theoretical Model Disclaimer:</strong> These metrics are planning models designed to size operational capital requirements and scalability. They are **highly unreliable for predicting near-term financial performance** at this pre-revenue stage, where we rely on early signal rather than historical data.
-                                        </span>
-</p>
-<span class="narrative-title" style="font-size: 0.8rem; opacity: 0.8; display: block; margin-bottom: 0.5rem;">[Unit Economics &amp; CAC Sizing Projections]</span>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-<th>Metric Dimension</th>
-<th>Phase 1 (Startup Beachhead)</th>
-<th>Phase 2 (Mid-Market SaaS)</th>
-<th>Target Health Benchmark</th>
-<th>Data / Proxy Source</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Annual Contract Value (ACV)</td>
-<td class="highlight-mono">$40,000 (Flat)</td>
-<td class="highlight-mono">$40,000 (Flat)</td>
-<td>Enforced Pricing</td>
-<td>Yono standard contract pricing</td>
-</tr>
-<tr>
-<td>Model Customer Lifetime Value (LTV)</td>
-<td class="highlight-mono">$120,000</td>
-<td class="highlight-mono">$120,000</td>
-<td>Scale Sizing</td>
-<td>Assumes 3-year average customer lifetime</td>
-</tr>
-<tr>
-<td>Estimated Customer Acquisition Cost (CAC)</td>
-<td class="highlight-mono">~$5,000</td>
-<td class="highlight-mono">~$14,700</td>
-<td>Capital Efficiency</td>
-<td>GTM tooling &amp; representative headcount</td>
-</tr>
-<tr>
-<td>Projected LTV:CAC Ratio</td>
-<td class="highlight-mono">~24.0x</td>
-<td class="highlight-mono">~8.1x</td>
-<td class="highlight-mono">≥ 3.0x</td>
-<td>UpWest investment standard</td>
-</tr>
-<tr>
-<td>CAC Payback Period</td>
-<td class="highlight-mono">~1.5 Months</td>
-<td class="highlight-mono">~4.4 Months</td>
-<td class="highlight-mono">≤ 12.0 Months</td>
-<td>Industry top-quartile payback speed</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</details>
-</div><div class="phase-details" id="phase-details-3">
+<!-- Phase 3 Details -->
+<div class="phase-details hidden" id="phase-details-3">
 <div class="details-header">
 <h2 class="details-title">Phase 3: Up-Market Scale</h2>
 <span class="details-badge">Enterprise Scaling</span>
@@ -2887,71 +2219,6 @@
                             </p>
 </div>
 </div>
-<div class="metrics-dashboard" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
-<div class="dashboard-header">
-<div class="dashboard-title-block">
-<h3 class="dashboard-title">Metrics Dashboard</h3>
-<p class="dashboard-subtitle">Phase 3: Lowering Total Cost of Ownership (TCO) by reducing reliance on manual operations.</p>
-</div>
-</div>
-<div class="metrics-grid">
-<div class="metric-card">
-<div class="metric-card-top">
-<span class="metric-label">CSM Capacity Scaling</span>
-<div class="metric-icon-wrapper">
-<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-</div>
-</div>
-<div class="metric-value">$2.0M</div>
-<div class="metric-subtext">Managed ARR per CSM vs. $800k benchmark</div>
-<details class="deep-dive-drawer" style="margin-top: 1rem;">
-<summary class="deep-dive-summary" style="padding: 0.5rem 0.75rem; font-size: 0.75rem;">Metric Deep Dive</summary>
-<div class="deep-dive-inner" style="padding: 1rem;">
-<div class="details-panel-item">
-<strong>Calculation Formula</strong>
-<div class="details-panel-formula" style="margin-top: 0.25rem;">Total Supported ARR / Total CS Headcount</div>
-</div>
-<div class="details-panel-item" style="margin-top: 0.75rem;">
-<strong>What it measures</strong>
-<span>Measures the revenue coverage a single Customer Success Manager can handle when basic configuration and 'how-to' queries are automated.</span>
-</div>
-<div class="details-panel-item" style="margin-top: 0.75rem;">
-<strong>Why it matters (ROI)</strong>
-<span>Massively improves gross margins. When users execute complex onboarding paths via language, CSMs focus on strategic account expansion rather than tactical support.</span>
-</div>
-</div>
-</details>
-</div>
-<div class="metric-card">
-<div class="metric-card-top">
-<span class="metric-label">Support Ticket Deflection</span>
-<div class="metric-icon-wrapper purple">
-<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-</div>
-</div>
-<div class="metric-value">41.5%</div>
-<div class="metric-subtext">Reduction in Tier 1 'How do I...' tickets</div>
-<details class="deep-dive-drawer" style="margin-top: 1rem;">
-<summary class="deep-dive-summary" style="padding: 0.5rem 0.75rem; font-size: 0.75rem;">Metric Deep Dive</summary>
-<div class="deep-dive-inner" style="padding: 1rem;">
-<div class="details-panel-item">
-<strong>Calculation Formula</strong>
-<div class="details-panel-formula" style="margin-top: 0.25rem;">Language-Assisted Executions / Total Historic Ticket Volume</div>
-</div>
-<div class="details-panel-item" style="margin-top: 0.75rem;">
-<strong>What it measures</strong>
-<span>Tracks the drop in support tickets related to UI navigation, configuration, or finding specific features.</span>
-</div>
-<div class="details-panel-item" style="margin-top: 0.75rem;">
-<strong>Why it matters (ROI)</strong>
-<span>Direct operational cost savings. A user typing 'configure my SAML SSO with Okta' bypasses 15 minutes of digging through documentation and submitting a support ticket.</span>
-</div>
-</div>
-</details>
-</div>
-</div>
-</div>
-
 <div class="calc-card metrics-dashboard-anchor" style="margin-top: 0.25rem;">
 <h4 class="calc-title">// Sourcing &amp; Alliance Channels</h4>
 <div class="decision-flow-steps" style="margin-top: 0.5rem;">
@@ -3019,9 +2286,7 @@
 </div>
 </div>
 </details>
-</div></div>
-<!-- Phase 2 Details -->
-<!-- Phase 3 Details -->
+</div>
 </section>
 <!-- ================== SECTION 2: OPPORTUNITY COST CALCULATOR ================== -->
 <section class="tab-content hidden" id="sec-calculator">
@@ -3294,31 +2559,6 @@
 </div>
 <!-- Script Block -->
 <script>
-        function switchMainTab(tabId, event) {
-            const timeline = document.getElementById('sec-timeline');
-            const phases = document.getElementById('sec-phases');
-            if (timeline) timeline.classList.add('hidden');
-            if (phases) phases.classList.add('hidden');
-            
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            const target = document.getElementById(tabId);
-            if (target) target.classList.remove('hidden');
-            if (event && event.target) {
-                event.target.classList.add('active');
-            }
-        }
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            // Initial state
-            const timeline = document.getElementById('sec-timeline');
-            if (timeline) timeline.classList.remove('hidden');
-            const phases = document.getElementById('sec-phases');
-            if (phases) phases.classList.add('hidden');
-        });
-
-
         // Tab switching logic
         function switchTab(tabId) {
             // Hide all tab contents
