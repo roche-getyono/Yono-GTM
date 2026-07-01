@@ -1,0 +1,3732 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>YONO - GTM Strategy</title>
+<meta content="YONO Go-To-Market Playbook detailing the stealth infrastructure layer for actionable interfaces, containing commercial strategy phases, target accounts, and opportunity cost calculations." name="description"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* CSS Variables - Premium Lavender Light Theme */
+        :root {
+            --color-bg: #FAF9FC; /* Modern crisp off-white with subtle lavender tint */
+            --color-card: #FFFFFF; /* Clean white containers */
+            --color-card-hover: #FCFBFF;
+            --color-card-active: rgba(110, 86, 207, 0.05); /* Lavender brand tint */
+            --color-text-primary: #1C1924; /* High-contrast soft black/charcoal */
+            --color-text-secondary: #5C5668; /* Readable charcoal-lavender secondary text */
+            --color-accent: #6E56CF; /* Chaos Lavender */
+            --color-accent-hover: #9E8CFC; /* Chaos Light */
+            --color-success: #0E94A0; /* Light-mode readable success teal */
+            --color-warning: #CF351D; /* Light-mode readable warning red */
+            --color-border: rgba(110, 86, 207, 0.12); /* 1px border value */
+            --color-border-active: rgba(110, 86, 207, 0.35);
+            
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-mono: 'Inter', sans-serif; /* Standardizing on Inter for headings and layout */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            
+            --shadow-sm: 0 1px 3px rgba(110, 86, 207, 0.03), 0 1px 2px rgba(110, 86, 207, 0.02);
+            --shadow-md: 0 4px 16px rgba(110, 86, 207, 0.04), 0 2px 4px rgba(110, 86, 207, 0.02);
+            --shadow-lg: 0 8px 32px rgba(110, 86, 207, 0.06), 0 4px 8px rgba(110, 86, 207, 0.03);
+            --shadow-active: 0 0 0 3px rgba(110, 86, 207, 0.15);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            letter-spacing: -0.011em;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Orbs */
+        .ambient-orb-1 {
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: rgba(158, 140, 252, 0.06);
+            filter: blur(100px);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .ambient-orb-2 {
+            position: absolute;
+            bottom: 20%;
+            left: -150px;
+            width: 500px;
+            height: 500px;
+            background: rgba(110, 86, 207, 0.04);
+            filter: blur(120px);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Fine Blueprint Grid */
+        .tech-grid-bg {
+            position: absolute;
+            inset: 0;
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, rgba(110, 86, 207, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(110, 86, 207, 0.02) 1px, transparent 1px);
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        /* Layout Grid */
+        .doc-container {
+            max-width: 1240px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: relative;
+        }
+
+        /* Header block */
+        header {
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-title-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .header-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-text-primary);
+            letter-spacing: -0.03em;
+        }
+
+        .header-subtitle {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+        }
+
+        /* Introductory Section Text */
+        .section-intro {
+            font-size: 1.05rem;
+            color: var(--color-text-secondary);
+            max-width: 70ch;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Navigation Tabs (Premium Segmented Design) */
+        .tab-nav {
+            display: inline-flex;
+            background-color: rgba(110, 86, 207, 0.04);
+            border: 1px solid var(--color-border);
+            padding: 4px;
+            border-radius: var(--radius-md);
+            gap: 4px;
+            margin-bottom: 1rem;
+            align-self: flex-start;
+            overflow-x: auto;
+            max-width: 100%;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--color-text-secondary);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: calc(var(--radius-md) - 2px);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tab-btn:hover {
+            color: var(--color-accent);
+            background-color: rgba(110, 86, 207, 0.04);
+        }
+
+        .tab-btn.active {
+            color: #FFFFFF;
+            background-color: var(--color-accent);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Utility classes for tabs visibility */
+        .tab-content.hidden {
+            display: none !important;
+        }
+
+        /* Tab Content Section */
+        .tab-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Metrics Dashboard styles (Redesigned as Premium Light-Mode Card) */
+        .metrics-dashboard {
+            background-color: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            color: var(--color-text-primary);
+            box-shadow: var(--shadow-md);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .metrics-dashboard:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 1rem;
+        }
+
+        .dashboard-title-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .dashboard-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--color-text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .dashboard-subtitle {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            line-height: 1.4;
+        }
+
+        .dashboard-controls {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .simulated-dropdown {
+            background-color: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            padding: 0.5rem 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-text-secondary);
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.15s ease;
+        }
+
+        .simulated-dropdown:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            background-color: #FFFFFF;
+        }
+
+        /* Metrics Cards Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .metric-card {
+            background-color: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .metric-card:hover {
+            border-color: var(--color-accent);
+            background-color: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .metric-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.82rem;
+            color: var(--color-text-secondary);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .metric-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--color-text-primary);
+            line-height: 1.2;
+            margin-top: 0.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .metric-subtext {
+            font-size: 0.78rem;
+            color: var(--color-text-secondary);
+            margin-top: 0.1rem;
+            line-height: 1.4;
+        }
+
+        .metric-icon-wrapper {
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background-color: rgba(110, 86, 207, 0.08);
+            color: var(--color-accent);
+            border: 1px solid rgba(110, 86, 207, 0.15);
+        }
+
+        .metric-icon-wrapper.purple {
+            background-color: rgba(158, 140, 252, 0.12);
+            color: var(--color-accent-hover);
+            border: 1px solid rgba(158, 140, 252, 0.2);
+        }
+
+        /* Metric Explanation Details Panel */
+        .metric-details-panel {
+            background-color: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .details-panel-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .details-panel-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+        }
+
+        .details-column {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .details-column-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.5rem;
+        }
+
+        .details-metric-name {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .details-panel-formula {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            background-color: rgba(110, 86, 207, 0.06);
+            padding: 0.3rem 0.6rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(110, 86, 207, 0.15);
+        }
+
+        .details-panel-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .details-panel-item strong {
+            font-size: 0.72rem;
+            color: var(--color-text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .details-panel-item span {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Phase Grid & Cards */
+        .phase-grid {
+            display: grid;
+            grid-template-columns: 2fr 2fr 1fr;
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .phase-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .phase-card {
+            background-color: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 1.25rem;
+            height: 100%;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .phase-card:hover {
+            border-color: var(--color-accent-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .phase-card.active {
+            border-color: var(--color-accent);
+            background-color: var(--color-card-active);
+            box-shadow: var(--shadow-md);
+        }
+
+        .phase-card-header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .phase-card-eyebrow {
+            font-size: 0.8rem;
+            color: var(--color-text-secondary);
+            font-weight: 600;
+        }
+
+        .phase-card.active .phase-card-eyebrow {
+            color: var(--color-accent);
+        }
+
+        .phase-card-title {
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--color-text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .phase-card-time {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+        }
+
+        /* Card Profile Summary Block */
+        .phase-card-profile {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.4rem 0.75rem;
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+            padding: 0.75rem 0;
+        }
+
+        .profile-row {
+            display: contents;
+        }
+
+        .profile-row strong {
+            font-size: 0.82rem;
+            color: var(--color-text-primary);
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .profile-row span {
+            font-size: 0.82rem;
+            color: var(--color-text-secondary);
+            line-height: 1.35;
+        }
+
+        .phase-card-action {
+            margin-top: auto; /* Pushes action to card bottom */
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.15s ease;
+        }
+
+        .phase-card.active .phase-card-action {
+            color: var(--color-accent);
+        }
+
+        /* Detail Sections */
+        .phase-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .phase-details.hidden {
+            display: none !important;
+        }
+
+        .details-header {
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .details-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--color-text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .details-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--color-success);
+            background-color: rgba(14, 148, 160, 0.08);
+            border: 1px solid rgba(14, 148, 160, 0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Persona Grid & Cards */
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .persona-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .persona-card {
+            background-color: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+
+        .persona-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-accent-hover);
+        }
+
+        .persona-role {
+            font-size: 0.8rem;
+            color: var(--color-text-secondary);
+            font-weight: 600;
+        }
+
+        .persona-title-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .persona-name {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--color-text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .persona-focus {
+            font-size: 0.78rem;
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+
+        .persona-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .persona-list-item {
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+            line-height: 1.5;
+            padding-left: 0.85rem;
+            position: relative;
+        }
+
+        .persona-list-item::before {
+            content: "";
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: var(--color-accent);
+            position: absolute;
+            left: 0;
+            top: 7px;
+        }
+
+        /* Decision Chain section */
+        .decision-chain-box {
+            background-color: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .decision-chain-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-primary);
+        }
+
+        .decision-flow-steps {
+            position: relative;
+            padding-left: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .decision-flow-steps::before {
+            content: '';
+            position: absolute;
+            left: 3px;
+            top: 0.75rem;
+            bottom: 0.75rem;
+            width: 2px;
+            background-color: var(--color-border);
+            z-index: 1;
+        }
+
+        .decision-step {
+            position: relative;
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+            line-height: 1.5;
+            padding: 1rem 1.25rem;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            background-color: var(--color-card);
+            transition: all 0.2s ease;
+            z-index: 2;
+        }
+
+        .decision-step::before {
+            content: '';
+            position: absolute;
+            left: calc(-1.5rem - 2px);
+            top: 1.25rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--color-border);
+            border: 2px solid var(--color-card);
+            transition: all 0.2s ease;
+        }
+
+        .decision-step:hover {
+            border-color: var(--color-accent);
+            background-color: var(--color-card-active);
+        }
+
+        .decision-step:hover::before {
+            background-color: var(--color-accent);
+            transform: scale(1.25);
+        }
+
+        .decision-step strong {
+            color: var(--color-text-primary);
+        }
+
+        /* Layered Deep Dive Drawer */
+        details.deep-dive-drawer {
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            background-color: var(--color-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+
+        details.deep-dive-drawer[open] {
+            border-color: var(--color-accent);
+        }
+
+        summary.deep-dive-summary {
+            padding: 1rem 1.25rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            background-color: rgba(110, 86, 207, 0.02);
+            transition: background 0.15s ease;
+        }
+
+        summary.deep-dive-summary:hover {
+            background-color: rgba(110, 86, 207, 0.05);
+            color: var(--color-accent-hover);
+        }
+
+        summary.deep-dive-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary.deep-dive-summary::after {
+            content: "Double Click to Deep Dive →";
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+        }
+
+        details[open] summary.deep-dive-summary::after {
+            content: "Click to Collapse ←";
+            color: var(--color-accent);
+        }
+
+        .deep-dive-inner {
+            padding: 1.5rem;
+            border-top: 1px solid var(--color-border);
+            background-color: var(--color-bg);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Text block narrative elements */
+        .narrative-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .narrative-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-primary);
+        }
+
+        .narrative-text {
+            font-size: 0.92rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            max-width: 70ch;
+        }
+
+        /* Tables formatting */
+        .table-wrapper {
+            overflow-x: auto;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            background-color: var(--color-card);
+            box-shadow: var(--shadow-sm);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        th {
+            background-color: rgba(110, 86, 207, 0.04);
+            font-weight: 700;
+            color: var(--color-text-primary);
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            color: var(--color-text-secondary);
+            line-height: 1.45;
+        }
+
+        td.highlight-mono {
+            font-weight: 700;
+            color: var(--color-accent);
+        }
+
+        td strong {
+            color: var(--color-text-primary);
+        }
+
+        /* Calculator Layout */
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .calc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .calc-card {
+            background-color: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .calc-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.75rem;
+            color: var(--color-text-primary);
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .slider-label-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+
+        .slider-val {
+            color: var(--color-accent);
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            background: rgba(110, 86, 207, 0.08);
+            border-radius: 3px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(110, 86, 207, 0.2);
+            transition: background 0.15s ease, transform 0.1s ease;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            background: var(--color-accent-hover);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background: var(--color-accent);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(110, 86, 207, 0.2);
+            transition: background 0.15s ease, transform 0.1s ease;
+        }
+
+        input[type="range"]::-moz-range-thumb:hover {
+            transform: scale(1.15);
+            background: var(--color-accent-hover);
+        }
+
+        .slider-bounds {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.72rem;
+            color: var(--color-text-secondary);
+            font-weight: 600;
+        }
+
+        .result-rows {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+        }
+
+        .result-row.highlight {
+            border-bottom-color: var(--color-border-active);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .result-val {
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+
+        .result-val.success {
+            color: var(--color-success);
+        }
+
+        .result-val.warning {
+            color: var(--color-warning);
+        }
+
+        /* Partner Matrix */
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .partner-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .partner-card {
+            background-color: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .partner-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.75rem;
+        }
+
+        .partner-name {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--color-text-primary);
+        }
+
+        .partner-badge {
+            font-size: 0.72rem;
+            color: var(--color-accent);
+            background-color: rgba(110, 86, 207, 0.06);
+            border: 1px solid rgba(110, 86, 207, 0.15);
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--radius-sm);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .partner-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .partner-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .partner-topic {
+            font-size: 0.78rem;
+            color: var(--color-text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+        }
+
+        .partner-pitch {
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Funnel and Process Pipeline Styles */
+        .funnel-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            overflow-x: auto;
+            padding: 0.5rem 0;
+        }
+        .funnel-stage {
+            flex: 1;
+            background-color: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            padding: 1.25rem 0.75rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            min-width: 115px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .funnel-stage:not(:last-child)::after {
+            content: "→";
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-accent);
+            font-weight: 700;
+            font-size: 1.15rem;
+            z-index: 2;
+        }
+        .funnel-stage::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 3px;
+            background-color: var(--color-border-active);
+            border-radius: 2px;
+            opacity: 0.5;
+            transition: all 0.2s ease;
+        }
+        .funnel-stage:nth-child(1)::before { width: 90%; }
+        .funnel-stage:nth-child(2)::before { width: 75%; }
+        .funnel-stage:nth-child(3)::before { width: 55%; }
+        .funnel-stage:nth-child(4)::before { width: 35%; }
+        .funnel-stage:nth-child(5)::before { width: 20%; }
+        .funnel-stage:nth-child(6)::before { width: 10%; }
+        
+        .funnel-stage.closed::before {
+            background-color: var(--color-accent);
+            opacity: 1;
+            height: 4px;
+        }
+        @media (max-width: 768px) {
+            .funnel-container {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1.5rem;
+            }
+            .funnel-stage:not(:last-child)::after {
+                content: "↓";
+                right: auto;
+                left: 50%;
+                bottom: -18px;
+                top: auto;
+                transform: translateX(-50%);
+            }
+        }
+        .funnel-stage-name {
+            font-size: 0.72rem;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+        }
+        .funnel-stage.closed .funnel-stage-name {
+            color: var(--color-accent);
+        }
+        .funnel-stage-value {
+            font-size: 1.35rem;
+            font-weight: 850;
+            color: var(--color-text-primary);
+        }
+        .funnel-stage.closed .funnel-stage-value {
+            color: var(--color-accent);
+        }
+        .funnel-stage-conversion {
+            font-size: 0.68rem;
+            color: var(--color-text-secondary);
+            display: block;
+            margin: 0.25rem auto 0 auto;
+            font-weight: 600;
+        }
+        .funnel-stage.closed .funnel-stage-conversion {
+            color: var(--color-accent);
+            font-weight: 750;
+        }
+        .process-flow {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+        @media (max-width: 1024px) {
+            .process-flow {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .process-flow {
+                grid-template-columns: 1fr;
+            }
+        }
+        .process-step {
+            background-color: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-top: 3px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+        .process-step:hover {
+            border-top-color: var(--color-accent);
+            border-color: var(--color-accent) var(--color-border) var(--color-border) var(--color-border);
+            transform: translateY(-1px);
+        }
+        .process-step-num {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .process-step-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--color-text-primary);
+        }
+        .process-step-desc {
+            font-size: 0.82rem;
+            color: var(--color-text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Style the inline grid items in Phase 3 */
+        div[style*="grid-template-columns: repeat(3, 1fr)"] > div {
+            border-top: 3px solid var(--color-border) !important;
+            transition: all 0.2s ease;
+        }
+
+        div[style*="grid-template-columns: repeat(3, 1fr)"] > div:hover {
+            border-top-color: var(--color-accent) !important;
+            border-color: var(--color-accent) var(--color-border) var(--color-border) var(--color-border) !important;
+        }
+
+        /* Interactive Timeline & Chart Container Styles */
+        .timeline-section-container {
+            background-color: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.2s ease;
+        }
+        .timeline-section-container:hover {
+            box-shadow: var(--shadow-lg);
+        }
+        .timeline-card-header {
+            padding: 1.5rem 1.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            background-color: #FFFFFF;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .timeline-header-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+        .timeline-eyebrow {
+            font-size: 0.8rem;
+            color: var(--color-accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .timeline-heading {
+            font-size: 1.45rem;
+            font-weight: 850;
+            color: var(--color-text-primary);
+            margin: 0;
+            letter-spacing: -0.03em;
+        }
+        .timeline-subheading {
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+            margin: 0;
+            line-height: 1.4;
+        }
+        .timeline-toggle-btn {
+            background: rgba(110, 86, 207, 0.06);
+            border: 1px solid var(--color-border);
+            color: var(--color-accent);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 0.55rem 1.15rem;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .timeline-toggle-btn:hover {
+            background-color: rgba(110, 86, 207, 0.12);
+            border-color: var(--color-accent);
+        }
+        .toggle-arrow {
+            transition: transform 0.2s ease;
+        }
+        .timeline-stepper-wrapper {
+            padding: 1.5rem 2rem;
+            background-color: #FFFFFF;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .timeline-stepper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        .stepper-line {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: var(--color-border);
+            z-index: 1;
+        }
+        .step-dot {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+            width: 25%;
+            min-width: 80px;
+            max-width: 100px;
+            text-align: center;
+        }
+        .dot-inner {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #FFFFFF;
+            border: 3px solid var(--color-border);
+            transition: all 0.2s ease;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 0 0 2px transparent;
+        }
+        .step-dot:hover .dot-inner {
+            border-color: var(--color-accent-hover);
+        }
+        .step-dot.active .dot-inner {
+            border-color: var(--color-accent);
+            background-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(110, 86, 207, 0.15);
+        }
+        .step-label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--color-text-secondary);
+            transition: color 0.2s ease;
+            display: block;
+        }
+        .step-dot.active .step-label {
+            color: var(--color-accent);
+        }
+        .step-date {
+            font-size: 0.72rem;
+            color: var(--color-text-secondary);
+            display: block;
+            margin-top: 0.1rem;
+            font-weight: 500;
+        }
+        .timeline-drawer-content {
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease-in-out;
+            max-height: 2000px;
+            opacity: 1;
+            overflow: hidden;
+        }
+        .timeline-drawer-content.collapsed {
+            max-height: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .timeline-grid-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background-color: var(--color-bg);
+        }
+        .chart-container-card {
+            background: #FFFFFF;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--shadow-sm);
+        }
+        .chart-title-header {
+            font-size: 0.8rem;
+            color: var(--color-text-primary);
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .chart-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 240px;
+        }
+        .stacked-bar-svg {
+            overflow: visible;
+        }
+        .bar-group {
+            cursor: pointer;
+        }
+        .bar-group rect {
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            transform-origin: bottom;
+        }
+        .bar-group:hover rect {
+            opacity: 1 !important;
+        }
+        .bar-group.active rect {
+            opacity: 1 !important;
+            stroke: var(--color-accent);
+            stroke-width: 1.5px;
+        }
+        .chart-legend {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.25rem;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+        }
+        .legend-color-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .legend-color-dot.startups {
+            background-color: var(--color-accent);
+        }
+        .legend-color-dot.midmarket {
+            background-color: var(--color-success);
+        }
+        .details-container-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* Subphase details card inside the timeline grid */
+        .subphase-details-card {
+            background-color: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            height: 100%;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .subphase-card-header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.75rem;
+        }
+
+        .subphase-badge {
+            align-self: flex-start;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            background-color: rgba(110, 86, 207, 0.06);
+            border: 1px solid rgba(110, 86, 207, 0.15);
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--radius-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .subphase-title {
+            font-size: 1.25rem;
+            font-weight: 850;
+            color: var(--color-text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .subphase-meta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.85rem 1.25rem;
+        }
+
+        @media (max-width: 480px) {
+            .subphase-meta-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .meta-label {
+            font-size: 0.72rem;
+            color: var(--color-text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .meta-value {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+
+        .subphase-activities-section {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .activities-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-primary);
+        }
+
+        .activities-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .activities-list-item {
+            font-size: 0.82rem;
+            color: var(--color-text-secondary);
+            line-height: 1.45;
+            padding-left: 0.85rem;
+            position: relative;
+        }
+
+        .activities-list-item::before {
+            content: "•";
+            color: var(--color-accent);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .view-phase-3-container {
+            margin-top: auto;
+            border-top: 1px solid var(--color-border);
+            padding-top: 1rem;
+        }
+
+        .phase-3-view-btn {
+            width: 100%;
+            background: rgba(14, 148, 160, 0.06);
+            border: 1px solid rgba(14, 148, 160, 0.15);
+            color: var(--color-success);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.65rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .phase-3-view-btn:hover {
+            background-color: rgba(14, 148, 160, 0.12);
+            border-color: var(--color-success);
+        }
+
+        /* Main Layout Grid & Sidebar TOC Index Styles */
+        .main-layout-grid {
+            display: grid;
+            grid-template-columns: 50px 1fr;
+            gap: 2rem;
+            align-items: start;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .sidebar-index {
+            position: sticky;
+            top: 6rem;
+            align-self: start;
+            width: 50px;
+            z-index: 100;
+        }
+        
+        .sidebar-index-sticky {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        
+        .sidebar-index-title {
+            display: none; /* Hide title to keep it extremely clean */
+        }
+        
+        .sidebar-links-list {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.25rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        /* Vertical track line */
+        .sidebar-links-list::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            bottom: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            background-color: var(--color-border);
+            z-index: 1;
+        }
+        
+        .sidebar-link-item {
+            display: block;
+            position: relative;
+        }
+        
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            position: relative;
+            cursor: pointer;
+            z-index: 2;
+            width: 24px;
+            height: 24px;
+        }
+        
+        .sidebar-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--color-bg);
+            border: 2px solid var(--color-border);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            display: block;
+            box-sizing: border-box;
+        }
+        
+        .sidebar-link:hover .sidebar-dot {
+            border-color: var(--color-accent);
+            transform: scale(1.2);
+            background-color: var(--color-bg);
+        }
+        
+        .sidebar-link.active .sidebar-dot {
+            background-color: var(--color-accent);
+            border-color: var(--color-accent);
+            transform: scale(1.3);
+            box-shadow: 0 0 0 4px rgba(110, 86, 207, 0.2);
+        }
+        
+        .sidebar-label {
+            position: absolute;
+            left: 32px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            background: #FFFFFF;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            padding: 0.35rem 0.65rem;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(-8px) scale(0.95);
+            transform-origin: left center;
+            pointer-events: none;
+            box-shadow: var(--shadow-md);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Expand individual label on link hover */
+        .sidebar-link:hover .sidebar-label {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            pointer-events: auto;
+        }
+        
+        /* Expand all labels when hovering over the entire sidebar area */
+        .sidebar-index:hover .sidebar-label {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            pointer-events: auto;
+        }
+        
+        .main-content-wrapper {
+            min-width: 0;
+            flex-grow: 1;
+        }
+        
+        @media (max-width: 992px) {
+            .main-layout-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .sidebar-index {
+                display: none !important;
+            }
+        }
+
+        /* Print utility overrides */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background-color: #ffffff;
+                color: #000000;
+            }
+            .doc-container {
+                padding: 0;
+                max-width: 100%;
+            }
+            .persona-card, .calc-card, .partner-card, .metrics-dashboard, details.deep-dive-drawer {
+                border-color: #000000 !important;
+                background-color: #ffffff !important;
+                color: #000000 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="tech-grid-bg"></div>
+<div class="ambient-orb-1"></div>
+<div class="ambient-orb-2"></div>
+<div class="doc-container">
+<h1 class="header-title" style="font-size: 1.8rem; font-weight: 850; margin-bottom: 0.5rem; color: var(--color-text-primary);"><span style="color: var(--color-accent);">YONO</span> - GTM Strategy</h1>
+<!-- Navigation Tabs -->
+<nav class="tab-nav no-print">
+<button class="tab-btn active" id="tab-btn-phases" onclick="switchTab('phases')">
+                1. GTM Phases
+            </button>
+<button class="tab-btn" id="tab-btn-calculator" onclick="switchTab('calculator')">
+                2. Opportunity Cost Calculator
+            </button>
+<button class="tab-btn" id="tab-btn-targets" onclick="switchTab('targets')">
+                3. Target Accounts &amp; Funnel
+            </button>
+<button class="tab-btn" id="tab-btn-economics" onclick="switchTab('economics')">
+                4. Unit Economics &amp; CAC
+            </button>
+</nav>
+<!-- Main Layout Grid (Two Columns: Sidebar + Content) -->
+<div class="main-layout-grid">
+<!-- Sidebar Navigation Index (Left Side) -->
+<aside class="sidebar-index no-print">
+<div class="sidebar-index-sticky">
+<span class="sidebar-index-title">// Section Index</span>
+<ul class="sidebar-links-list" id="sidebar-links-list">
+<!-- Loaded dynamically via JS -->
+</ul>
+</div>
+</aside>
+<div class="main-content-wrapper">
+<!-- Main Content Container -->
+<div id="content-container">
+<!-- ================== SECTION 1: GTM PHASES ================== -->
+<section class="tab-content" id="sec-phases">
+<!-- GTM Interactive Timeline (Always Open, Only in Phases Tab) -->
+<div class="timeline-section-container" id="sec-timeline">
+<div class="timeline-card-header">
+<div class="timeline-header-text">
+<span class="timeline-eyebrow">// GTM Interactive Timeline</span>
+<h2 class="timeline-heading">Interactive Client Progression &amp; Cohort Mixture</h2>
+<p class="timeline-subheading">Track customer progression and product objectives across the 16-month funding period.</p>
+</div>
+</div>
+<div class="timeline-drawer-content" id="timeline-drawer-content">
+<div class="timeline-grid-layout">
+<div class="chart-container-card">
+<h3 class="chart-title-header">// Customer Cohort Growth &amp; Mix (M1-M16)</h3>
+<div class="chart-wrapper">
+<svg class="stacked-bar-svg" height="240" viewbox="0 0 400 240" width="100%">
+<!-- Gridlines (Scaled at 3.2px per account, max 50, ticks at 0, 10, 20, 30, 40, 50) -->
+<line stroke="rgba(110,86,207,0.06)" stroke-dasharray="4 4" stroke-width="1" x1="50" x2="370" y1="40" y2="40"></line>
+<line stroke="rgba(110,86,207,0.06)" stroke-dasharray="4 4" stroke-width="1" x1="50" x2="370" y1="72" y2="72"></line>
+<line stroke="rgba(110,86,207,0.06)" stroke-dasharray="4 4" stroke-width="1" x1="50" x2="370" y1="104" y2="104"></line>
+<line stroke="rgba(110,86,207,0.06)" stroke-dasharray="4 4" stroke-width="1" x1="50" x2="370" y1="136" y2="136"></line>
+<line stroke="rgba(110,86,207,0.06)" stroke-dasharray="4 4" stroke-width="1" x1="50" x2="370" y1="168" y2="168"></line>
+<line stroke="var(--color-border)" stroke-width="1" x1="50" x2="370" y1="200" y2="200"></line>
+<!-- Y-Axis Labels -->
+<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="end" x="40" y="44">50</text>
+<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="end" x="40" y="76">40</text>
+<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="end" x="40" y="108">30</text>
+<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="end" x="40" y="140">20</text>
+<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="end" x="40" y="172">10</text>
+<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="end" x="40" y="204">0</text>
+<!-- Bars -->
+<!-- 1A: 3 Startups (H=10px, Y=190) -->
+<g class="bar-group active" id="bar-1A" onclick="selectSubPhase('1A', event)">
+<rect fill="var(--color-accent)" height="10" opacity="0.85" rx="3" width="40" x="80" y="190"></rect>
+<text fill="var(--color-accent)" font-family="var(--font-sans)" font-size="10" font-weight="700" text-anchor="middle" x="100" y="182">3</text>
+</g>
+<!-- 1B: 8 Startups (H=26px, Y=174) -->
+<g class="bar-group" id="bar-1B" onclick="selectSubPhase('1B', event)">
+<rect fill="var(--color-accent)" height="26" opacity="0.85" rx="3" width="40" x="160" y="174"></rect>
+<text fill="var(--color-accent)" font-family="var(--font-sans)" font-size="10" font-weight="700" text-anchor="middle" x="180" y="166">8</text>
+</g>
+<!-- 2A: 10 SMB (H=32px, Y=130) + 12 MM (H=38px, Y=162) = 22 Total — $1.0M ARR -->
+<g class="bar-group" id="bar-2A" onclick="selectSubPhase('2A', event)">
+<rect fill="var(--color-success)" height="38" opacity="0.85" rx="3" width="40" x="240" y="162"></rect>
+<rect fill="var(--color-accent)" height="32" opacity="0.85" rx="3" width="40" x="240" y="130"></rect>
+<text fill="var(--color-text-primary)" font-family="var(--font-sans)" font-size="10" font-weight="700" text-anchor="middle" x="260" y="122">22</text>
+</g>
+<!-- 2B: 11 SMB (H=35px, Y=88) + 24 MM (H=77px, Y=123) = 35 Total — Post-$1M Scale -->
+<g class="bar-group" id="bar-2B" onclick="selectSubPhase('2B', event)">
+<rect fill="var(--color-success)" height="77" opacity="0.85" rx="3" width="40" x="320" y="123"></rect>
+<rect fill="var(--color-accent)" height="35" opacity="0.85" rx="3" width="40" x="320" y="88"></rect>
+<text fill="var(--color-text-primary)" font-family="var(--font-sans)" font-size="10" font-weight="700" text-anchor="middle" x="340" y="80">35</text>
+</g>
+<!-- X-Axis Labels -->
+<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="middle" x="100" y="222">1A (M1-3)</text>
+<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="middle" x="180" y="222">1B (M4-6)</text>
+<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="middle" x="260" y="222">2A (M7-12)</text>
+<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="middle" x="340" y="222">2B (M13-16)</text>
+</svg>
+</div>
+<!-- Clickable Selection Stepper (Positioned under the chart) -->
+<div class="timeline-stepper" style="margin: 0.5rem auto 1rem auto; padding: 0 0.5rem;">
+<div class="stepper-line"></div>
+<div class="step-dot active" id="step-dot-1A" onclick="selectSubPhase('1A', event)">
+<div class="dot-inner"></div>
+<span class="step-label">1A: Beachhead</span>
+<span class="step-date">Months 1-3</span>
+</div>
+<div class="step-dot" id="step-dot-1B" onclick="selectSubPhase('1B', event)">
+<div class="dot-inner"></div>
+<span class="step-label">1B: Validation</span>
+<span class="step-date">Months 4-6</span>
+</div>
+<div class="step-dot" id="step-dot-2A" onclick="selectSubPhase('2A', event)">
+<div class="dot-inner"></div>
+<span class="step-label">2A: MM Launch</span>
+<span class="step-date">Months 7-12</span>
+</div>
+<div class="step-dot" id="step-dot-2B" onclick="selectSubPhase('2B', event)">
+<div class="dot-inner"></div>
+<span class="step-label">2B: MM Scale</span>
+<span class="step-date">Months 13-16</span>
+</div>
+</div>
+<div class="chart-legend">
+<div class="legend-item">
+<span class="legend-color-dot startups"></span>
+<span class="legend-text">Startups (DevOps &amp; Cyber)</span>
+</div>
+<div class="legend-item">
+<span class="legend-color-dot midmarket"></span>
+<span class="legend-text">Mid-Market SaaS</span>
+</div>
+</div>
+</div>
+<div class="details-container-card" id="subphase-details-container">
+<!-- Rendered dynamically via JS on load -->
+</div>
+</div>
+</div>
+</div>
+<!-- Dynamic Telemetry Dashboard (Styled from User's Actual Metrics Dashboard) -->
+<div class="metrics-dashboard">
+<div class="dashboard-header">
+<div class="dashboard-title-block">
+<h3 class="dashboard-title" style="margin: 0;">Metrics Dashboard</h3>
+<span class="dashboard-subtitle" id="dashboard-subtitle-text" style="margin-top: 0.25rem;">Core platform analytics mapped to GTM strategic objectives.</span>
+</div>
+<!-- Simulated Dropdowns matching screenshot -->
+<div class="dashboard-controls no-print">
+<div class="simulated-dropdown">
+<span>Last 30 days</span>
+<svg fill="none" height="6" stroke="currentColor" stroke-width="1.5" viewbox="0 0 10 6" width="10">
+<path d="M1 1L5 5L9 1" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="simulated-dropdown">
+<span>Daily</span>
+<svg fill="none" height="6" stroke="currentColor" stroke-width="1.5" viewbox="0 0 10 6" width="10">
+<path d="M1 1L5 5L9 1" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Two KPI Cards matching Ryed Admin App -->
+<div class="metrics-grid">
+<!-- Card 1 -->
+<div class="metric-card" id="metric-card-1">
+<div class="metric-card-top">
+<span class="metric-label" id="metric-label-1">Clicks Saved per Task</span>
+<div class="metric-icon-wrapper blue" id="metric-icon-wrapper-1">
+<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="16">
+<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+<circle cx="9" cy="7" r="4"></circle>
+<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+</svg>
+</div>
+</div>
+<span class="metric-value" id="metric-value-1">24 Clicks</span>
+<span class="metric-subtext" id="metric-subtext-1">average per task workflow</span>
+</div>
+<!-- Card 2 -->
+<div class="metric-card" id="metric-card-2">
+<div class="metric-card-top">
+<span class="metric-label" id="metric-label-2">AST Schema Generation Time</span>
+<div class="metric-icon-wrapper purple" id="metric-icon-wrapper-2">
+<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="16">
+<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+</svg>
+</div>
+</div>
+<span class="metric-value" id="metric-value-2">96 Minutes</span>
+<span class="metric-subtext" id="metric-subtext-2">from GitHub repository connection to live frontend execution sandbox</span>
+</div>
+</div>
+<!-- Metric Explanation Details Panel -->
+<div class="metric-details-panel">
+<div class="details-panel-grid">
+<!-- Column 1 -->
+<div class="details-column">
+<div class="details-column-header">
+<span class="details-metric-name" id="details-metric-name-1">Clicks Saved per Task</span>
+<span class="details-panel-formula" id="details-metric-formula-1">Manual UI Steps - Yono Language Steps</span>
+</div>
+<div class="details-panel-item">
+<strong>What:</strong>
+<span id="details-metric-what-1">Tracks the number of manual clicks and form fields bypassed by using natural language actions.</span>
+</div>
+<div class="details-panel-item">
+<strong>Why:</strong>
+<span id="details-metric-why-1">Directly measures user friction reduction and speed to value, driving product engagement.</span>
+</div>
+</div>
+<!-- Column 2 -->
+<div class="details-column">
+<div class="details-column-header">
+<span class="details-metric-name" id="details-metric-name-2">AST Schema Generation Time</span>
+<span class="details-panel-formula" id="details-metric-formula-2">Connection to Sandbox Execution</span>
+</div>
+<div class="details-panel-item">
+<strong>What:</strong>
+<span id="details-metric-what-2">Tracks the time from initial GitHub repository connection to the creation of a verified AST schema and live sandbox execution.</span>
+</div>
+<div class="details-panel-item">
+<strong>Why:</strong>
+<span id="details-metric-why-2">An empirical measurement of setup velocity, proving that Yono reverse-engineers codebase logic automatically, saving devs from months of manual API mapping and backend wrapper development. [⚠️ Aim: less than 12 hours]</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Phase 1 Details -->
+<div class="tab-content hidden" id="sec-phases" style="display:flex; flex-direction:column; gap:4rem; margin-top:2rem;"><div class="phase-details" id="phase-details-1">
+<div class="details-header">
+<h2 class="details-title">Phase 1: Startup Urgency (Months 1-6)</h2>
+<span class="details-badge">Reference Proof Engine</span>
+</div>
+<div class="calc-grid">
+<div class="calc-card">
+<h4 class="calc-title">// Target Cohort &amp; ICP Sizing</h4>
+<div class="result-rows" style="gap: 0.5rem; margin-top: 0.5rem;">
+<div class="result-row">
+<span>Total Verified ICP Startups</span>
+<strong class="result-val" style="color: var(--color-accent);">220 Companies</strong>
+</div>
+<div class="result-row">
+<span>San Francisco Bay Area</span>
+<span class="result-val">135 active (Series A–C DevOps &amp; Cyber)</span>
+</div>
+<div class="result-row">
+<span>New York Metropolitan Area</span>
+<span class="result-val">85 active (Series A–C DevOps &amp; Cyber)</span>
+</div>
+<div class="result-row" style="border-bottom: none; margin-bottom: 0.25rem;">
+<span>Phase 1 Bottoms-Up TAM</span>
+<strong class="result-val" style="color: var(--color-accent);">$8,800,000 USD</strong>
+</div>
+</div>
+<div class="table-wrapper" style="margin-top: 0.5rem; font-size: 0.75rem;">
+<table style="width: 100%;">
+<thead>
+<tr>
+<th>Location</th>
+<th>Count (N)</th>
+<th>ACV</th>
+<th>TAM Estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SF Bay Area</td>
+<td class="highlight-mono">135</td>
+<td class="highlight-mono">$40,000</td>
+<td class="highlight-mono">$5,400,000</td>
+</tr>
+<tr>
+<td>NYC Metro</td>
+<td class="highlight-mono">85</td>
+<td class="highlight-mono">$40,000</td>
+<td class="highlight-mono">$3,400,000</td>
+</tr>
+<tr style="font-weight: bold; border-top: 1.5px solid var(--color-border);">
+<td>Total Universe</td>
+<td class="highlight-mono">220</td>
+<td class="highlight-mono">$40,000</td>
+<td class="highlight-mono">$8,800,000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="calc-card">
+<h4 class="calc-title">// Target Cohort Criteria</h4>
+<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-top: 0.5rem; margin-bottom: 0.5rem;">
+<strong>Criteria</strong>: US-based B2B SaaS startups in the DevOps and Cybersecurity sectors at Series A–C stages with 50–300 employees (equivalent to an estimated 20–100 R&amp;D headcount) and $2M–$20M ARR.
+                            </p>
+<p class="narrative-text" style="font-size: 0.8rem; line-height: 1.5; color: var(--color-text-secondary); margin-top: 0.5rem; font-style: italic; border-left: 2px solid var(--color-accent); padding-left: 0.5rem;">
+<strong>ARR Proxy Note</strong>: Calibrated via a standard $150K–$200K ARR per employee benchmark. Headcounts are programmatically triangulated with VC funding history to bypass pre-revenue overhiring anomalies (e.g., Upwind Security, Eon).
+                            </p>
+</div>
+</div>
+<div class="calc-card metrics-dashboard-anchor" style="margin-top: 0.25rem;">
+<h4 class="calc-title">// ICP Selection Rationale (Why this ICP?)</h4>
+<div class="decision-flow-steps" style="margin-top: 0.5rem;">
+<div class="decision-step" style="border-left-color: var(--color-accent);">
+<strong>Feedback from the Field:</strong> Direct discovery with ~80 target companies confirms that DevOps and Cybersecurity teams experience the most acute UI friction and show the highest interest. Backed by a $100K active DevOps pilot in SF and 3 cybersecurity verbal agreements.
+                            </div>
+<div class="decision-step" style="border-left-color: var(--color-accent);">
+<strong>Onboarding Speed &amp; PLG Conversion:</strong> In developer and security tools, onboarding speed is the primary driver of self-serve conversion. Every 10 minutes of delay in Time-to-Value (TTV) reduces trial-to-paid conversion by 8%. Yono's sandboxes bypass setup friction, driving users directly to primary activation where Day 30 retention climbs from 8.2% to 47.3%.
+                            </div>
+<div class="decision-step" style="border-left-color: var(--color-accent);">
+<strong>Complex Product Agility:</strong> DevOps and Cybersecurity products are highly complex. Yono brings operational agility to these environments, letting users execute workflows in plain language instead of manual navigation.
+                            </div>
+<div class="decision-step" style="border-left-color: var(--color-accent); border-bottom: none;">
+<strong>Technical Support Economics:</strong> DevOps and Cyber platforms require highly specialized, expensive technical support, making human customer success scaling cost-prohibitive. Yono resolves this by automating post-sale operations, enabling technical startups to scale capacity to a lean $2.0M managed ARR per CSM coverage ratio.
+                            </div>
+</div>
+</div>
+<!-- Sourcing Sequence Card -->
+<div class="calc-card" style="margin-top: 0.25rem;">
+<h4 class="calc-title">// Sourcing Sequence (How we get to them)</h4>
+<div class="decision-flow-steps">
+<div class="decision-step">
+<strong>Step 1: Warm Network Introductions:</strong> Map and leverage the founder's extensive network and founder contacts in the US market to secure warm entry points directly to CEOs and CPOs.
+                            </div>
+<div class="decision-step">
+<strong>Step 2: Hiring Trigger Scrapes:</strong> Programmatically scrape LinkedIn, GitHub, and job boards for target companies listing roles like "AI Product Manager," "Copilot Engineer," or "AI UI Developer."
+                            </div>
+<div class="decision-step">
+<strong>Step 3: Trigger-Based Outreach &amp; Yono Lite:</strong> Monitor recent funding alerts and hiring triggers to launch immediate outreach, using 'Yono Lite' (our interactive sandbox demo) to show instant frontend value.
+                            </div>
+</div>
+</div>
+<!-- Target Pipeline Funnel -->
+<div class="calc-card" style="margin-top: 0.25rem;">
+<h4 class="calc-title">// Conversion Funnel Pipeline (Target: Close 8 Accounts)</h4>
+<div style="font-size: 0.8rem; color: var(--color-text-secondary); margin-bottom: 0.5rem; line-height: 1.4;">
+                            To secure 8 closed accounts (8 Startups), we run a targeted outreach sequence approaching 200 companies. The funnel operates at: <strong>15.0% demo/meeting rate</strong> → <strong>33.3% pilot rate</strong> → <strong>80.0% signature rate</strong>.
+                        </div>
+<div class="funnel-container">
+<div class="funnel-stage">
+<span class="funnel-stage-name">1. Segment Pool</span>
+<span class="funnel-stage-value">245</span>
+<span class="funnel-stage-conversion">Target Segment</span>
+</div>
+<div class="funnel-stage">
+<span class="funnel-stage-name">2. Approached</span>
+<span class="funnel-stage-value">200</span>
+<span class="funnel-stage-conversion">81.6% Contact Rate</span>
+</div>
+<div class="funnel-stage">
+<span class="funnel-stage-name">3. Demos / Meetings</span>
+<span class="funnel-stage-value">30</span>
+<span class="funnel-stage-conversion">15.0% Meeting Rate</span>
+</div>
+<div class="funnel-stage">
+<span class="funnel-stage-name">4. Pilots / POVs</span>
+<span class="funnel-stage-value">10</span>
+<span class="funnel-stage-conversion">33.3% Pilot Rate</span>
+</div>
+<div class="funnel-stage closed">
+<span class="funnel-stage-name">5. Closed Accounts</span>
+<span class="funnel-stage-value">8</span>
+<span class="funnel-stage-conversion">80.0% Close Rate</span>
+</div>
+</div>
+</div>
+<!-- Sales Execution Process -->
+<div class="calc-card" style="margin-top: 0.25rem;">
+<h4 class="calc-title">// Step-by-Step Sales Execution &amp; Internal Closing Flow</h4>
+<div class="process-flow">
+<div class="process-step">
+<span class="process-step-num">Step 1</span>
+<span class="process-step-title">Targeting &amp; Triggers</span>
+<span class="process-step-desc"><strong>Signals</strong>: Scrape active job posts (AI PM, Copilot Developer) and funding announcements for Series A-C DevOps/Cyber startups.</span>
+</div>
+<div class="process-step">
+<span class="process-step-num">Step 2</span>
+<span class="process-step-title">Outreach &amp; Intro</span>
+<span class="process-step-desc"><strong>Approach</strong>: Leverage US founder networks and warm contacts to secure referrals directly to the CEO/CPO.</span>
+</div>
+<div class="process-step">
+<span class="process-step-num">Step 3</span>
+<span class="process-step-title">Demo &amp; Yono Lite</span>
+<span class="process-step-desc"><strong>Selling Tool</strong>: Present a pre-configured Yono Lite frontend sandbox to show automated UI execution to the CPO/CEO.</span>
+</div>
+<div class="process-step">
+<span class="process-step-num">Step 4</span>
+<span class="process-step-title">Zero-DB Pilot</span>
+<span class="process-step-desc"><strong>Internal Process</strong>: Run a 2-week local sandbox pilot. Bypasses databases to avoid security friction and accelerate validation.</span>
+</div>
+<div class="process-step">
+<span class="process-step-num">Step 5</span>
+<span class="process-step-title">Contract Close</span>
+<span class="process-step-desc"><strong>Mechanics</strong>: Secure signed startup agreements ($40K ARR).</span>
+</div>
+</div>
+</div>
+
+<!-- Collapsible details for pros/cons and timelines -->
+<details class="deep-dive-drawer">
+<summary class="deep-dive-summary">Phase 1 Deep Dive: Sourcing Index &amp; Timeline Roadmap</summary>
+<div class="deep-dive-inner">
+<div class="narrative-block">
+<span class="narrative-title">// Sourcing Index (3 Examples)</span>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Target Account</th>
+<th>Location</th>
+<th>Funding Round</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Kodem</td><td>New York, NY</td><td>Series A ($18.0M) – April 23, 2026</td></tr>
+<tr><td>Artemis</td><td>New York, NY</td><td>Series A ($70.0M) – April 15, 2026</td></tr>
+<tr><td>depthfirst</td><td>San Francisco, CA</td><td>Series B ($80.0M) – March 31, 2026</td></tr>
+
+
+
+
+
+
+
+</tbody>
+</table>
+</div>
+</div>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th style="width: 15%;">Month</th>
+<th style="width: 30%;">Milestone Focus</th>
+<th>Key Directives</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="highlight-mono">Months 1-2</td><td><strong>Gated Ingestion</strong></td><td>Deploy core AST codebase compiler. Ingest startup codebases as early startups to refine compiler handling.</td></tr>
+<tr><td class="highlight-mono">Month 3</td><td><strong>LOI Conversion</strong></td><td>Silicon Valley sales roadshow. Convert active pilots, including our DevOps pilot $100K LOI, into signed startup agreements.</td></tr>
+<tr><td class="highlight-mono">Months 4-6</td><td><strong>Pipeline Maturation &amp; Closing</strong></td><td>Mature active pipeline and close remaining target accounts to secure our initial cohort of startups and early commercial deals.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- Onboarding Diagnostics Block -->
+<div class="narrative-block" style="margin-top: 1.5rem; border-top: 1px dashed var(--color-border); padding-top: 1.5rem;">
+<span class="narrative-title">// Onboarding Diagnostics (0-90 Day Early Churn vs. PMF)</span>
+<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1rem;">
+                                    Failed onboarding is the single largest driver of early customer churn, accounting for <strong>40% to 60%</strong> of all B2B SaaS cancellations. Approximately <strong>43% of logo churn</strong> in mid-market/SMB accounts occurs within the first 90 days. Users who do not perform a core product action within the first 72 hours of signup carry a <strong>90% probability of eventual churn</strong>.
+                                </p>
+<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1rem;">
+<strong>PMF Cohort Baseline</strong>: A healthy cohort retention curve stabilizes at Month 3, flattening around 60%. Continuous linear decay without stabilization indicates a core PMF deficiency rather than onboarding friction. To defend against involuntary credit card failure (accounting for 20%-40% of mid-market churn), Yono deploys a structured dunning sequence.
+                                </p>
+<span class="narrative-title" style="font-size: 0.8rem; opacity: 0.8; display: block; margin-bottom: 0.5rem;">[21-Day Dunning &amp; Revenue Recovery Sequence]</span>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Timeline</th>
+<th>Action Triggered</th>
+<th>Communication Channel</th>
+<th>Primary Objective</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="highlight-mono">Day 0</td>
+<td>Payment failure detected</td>
+<td>Automated notification email</td>
+<td>Immediate alert with embedded update link</td>
+</tr>
+<tr>
+<td class="highlight-mono">Day 3</td>
+<td>Second payment retry</td>
+<td>Second automated email</td>
+<td>Escalate urgency and billing discrepancy alert</td>
+</tr>
+<tr>
+<td class="highlight-mono">Day 7</td>
+<td>Third payment retry</td>
+<td>Personalized outreach</td>
+<td>Warning of automated account suspension</td>
+</tr>
+<tr>
+<td class="highlight-mono">Day 14</td>
+<td>Final payment retry</td>
+<td>Urgent warning email</td>
+<td>Final warning detailing platform access block</td>
+</tr>
+<tr>
+<td class="highlight-mono">Day 21</td>
+<td>Account deactivation</td>
+<td>System status change</td>
+<td>Workspace suspension; preserve data for 90 days</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Developer Activation Milestones Block -->
+<div class="narrative-block" style="margin-top: 1.5rem; border-top: 1px dashed var(--color-border); padding-top: 1.5rem;">
+<span class="narrative-title">// Developer Activation Milestone Hierarchy</span>
+<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1rem;">
+                                    In developer-led GTM motions, Time-to-Value (TTV) is the single most critical predictor of self-serve conversion. Every <strong>10 minutes</strong> of onboarding delay before a user reaches their first "aha" moment drops trial-to-paid conversion by <strong>8%</strong>. This decay is modeled as: <code>C(t) = C_0 * (0.92)^(t/10)</code>. Focused 7-day trials achieve a <strong>40.4% conversion rate</strong>, outperforming unstructured 60-day trials (30.6%).
+                                </p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Activation Level</th>
+<th>Defined Product Action</th>
+<th>Target Onboarding Window</th>
+<th>Day 30 Retention</th>
+<th>Trial Conversion Uplift</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pre-Activation</td>
+<td>User account creation / signup</td>
+<td>Session 1 (Under 5 mins)</td>
+<td class="highlight-mono">8.2%</td>
+<td>Baseline (Unqualified)</td>
+</tr>
+<tr>
+<td>Setup Action</td>
+<td>Workspace naming / profile setup</td>
+<td>Session 1 (Under 10 mins)</td>
+<td class="highlight-mono">12.5%</td>
+<td>Minimal correlation to buy</td>
+</tr>
+<tr>
+<td>Primary Activation</td>
+<td>First compile-time AST verification</td>
+<td>First 24 Hours</td>
+<td class="highlight-mono">47.3%</td>
+<td><strong>2.5x conversion uplift</strong></td>
+</tr>
+<tr>
+<td>Secondary Activation</td>
+<td>First teammate invitation / share</td>
+<td>First 3 Days</td>
+<td class="highlight-mono">68.7%</td>
+<td><strong>5.0x conversion uplift</strong></td>
+</tr>
+<tr>
+<td>Habit Activation</td>
+<td>3+ active code execution sessions</td>
+<td>First 7 Days</td>
+<td class="highlight-mono">65.8%</td>
+<td>Maximum expansion potential</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</details>
+</div><div class="phase-details" id="phase-details-2">
+<div class="details-header">
+<h2 class="details-title">Phase 2: Mid-Market Expansion (Months 7-16)</h2>
+<span class="details-badge">Commercial ICP Core</span>
+</div>
+<div class="calc-grid">
+<div class="calc-card">
+<h4 class="calc-title">// Target Cohort &amp; ICP Sizing</h4>
+<div class="result-rows" style="gap: 0.5rem; margin-top: 0.5rem;">
+<div class="result-row">
+<span>Verified US Target Universe</span>
+<strong class="result-val" style="color: var(--color-accent);">176 Companies</strong>
+</div>
+<div class="result-row">
+<span>Cybersecurity SaaS Cohort</span>
+<span class="result-val">64 Companies (150–600 FTEs)</span>
+</div>
+<div class="result-row">
+<span>Fintech SaaS Cohort</span>
+<span class="result-val">112 Companies (150–600 FTEs)</span>
+</div>
+<div class="result-row" style="border-bottom: none;">
+<span>Target Scale Window</span>
+<span class="result-val">$20M – $150M ARR (Median $187.5K/FTE)</span>
+</div>
+</div>
+</div>
+<div class="calc-card">
+<h4 class="calc-title">// Private Market Operational Proxy</h4>
+<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-top: 0.5rem; margin-bottom: 0.5rem;">
+<strong>Headcount-to-ARR Model</strong>: Headcount of 150–600 FTEs serves as a proxy for the $20M–$150M ARR bracket. Operational benchmarks demonstrate $150K ARR/employee baseline at 150 FTEs ($22.5M ARR floor), climbing to $250K/FTE top-quartile efficiency ($150M ARR ceiling at 600 FTEs).
+                            </p>
+<p class="narrative-text" style="font-size: 0.8rem; line-height: 1.5; color: var(--color-text-secondary); margin-top: 0.5rem; font-style: italic; border-left: 2px solid var(--color-accent); padding-left: 0.5rem;">
+<strong>Valuation Discrepancy Note</strong>: Back-calculating ARR from VC funding rounds introduces 30%–40% variance due to growth endurance decay (to 65% median retained growth) and private Rule of 40 gaps (median score 12%). Headcount provides a more reliable GTM sizing baseline.
+                            </p>
+</div>
+</div>
+<div class="calc-card metrics-dashboard-anchor" style="margin-top: 0.25rem;">
+<h4 class="calc-title">// ICP Selection Rationale (Why this ICP?)</h4>
+<div class="decision-flow-steps" style="margin-top: 0.5rem;">
+<div class="decision-step" style="border-left-color: var(--color-accent);">
+<strong>Onboarding &amp; Integration Drag:</strong> Mid-market Cyber tools (SIEM/SOAR/SOC) require 8–12 weeks of setup and 6 months of tuning. Fintech applications (Treasury/AML/KYC) average a 49-day onboarding timeline, driving a 5%–10% client abandonment rate. Yono compresses this onboarding runway by automating complex setups.
+                            </div>
+<div class="decision-step" style="border-left-color: var(--color-accent);">
+<strong>Support Ticket &amp; Alert Fatigue Tax:</strong> B2B support tickets cost $18–$35 average ($30–$60 for enterprise), with 35%–50% consisting of repetitive "Tier-0" questions. Concurrently, Cyber analysts face severe alert fatigue (22K weekly alerts, 90% false positives, 70% burnout), causing them to ignore 42%–63% of alerts. Yono defers this support tax by automating repetitive UI queries.
+                            </div>
+<div class="decision-step" style="border-left-color: var(--color-accent);">
+<strong>Legacy Frontend Constraints:</strong> Mid-market companies often run on legacy frontends (such as jQuery/AngularJS with EOL CVSS 7.5 security risks) with a 252-day remediation latency. Rebuilding these frontends to support modern natural language action layers is too expensive. Yono overlays directly on existing UI code, delivering modern interfaces without rewrites.
+                            </div>
+<div class="decision-step" style="border-left-color: var(--color-accent); border-bottom: none;">
+<strong>Feature Adoption &amp; Net Dollar Retention (NDR):</strong> Up to 80% of SaaS features are rarely or never used, dragging down NDR. Converting "Light Users" into "Power Users" (who deploy automated playbooks or custom configurations) stabilizes gross retention at 98% and unlocks a 45% annual expansion rate. Yono drives this adoption by letting users execute advanced features in plain language.
+                            </div>
+</div>
+</div>
+<!-- Sourcing Sequence Card -->
+<div class="calc-card" style="margin-top: 0.25rem;">
+<h4 class="calc-title">// Sourcing Sequence (How we get to them)</h4>
+<div class="decision-flow-steps">
+<div class="decision-step">
+<strong>Step 1: Segment Filtering:</strong> Query B2B SaaS platforms in the Fortune 1000–3000 tier, as well as private SaaS with 150–500 employees ($15M–$60M ARR) operating at cash-flow break-even or net profitability.
+                            </div>
+<div class="decision-step">
+<strong>Step 2: Warm Network Introductions:</strong> Leverage extensive founder network connections in the US market to secure warm introductions directly to CPOs and CTOs.
+                            </div>
+<div class="decision-step">
+<strong>Step 3: Case-Study Led Outbound:</strong> Combine targeted Yono Lite sandbox demos with verified results from early customers (such as clicks saved and setup speed) to prove value before the first meeting.
+                            </div>
+</div>
+</div>
+<!-- Target Pipeline Funnel -->
+<div class="calc-card" style="margin-top: 0.25rem;">
+<h4 class="calc-title">// Conversion Funnel Pipeline (Target: Close 10 Accounts)</h4>
+<div style="font-size: 0.8rem; color: var(--color-text-secondary); margin-bottom: 0.5rem; line-height: 1.4;">
+                            To secure 10 closed Mid-Market accounts, we source and approach 200 accounts. The funnel operates at: <strong>20.0% demo/meeting rate</strong> → <strong>50.0% POV rate</strong> → <strong>75.0% InfoSec clearance rate</strong> → <strong>66.7% signature rate</strong>.
+                        </div>
+<div class="funnel-container">
+<div class="funnel-stage">
+<span class="funnel-stage-name">1. Segment Pool</span>
+<span class="funnel-stage-value">1,200</span>
+<span class="funnel-stage-conversion">Target Segment</span>
+</div>
+<div class="funnel-stage">
+<span class="funnel-stage-name">2. Approached</span>
+<span class="funnel-stage-value">200</span>
+<span class="funnel-stage-conversion">16.7% Sourced Rate</span>
+</div>
+<div class="funnel-stage">
+<span class="funnel-stage-name">3. Demos / Meetings</span>
+<span class="funnel-stage-value">40</span>
+<span class="funnel-stage-conversion">20.0% Meeting Rate</span>
+</div>
+<div class="funnel-stage">
+<span class="funnel-stage-name">4. POVs</span>
+<span class="funnel-stage-value">20</span>
+<span class="funnel-stage-conversion">50.0% POV Rate</span>
+</div>
+<div class="funnel-stage">
+<span class="funnel-stage-name">5. InfoSec Cleared</span>
+<span class="funnel-stage-value">15</span>
+<span class="funnel-stage-conversion">75.0% Security Clear</span>
+</div>
+<div class="funnel-stage closed">
+<span class="funnel-stage-name">6. Closed Won</span>
+<span class="funnel-stage-value">10</span>
+<span class="funnel-stage-conversion">66.7% Close Rate</span>
+</div>
+</div>
+</div>
+<!-- Sales Execution Process -->
+<div class="calc-card" style="margin-top: 0.25rem;">
+<h4 class="calc-title">// Step-by-Step Sales Execution &amp; Internal Closing Flow</h4>
+<div class="process-flow">
+<div class="process-step">
+<span class="process-step-num">Step 1</span>
+<span class="process-step-title">Targeting &amp; Scale</span>
+<span class="process-step-desc"><strong>Signals</strong>: Filter B2B SaaS platforms in the Fortune 1000–3000 tier and profitable private SaaS ($20M–$100M ARR).</span>
+</div>
+<div class="process-step">
+<span class="process-step-num">Step 2</span>
+<span class="process-step-title">Outbound Prep</span>
+<span class="process-step-desc"><strong>Approach</strong>: Deliver custom Yono Lite sandboxes that demonstrate deterministic execution. The core objective is technical hardening—testing edge cases and building the necessary engineering readiness required for mid-market scale without prematurely burning enterprise leads.</span>
+</div>
+<div class="process-step">
+<span class="process-step-num">Step 3</span>
+<span class="process-step-title">Demo &amp; CPO Alignment</span>
+<span class="process-step-desc"><strong>Buying Center</strong>: Align with the CPO (on UX adoption and feature expansion) and CTO (on technical infrastructure).</span>
+</div>
+<div class="process-step">
+<span class="process-step-num">Step 4</span>
+<span class="process-step-title">Technical POV</span>
+<span class="process-step-desc"><strong>Internal Process</strong>: Run a 30-day technical POV mapping core workflows, demonstrating adoption metrics directly to CPO.</span>
+</div>
+<div class="process-step">
+<span class="process-step-num">Step 5</span>
+<span class="process-step-title">Security &amp; Close</span>
+<span class="process-step-desc"><strong>Mechanics</strong>: Review SOC-2 Type II and configure BYOK to clear CISO/CTO objections. Invoiced annually in advance.</span>
+</div>
+</div>
+</div>
+
+<!-- Collapsible details for roadmaps -->
+<details class="deep-dive-drawer">
+<summary class="deep-dive-summary">Phase 2 Deep Dive: Narrative &amp; Timeline Roadmap</summary>
+<div class="deep-dive-inner">
+<div class="narrative-block">
+<span class="narrative-title">// Strategic Narrative</span>
+<p class="narrative-text">
+                                    Mid-market software companies have stable budgets but face low feature utilization and product stagnation—an industry-wide SaaS challenge right now. Helping users easily discover secondary features directly drives adoption, unlocks expansion revenue, and protects Net Dollar Retention. To support runway growth, we collect payments annually in advance.
+                                </p>
+</div>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th style="width: 15%;">Month</th>
+<th style="width: 30%;">Milestone Focus</th>
+<th>Key Directives</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="highlight-mono">Months 7-8</td><td><strong>Outbound Scaling</strong></td><td>Onboard GTM Rep #1. Extract mid-market target lists and launch structured tech-trigger email campaigns.</td></tr>
+<tr><td class="highlight-mono">Months 9-10</td><td><strong>Plugins &amp; SOC-2 II</strong></td><td>Deploy native plugins for Shopify and WordPress ecosystems. Complete SOC-2 Type II audit to support mid-market accounts.</td></tr>
+<tr><td class="highlight-mono">Months 11-12</td><td><strong>$1.0M ARR Milestone</strong></td><td>Cross $1.0M ARR run-rate milestone by Month 12 (10 SMB + 12 Mid-Market accounts at $40K ACV, plus 8 Design Partners at $15K ACV). Secure advance annual cash collections and begin Seed round preparation.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- Onboarding & Friction Diagnostics Block -->
+<div class="narrative-block" style="margin-top: 1.5rem; border-top: 1px dashed var(--color-border); padding-top: 1.5rem;">
+<span class="narrative-title">// Onboarding &amp; Friction Diagnostics</span>
+<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1rem;">
+                                    Enterprise onboarding across cybersecurity and fintech is characterized by massive technical friction, resulting in prolonged stabilization runways. In security, initial log ingestion and validated detection coverage takes <strong>8 to 12 weeks</strong>, stretching to <strong>16 weeks</strong> in highly regulated environments, with an additional <strong>6 months</strong> of use-case tuning required to establish an operational baseline. In corporate fintech, onboarding clients averages <strong>49 days</strong>, with <strong>5% to 10%</strong> of applications abandoned entirely due to manual document collection and red-tape KYC friction.
+                                </p>
+<span class="narrative-title" style="font-size: 0.8rem; opacity: 0.8; display: block; margin-bottom: 0.5rem;">[Onboarding Parameter Comparison Table]</span>
+<div class="table-wrapper" style="margin-bottom: 1.5rem;">
+<table>
+<thead>
+<tr>
+<th>Onboarding Parameter</th>
+<th>Cybersecurity Platforms (SIEM/SOAR/SOC)</th>
+<th>Fintech Platforms (Treasury/AML/KYC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Average Technical Setup</td>
+<td>8 to 12 weeks (standard) | 6 to 12 months (self-managed)</td>
+<td>49 days (treasury client) | 6 to 12 months (core AML)</td>
+</tr>
+<tr>
+<td>Stabilization Runway</td>
+<td>6 months for tuning | 9 months for deep integration</td>
+<td>3 to 8 months for internal staff competency</td>
+</tr>
+<tr>
+<td>Key Inefficiencies</td>
+<td>Parser development, log configuration, false positive tuning</td>
+<td>Redundant data entry (61% of asks), manual KYC verification</td>
+</tr>
+<tr>
+<td>GTM Impact of Delay</td>
+<td>Continued threat exposure, security team fatigue</td>
+<td>Deferred revenue recognition, 5%-10% client application drop-off</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1rem;">
+<strong>Workflow Friction &amp; Support Costs</strong>: Alert overload in security centers (averaging 22,111 alerts per week with a 90% false-positive rate) causes analyst burnout, leading to <strong>42% to 63%</strong> of security alerts going completely uninvestigated. In fintech, friction-driven drop-off is penalized by a high <strong>$14,700 CAC</strong> for mid-market accounts. Repetitive "Tier-0" help desk tickets (such as password resets costing $70 per human incident) account for <strong>35% to 50%</strong> of overall support ticket volume. Yono bypasses these manual UI steps, completing actions via natural language in the backend at an automated cost of <strong>$0.50 to $2.37</strong> per execution.
+                                </p>
+<span class="narrative-title" style="font-size: 0.8rem; opacity: 0.8; display: block; margin-bottom: 0.5rem;">[Friction &amp; Support Metric Comparison]</span>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Friction and Support Metric</th>
+<th>Cybersecurity SOC Environments</th>
+<th>Fintech B2B Platforms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Workflow/Alert Abandonment</td>
+<td class="highlight-mono">42% – 63% of alerts ignored</td>
+<td class="highlight-mono">7.7% – 10% onboarding abandonment</td>
+</tr>
+<tr>
+<td>Weekly Alert / Monthly Ticket Volume</td>
+<td>22,111 alerts per week (Avg. SOC)</td>
+<td>0.4 – 1.2 tickets per customer per month</td>
+</tr>
+<tr>
+<td>Primary Driver of Friction</td>
+<td>90% false-positive rate, tool sprawl</td>
+<td>Redundant data entry (61% of users), KYC collection</td>
+</tr>
+<tr>
+<td>Tier-0 Repetitive Ticket %</td>
+<td class="highlight-mono">35% – 50% of tickets</td>
+<td class="highlight-mono">35% – 40% of tickets</td>
+</tr>
+<tr>
+<td>Cost Per Human-Handled Incident</td>
+<td class="highlight-mono">$25 – $40+ ($70 password resets)</td>
+<td class="highlight-mono">$18 – $35 (SaaS) | $30 – $60 (Enterprise)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Platform Technical Debt & Feature Stagnation Block -->
+<div class="narrative-block" style="margin-top: 1.5rem; border-top: 1px dashed var(--color-border); padding-top: 1.5rem;">
+<span class="narrative-title">// Platform Technical Debt &amp; Legacy Architecture</span>
+<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1rem;">
+                                    Profitable SaaS platforms built before 2018 carry severe security debt. Approximately <strong>32% of codebases</strong> continue to run outdated jQuery dependencies, and many run End-of-Life (EOL) AngularJS frameworks that are vulnerable to high-severity XSS and ReDoS exploits (e.g. CVE-2024-21490 CVSS 7.5, which drives CPU utilization to 100%). With the median time to remediate security debt rising to <strong>252 days</strong>, completely refactoring these frontends is a massive bottleneck. Yono's AXP bypasses vulnerable UI layers, ingesting codebase syntax to execute backend logic natively.
+                                </p>
+<span class="narrative-title" style="font-size: 0.8rem; opacity: 0.8; display: block; margin-bottom: 0.5rem;">[Legacy Stack Component Comparison]</span>
+<div class="table-wrapper" style="margin-bottom: 1.5rem;">
+<table>
+<thead>
+<tr>
+<th>Legacy Stack Component</th>
+<th>Production Prevalence</th>
+<th>End-of-Life / Support Status</th>
+<th>Key High-Severity Security Risks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="highlight-mono">jQuery (Pre-v3.4.0)</td>
+<td>32% of enterprise codebases | 73% of web properties</td>
+<td>Active, but 90% of instances are 4+ years out of date</td>
+<td>Cross-Site Scripting (XSS) via HTML parser (CVE-2020-11023)</td>
+</tr>
+<tr>
+<td class="highlight-mono">AngularJS (v1.x)</td>
+<td>Widespread in pre-2018 enterprise/financial portals</td>
+<td>Reached EOL on Dec 31, 2021; no official patches</td>
+<td>Regular Expression Denial of Service (ReDoS) (CVE-2024-21490)</td>
+</tr>
+<tr>
+<td class="highlight-mono">Open Source Supply Chain</td>
+<td>97% of codebases contain open-source components</td>
+<td>91% of codebases contain outdated libraries</td>
+<td>70% of critical security debt is in 3rd-party components</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1rem;">
+<strong>Feature Stagnation &amp; Net Dollar Retention (NDR)</strong>: Approximately <strong>80% of built B2B features are rarely or never used</strong>. An application's features are highly congested; users engage regularly with only 5 to 8 features out of 40–60. This discovery bottleneck directly drives NDR stagnation: companies in the bottom quartile of adoption struggle with <strong>85% to 95% NDR</strong>, whereas top-quartile performers achieve <strong>115% to 125% NDR</strong>. At scale, expansion must drive up to <strong>58% of new ARR</strong> ($50M-$100M ARR range), making Yono's natural language feature-activation capability a key NDR booster.
+                                </p>
+<span class="narrative-title" style="font-size: 0.8rem; opacity: 0.8; display: block; margin-bottom: 0.5rem;">[Product Adoption &amp; NDR Metrics]</span>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Product Adoption Metric</th>
+<th>Bottom-Quartile Performers</th>
+<th>Median SaaS Benchmark</th>
+<th>Top-Quartile / Elite Performers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Net Dollar Retention (NDR)</td>
+<td class="highlight-mono">85% – 95%</td>
+<td class="highlight-mono">101% (Private) | 110% (Public)</td>
+<td class="highlight-mono">115% – 125% (Private) | &gt;130% (Public)</td>
+</tr>
+<tr>
+<td>Feature Adoption Rate (30-day)</td>
+<td class="highlight-mono">&lt; 35%</td>
+<td class="highlight-mono">35% – 45%</td>
+<td class="highlight-mono">60% – 70%+</td>
+</tr>
+<tr>
+<td>Month-3 User Retention Rate</td>
+<td class="highlight-mono">&lt; 2.0%</td>
+<td class="highlight-mono">3.8%</td>
+<td class="highlight-mono">18.5%+</td>
+</tr>
+<tr>
+<td>Expansion % of New ARR</td>
+<td class="highlight-mono">&lt; 25%</td>
+<td class="highlight-mono">40% overall median</td>
+<td class="highlight-mono">58% ($50M–$100M) | 67% (&gt;$100M)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border);">
+<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1rem;">
+<strong>GTM Unit Economics &amp; Scalability Projections (Theoretical Sizing Model)</strong>:
+                                        This section presents our theoretical planning targets mapped against institutional investment benchmarks (such as a 3:1 LTV:CAC threshold). 
+                                        <br/><br/>
+<span style="display: block; font-style: italic; border-left: 2px solid var(--color-accent); padding-left: 0.5rem;">
+<strong>Theoretical Model Disclaimer:</strong> These metrics are planning models designed to size operational capital requirements and scalability. They are **highly unreliable for predicting near-term financial performance** at this pre-revenue stage, where we rely on early signal rather than historical data.
+                                        </span>
+</p>
+<span class="narrative-title" style="font-size: 0.8rem; opacity: 0.8; display: block; margin-bottom: 0.5rem;">[Unit Economics &amp; CAC Sizing Projections]</span>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Metric Dimension</th>
+<th>Phase 1 (Startup Beachhead)</th>
+<th>Phase 2 (Mid-Market SaaS)</th>
+<th>Target Health Benchmark</th>
+<th>Data / Proxy Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Annual Contract Value (ACV)</td>
+<td class="highlight-mono">$40,000 (Flat)</td>
+<td class="highlight-mono">$40,000 (Flat)</td>
+<td>Enforced Pricing</td>
+<td>Yono standard contract pricing</td>
+</tr>
+<tr>
+<td>Model Customer Lifetime Value (LTV)</td>
+<td class="highlight-mono">$120,000</td>
+<td class="highlight-mono">$120,000</td>
+<td>Scale Sizing</td>
+<td>Assumes 3-year average customer lifetime</td>
+</tr>
+<tr>
+<td>Estimated Customer Acquisition Cost (CAC)</td>
+<td class="highlight-mono">~$5,000</td>
+<td class="highlight-mono">~$14,700</td>
+<td>Capital Efficiency</td>
+<td>GTM tooling &amp; representative headcount</td>
+</tr>
+<tr>
+<td>Projected LTV:CAC Ratio</td>
+<td class="highlight-mono">~24.0x</td>
+<td class="highlight-mono">~8.1x</td>
+<td class="highlight-mono">≥ 3.0x</td>
+<td>UpWest investment standard</td>
+</tr>
+<tr>
+<td>CAC Payback Period</td>
+<td class="highlight-mono">~1.5 Months</td>
+<td class="highlight-mono">~4.4 Months</td>
+<td class="highlight-mono">≤ 12.0 Months</td>
+<td>Industry top-quartile payback speed</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</details>
+</div><div class="phase-details" id="phase-details-3">
+<div class="details-header">
+<h2 class="details-title">Phase 3: Up-Market Scale</h2>
+<span class="details-badge">Enterprise Scaling</span>
+</div>
+<div class="calc-grid">
+<div class="calc-card">
+<h4 class="calc-title">// Target Cohort &amp; ICP Sizing</h4>
+<div class="result-rows" style="gap: 0.5rem; margin-top: 0.5rem;">
+<div class="result-row">
+<span>Target Enterprise Count</span>
+<strong class="result-val" style="color: var(--color-accent);">TBD</strong>
+</div>
+<div class="result-row">
+<span>Scale Definition</span>
+<span class="result-val">Enterprise Platforms &amp; Fortune 500 Divisions</span>
+</div>
+<div class="result-row" style="border-bottom: none;">
+<span>Sourcing Stance</span>
+<span class="result-val">To be mapped and triaged post-Seed raise</span>
+</div>
+</div>
+</div>
+<div class="calc-card">
+<h4 class="calc-title">// Enterprise Target Criteria</h4>
+<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-top: 0.5rem;">
+<strong>Criteria</strong>: Large technology divisions and Fortune 500 enterprises experiencing compounding developer resource drains spent maintaining custom copilot integrations.
+                            </p>
+</div>
+</div>
+<div class="calc-card metrics-dashboard-anchor" style="margin-top: 0.25rem;">
+<h4 class="calc-title">// Sourcing &amp; Alliance Channels</h4>
+<div class="decision-flow-steps" style="margin-top: 0.5rem;">
+<div class="decision-step">
+<strong>Step 1: Warm Network Mapping:</strong> Secure warm executive introductions from peer founder networks and partner connections directly to enterprise CPOs and CTOs.
+                            </div>
+<div class="decision-step">
+<strong>Step 2: Channel Partner Program:</strong> Launch alliance playbooks with global systems integrators and enterprise development consultants.
+                            </div>
+</div>
+</div>
+<div class="calc-card" style="margin-top: 0.25rem;">
+<h4 class="calc-title">// Post-Seed Enterprise Vision</h4>
+<div style="font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem;">
+<p>
+                                Phase 3 represents our long-term enterprise scale and market consolidation. To maintain rigorous focus during the Pre-Seed stage, detailed funnel execution, step-by-step closing flows, and target accounts lists for Phase 3 will be mapped and triaged post-Seed raise.
+                            </p>
+<p>
+<strong>Economic Rationale</strong>: Enterprise software divisions spend millions in engineering resources trying to build and support custom user action interfaces. Packaging Helm charts for private cloud deployment and offering SSO and customer-managed keys bypasses security concerns, turning custom builds into Yono platform accounts.
+                            </p>
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.5rem;">
+<div style="background-color: var(--color-bg); border: 1px solid var(--color-border); padding: 0.75rem; border-radius: 6px;">
+<span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--color-accent); font-weight: 700; text-transform: uppercase;">Packaging</span>
+<h5 style="font-size: 0.8rem; margin: 0.15rem 0; font-weight: 700;">Helm Deployments</h5>
+<p style="font-size: 0.7rem; color: var(--color-text-secondary); line-height: 1.35;">Private cloud installation to satisfy strict data privacy requirements.</p>
+</div>
+<div style="background-color: var(--color-bg); border: 1px solid var(--color-border); padding: 0.75rem; border-radius: 6px;">
+<span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--color-accent); font-weight: 700; text-transform: uppercase;">Compliance</span>
+<h5 style="font-size: 0.8rem; margin: 0.15rem 0; font-weight: 700;">SSO / BYOK Encryption</h5>
+<p style="font-size: 0.7rem; color: var(--color-text-secondary); line-height: 1.35;">Full enterprise authentication integration and customer-managed keys.</p>
+</div>
+<div style="background-color: var(--color-bg); border: 1px solid var(--color-border); padding: 0.75rem; border-radius: 6px;">
+<span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--color-accent); font-weight: 700; text-transform: uppercase;">Scale</span>
+<h5 style="font-size: 0.8rem; margin: 0.15rem 0; font-weight: 700;">M2M Transactions</h5>
+<p style="font-size: 0.7rem; color: var(--color-text-secondary); line-height: 1.35;">Moving beyond human interfaces to support high-margin machine-to-machine integrations.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Collapsible details for timelines -->
+<details class="deep-dive-drawer">
+<summary class="deep-dive-summary">Phase 3 Deep Dive: Narrative &amp; Timeline Roadmap</summary>
+<div class="deep-dive-inner">
+<div class="narrative-block">
+<span class="narrative-title">// Strategic Narrative</span>
+<p class="narrative-text">
+                                    Enterprise SaaS divisions spend millions in engineering time building and supporting custom action endpoints. Offering private cloud deployment bypasses security reviews and converts expensive custom projects into Yono platform accounts.
+                                </p>
+</div>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th style="width: 15%;">Milestone</th>
+<th style="width: 30%;">Milestone Focus</th>
+<th>Key Directives</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="highlight-mono">Milestone 1</td><td><strong>SSO &amp; Seed Close</strong></td><td>Close Seed round. Deploy enterprise SSO, multi-tenant RBAC permissions, and team settings.</td></tr>
+<tr><td class="highlight-mono">Milestone 2</td><td><strong>Enterprise Retention</strong></td><td>Secure contract renewals to lock enterprise customer accounts and protect net Dollar retention.</td></tr>
+<tr><td class="highlight-mono">Milestone 3</td><td><strong>A2A Transactions</strong></td><td>Deploy self-healing AST delta sync engine to support automated machine-to-machine transactions. Launch Series A.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</details>
+</div></div>
+<!-- Phase 2 Details -->
+
+<!-- Phase 3 Details -->
+
+</section>
+<!-- ================== SECTION 2: OPPORTUNITY COST CALCULATOR ================== -->
+<section class="tab-content hidden" id="sec-calculator">
+<p class="section-intro">
+                    Compare the total sink of building and maintaining custom agents in-house against Yono's out-of-the-box infrastructure.
+                </p>
+<div class="calc-grid">
+<!-- Controls Column -->
+<div class="calc-card" id="calculator-inputs">
+<h4 class="calc-title">// In-House Build Inputs</h4>
+<div class="control-group">
+<div class="slider-label-row">
+<span>Engineering Team Size</span>
+<span class="slider-val" id="label-ftes">3 FTEs</span>
+</div>
+<input id="input-ftes" max="10" min="1" oninput="calculateCost()" type="range" value="3"/>
+<div class="slider-bounds">
+<span>1 Engineer</span>
+<span>10 Engineers</span>
+</div>
+</div>
+<div class="control-group">
+<div class="slider-label-row">
+<span>Average Annual Compensation</span>
+<span class="slider-val" id="label-salary">$300,000</span>
+</div>
+<input id="input-salary" max="450000" min="100000" oninput="calculateCost()" step="10000" type="range" value="300000"/>
+<div class="slider-bounds">
+<span>$100K</span>
+<span>$450K</span>
+</div>
+</div>
+</div>
+<!-- Results Column -->
+<div class="calc-card" id="calculator-results">
+<h4 class="calc-title">// Financial Sink Comparison</h4>
+<div class="result-rows">
+<div class="result-row">
+<span>Raw Annual Salaries</span>
+<span class="result-val" id="res-salaries">$900,000</span>
+</div>
+<div class="result-row">
+<span>Recruitment &amp; Overhead (25%)</span>
+<span class="result-val" id="res-overhead">$225,000</span>
+</div>
+<div class="result-row">
+<span>Initial Build Cost (Year 1)</span>
+<span class="result-val" id="res-initial">$1,125,000</span>
+</div>
+<div class="result-row">
+<span>Annual Maintenance Tax (40%)</span>
+<span class="result-val" id="res-maintenance">$450,000</span>
+</div>
+<div class="result-row">
+<span>Total In-House Sink</span>
+<span class="result-val warning" id="res-total-sink">$1,575,000</span>
+</div>
+<div class="result-row highlight">
+<strong>Yono Standard Cost</strong>
+<span class="result-val" style="color: var(--color-accent);">$40,000</span>
+</div>
+<div class="result-row highlight" style="border-bottom: none;">
+<strong>Reclaimed Capital</strong>
+<span class="result-val success" id="res-reclaimed">$1,535,000</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Deep Dive Drawer: Evidence -->
+<details class="deep-dive-drawer">
+<summary class="deep-dive-summary">Calculator Deep Dive: In-House Failure Case Studies</summary>
+<div class="deep-dive-inner">
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th style="width: 25%;">Cohort / Scale</th>
+<th style="width: 30%;">R&amp;D Resources Spent</th>
+<th>Outcome &amp; Failure Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="highlight-mono">Series C SaaS (Workflow)</td>
+<td><strong>37.5 Dev-Months</strong> (5 FTEs for 7.5 months)</td>
+<td>Built only 4 basic agents. High resource burn with zero modular scaling capacity. Highly validates the massive resource drain of building LLMOps internally.</td>
+</tr>
+<tr>
+<td class="highlight-mono">Series E Enterprise (Logistics)</td>
+<td><strong>70-80 Engineers</strong> for 7 months</td>
+<td>Achieved zero product execution actions. System restricted entirely to delivery tracking.</td>
+</tr>
+<tr>
+<td class="highlight-mono">Billion-Dollar SaaS (Marketing)</td>
+<td><strong>18 Months</strong> initial build + <strong>40% dev tax</strong></td>
+<td>Operational wrapper built, but consumes 40% of their platform team just to keep alive against UI updates.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</details>
+</section>
+<!-- ================== SECTION 3: TARGET ACCOUNTS ================== -->
+<section class="tab-content hidden" id="sec-targets">
+<p class="section-intro">
+                    We pre-configure personalized Yono Lite demos to drive high outbound conversion, leveraging US partner and founder networks for warm customer dogfooding.
+                </p>
+<div class="persona-grid" id="targets-channels" style="grid-template-columns: repeat(3, 1fr);">
+<div class="persona-card">
+<span class="persona-role">// Channel 1</span>
+<div class="persona-title-block">
+<span class="persona-name">Network Dogfooding</span>
+<span class="persona-focus">Warm Partner Intros</span>
+</div>
+<p class="persona-list-item" style="font-size: 0.8rem; color: var(--color-text-secondary); line-height: 1.45; list-style: none; padding-left: 0;">
+                            Warm introductions to target company CPOs. Leveraging the founder's extensive network and founder contacts in the US market to secure warm entry points and bypass cold outbound walls.
+                        </p>
+</div>
+<div class="persona-card">
+<span class="persona-role">// Channel 2</span>
+<div class="persona-title-block">
+<span class="persona-name">Tech-Trigger Outbound</span>
+<span class="persona-focus">Hiring &amp; Beta Signals</span>
+</div>
+<p class="persona-list-item" style="font-size: 0.8rem; color: var(--color-text-secondary); line-height: 1.45; list-style: none; padding-left: 0;">
+                            Intercepting build plans. We scan boards for startups hiring AI PMs or Copilot Developers, pitching Yono before they allocate dev headcount.
+                        </p>
+</div>
+<div class="persona-card">
+<span class="persona-role">// Channel 3</span>
+<div class="persona-title-block">
+<span class="persona-name">Yono Lite Demos</span>
+<span class="persona-focus">Pre-Configured AST Traversal</span>
+</div>
+<p class="persona-list-item" style="font-size: 0.8rem; color: var(--color-text-secondary); line-height: 1.45; list-style: none; padding-left: 0;">
+                            Pre-configured demo outreach. We reverse-engineer target frontends at the AST level prior to contact, sending functioning demos to CPOs/CEOs to prove value instantly.
+                        </p>
+</div>
+</div>
+<!-- Deep Dive Drawer: Startups Index & Outbound Details -->
+<details class="deep-dive-drawer" id="targets-deep-dive">
+<summary class="deep-dive-summary">Outbound Deep Dive: Granular Target Cohorts &amp; Playbooks</summary>
+<div class="deep-dive-inner">
+<div class="narrative-block">
+<span class="narrative-title">// Network Dogfooding Playbook</span>
+<p class="narrative-text">
+                                Our founder and VC network introduce Yono directly to peer companies. For VCs, this helps their portfolio companies operate more efficiently and leanly. For founders, it saves valuable engineering resources, allowing them to remain focused on building their core products.
+                            </p>
+</div>
+<div class="narrative-block">
+<span class="narrative-title">// Outbound Tech-Triggers</span>
+<p class="narrative-text">
+                                We monitor job boards for target startups hiring AI-related engineering roles, using these hiring triggers to launch cold outreach or secure warm introductions through our network.
+                            </p>
+</div>
+<div class="narrative-block">
+<span class="narrative-title">// Yono Lite Pre-Configuration</span>
+<p class="narrative-text">
+                                Because Yono indexes public assets, we reverse-engineer the targets' AST context maps <i>before</i> starting outbound. The CPO receives a personalized, click-to-run demo showing Yono automating a complex action on their actual product frontend, driving high outbound-to-meeting conversion.
+                            </p>
+</div>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Target Cohort</th>
+<th>Granular Profile Filters</th>
+<th>Primary Pain Point</th>
+<th>Outbound Hook Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="highlight-mono">Cohort 1 (SF DevOps)</td>
+<td>Series A-C, 20-50 R&amp;D FTEs, High Density Graph UI</td>
+<td>R&amp;D bandwidth fully locked in core infrastructure sprints</td>
+<td><strong>Yono Lite Demo:</strong> Pre-mapped state execution sent to CPO</td>
+</tr>
+<tr>
+<td class="highlight-mono">Cohort 2 (NY Cyber)</td>
+<td>Series B-C, 30-60 R&amp;D FTEs, Strict Security compliance</td>
+<td>High CISO reviews blocking external database connections</td>
+<td><strong>Zero-DB Hook:</strong> Pitching frontend-only execution bypass</td>
+</tr>
+<tr>
+<td class="highlight-mono">Cohort 3 (F1000-3000)</td>
+<td>Fortune 1000-3000 SaaS, High shelfware metrics</td>
+<td>Stagnant account expansion and low feature adoption</td>
+<td><strong>ROI Hook:</strong> Metric-driven upgrade-conversion lift proof</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</details>
+</section>
+<section class="tab-content hidden" id="sec-economics">
+<p class="section-intro">
+                    Analyze the GTM capital efficiency, lifetime customer value (LTV), acquisition cost (CAC), and payback runways modeled for Yono's scaling.
+                </p>
+<div class="calc-grid">
+<!-- Unit Economics Card -->
+<div class="calc-card" style="grid-column: 1 / -1;">
+<h4 class="calc-title">// GTM Unit Economics &amp; Scalability Projections (Theoretical Sizing Model)</h4>
+<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1.5rem; margin-top: 0.5rem;">
+                            This model maps Yono's theoretical planning targets against standard venture capital health benchmarks (specifically the 3:1 LTV:CAC threshold). 
+                            <br/><br/>
+<span style="display: block; font-style: italic; border-left: 2px solid var(--color-accent); padding-left: 0.5rem;">
+<strong>Theoretical Model Disclaimer:</strong> These metrics are planning models designed to size operational capital requirements and scalability. They are **highly unreliable for predicting near-term financial performance** at this pre-revenue stage, where we rely on early signal rather than historical data.
+                            </span>
+</p>
+<span class="narrative-title" style="font-size: 0.8rem; opacity: 0.8; display: block; margin-bottom: 0.5rem;">[Unit Economics &amp; CAC Sizing Projections]</span>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Metric Dimension</th>
+<th>Phase 1 (Startup Beachhead)</th>
+<th>Phase 2 (Mid-Market SaaS)</th>
+<th>Target Health Benchmark</th>
+<th>Data / Proxy Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Annual Contract Value (ACV)</td>
+<td class="highlight-mono">$40,000 (Flat)</td>
+<td class="highlight-mono">$40,000 (Flat)</td>
+<td>Enforced Pricing</td>
+<td>Yono standard contract pricing</td>
+</tr>
+<tr>
+<td>Model Customer Lifetime Value (LTV)</td>
+<td class="highlight-mono">$120,000</td>
+<td class="highlight-mono">$120,000</td>
+<td>Scale Sizing</td>
+<td>Assumes 3-year average customer lifetime</td>
+</tr>
+<tr>
+<td>Estimated Customer Acquisition Cost (CAC)</td>
+<td class="highlight-mono">~$5,000</td>
+<td class="highlight-mono">~$14,700</td>
+<td>Capital Efficiency</td>
+<td>GTM tooling &amp; representative headcount</td>
+</tr>
+<tr>
+<td>Projected LTV:CAC Ratio</td>
+<td class="highlight-mono">~24.0x</td>
+<td class="highlight-mono">~8.1x</td>
+<td class="highlight-mono">≥ 3.0x</td>
+<td>UpWest investment standard</td>
+</tr>
+<tr>
+<td>CAC Payback Period</td>
+<td class="highlight-mono">~1.5 Months</td>
+<td class="highlight-mono">~4.4 Months</td>
+<td class="highlight-mono">≤ 12.0 Months</td>
+<td>Industry top-quartile payback speed</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+</div> <!-- end #content-container -->
+</div> <!-- end .main-content-wrapper -->
+</div> <!-- end .main-layout-grid -->
+</div>
+<!-- Script Block -->
+<script>
+        function switchMainTab(tabId, event) {
+            const timeline = document.getElementById('sec-timeline');
+            const phases = document.getElementById('sec-phases');
+            if (timeline) timeline.classList.add('hidden');
+            if (phases) phases.classList.add('hidden');
+            
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            const target = document.getElementById(tabId);
+            if (target) target.classList.remove('hidden');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initial state
+            const timeline = document.getElementById('sec-timeline');
+            if (timeline) timeline.classList.remove('hidden');
+            const phases = document.getElementById('sec-phases');
+            if (phases) phases.classList.add('hidden');
+        });
+
+
+        // Tab switching logic
+        function switchTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            
+            // Deactivate all tab buttons
+            const buttons = ['phases', 'calculator', 'targets', 'economics'];
+            buttons.forEach(id => {
+                const btn = document.getElementById(`tab-btn-${id}`);
+                if (btn) btn.classList.remove('active');
+            });
+
+            // Show selected tab content
+            const sec = document.getElementById(`sec-${tabId}`);
+            if (sec) sec.classList.remove('hidden');
+
+            // Activate selected tab button
+            const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            // Rebuild sidebar navigation index for active tab
+            rebuildSidebarIndex(tabId);
+        }
+
+        // Telemetry Data Map showing measurements of Yono's value to paying customers (ROI proof)
+        const telemetryData = {
+            1: {
+                subtitle: "Phase 1: Startup Urgency. At this stage, complex integration builds require immense engineering bandwidth. We target smaller, agile startups to gradually harden the Yono infrastructure, ensuring technical ripeness and reliability before we scale up to enterprise-grade integrations.",
+                cards: [
+                    { 
+                        label: "Clicks Saved per Task", 
+                        value: "24 Clicks", 
+                        subtext: "average per task workflow", 
+                        formula: "Manual UI Steps - Yono Language Steps",
+                        what: "Tracks the number of manual clicks and form fields bypassed by using natural language actions.",
+                        why: "Directly measures user friction reduction and speed to value, driving product engagement."
+                    },
+                    { 
+                        label: "AST Schema Generation Time", 
+                        value: "96 Minutes", 
+                        subtext: "from GitHub repository connection to live frontend execution sandbox", 
+                        formula: "Connection to Sandbox Execution",
+                        what: "Tracks the time from initial GitHub repository connection to the creation of a verified AST schema and live sandbox execution.",
+                        why: "An empirical measurement of setup velocity, proving that Yono reverse-engineers codebase logic automatically, saving devs from months of manual API mapping and backend wrapper development. [⚠️ Aim: less than 12 hours]"
+                    }
+                ]
+            },
+            2: {
+                subtitle: "Phase 2: Driving feature discovery, product adoption, and expansion revenue.",
+                cards: [
+                    { 
+                        label: "Feature Discovery Rate", 
+                        value: "84.2%", 
+                        subtext: "vs. 6.5% legacy baseline", 
+                        formula: "Premium Features via Language / Total Executions",
+                        what: "Measures the percentage of active users discovering secondary or premium features via language-driven execution paths rather than static UI navigation.",
+                        why: "Shows how natural language interfaces help users easily discover the full capability of the product, increasing feature utilization and overall adoption."
+                    },
+                    { 
+                        label: "Cross/Upsell Opportunities Created", 
+                        value: "18.6%", 
+                        subtext: "contextual upgrade conversion rate", 
+                        formula: "Upgrade Conversions / Contextual Prompts",
+                        what: "Measures end-user conversion of contextual upgrade prompts triggered by high-intent, complex execution workflows.",
+                        why: "Directly drives expansion revenue by presenting upgrade options to users at the moment they need them most."
+                    }
+                ]
+            },
+            3: {
+                subtitle: "Phase 3: Eliminating UI-drift maintenance tax and enabling automated machine-to-machine transaction scale.",
+                cards: [
+                    { 
+                        label: "AST Auto-Sync Success", 
+                        value: "99.85%", 
+                        subtext: "UI selector auto-heals", 
+                        formula: "Auto-Healed UI Selectors / Total UI Updates",
+                        what: "Measures the reliability of automated UI selector mappings healing themselves during rapid product code updates.",
+                        why: "Mitigates ongoing developer maintenance overhead and prevents broken user automation pipelines."
+                    },
+                    { 
+                        label: "M2M Transaction Success", 
+                        value: "99.98%", 
+                        subtext: "Autonomous user executions", 
+                        formula: "Successful Autonomous Actions / Total M2M Requests",
+                        what: "Tracks execution accuracy of autonomous machine-to-machine workflow transactions without human intervention.",
+                        why: "Secures high-margin enterprise process scale and enables high-volume transactional pricing models."
+                    }
+                ]
+            }
+        };
+
+        const timelineData = {
+            '1A': {
+                title: "Part 1A: Beachhead Launch",
+                date: "Months 1-3 (July 1 - Sept 30, 2026)",
+                phaseNum: 1,
+                industry: "DevOps & Cyber SaaS",
+                geography: "SF & NY Hubs",
+                size: "Series A-C (50-300 employees)",
+                buyer: "CEO / CPO",
+                acv: "$40K ACV",
+                salesCycle: "~3 to 6 weeks",
+                cohort: "3 Startups active",
+                pain: "Time-to-Value (TTV) Decay &amp; Onboarding Drop-off",
+                focus: "Gated Ingestion & Core Compiler",
+                activities: [
+                    "Deploy core AST codebase compiler to production",
+                    "Ingest codebases of 3 beachhead startups to validate parsing",
+                    "Deploy database-free sandboxes for instant pilot TTV",
+                    "Validate self-healing"
+                ]
+            },
+            '1B': {
+                title: "Part 1B: Beachhead Validation",
+                date: "Months 4-6 (Oct 1 - Dec 31, 2026)",
+                phaseNum: 1,
+                industry: "DevOps & Cyber SaaS",
+                geography: "SF & NY Hubs",
+                size: "Series A-C (50-300 employees)",
+                buyer: "CEO / CPO",
+                acv: "$40K ACV",
+                salesCycle: "~3 to 6 weeks",
+                cohort: "8 Startups active (+5 new)",
+                pain: "Time-to-Value (TTV) Decay &amp; Onboarding Drop-off",
+                focus: "LOI Conversion & Pipeline Maturation",
+                activities: [
+                    "Convert initial startup pilots to commercial contracts",
+                    "Scale outreach using hiring and funding signals",
+                    "Publish case studies on onboarding speed and clicks saved",
+                    "Expand pipeline via VC network referrals"
+                ]
+            },
+            '2A': {
+                title: "Part 2A: Mid-Market Launch & $1M ARR",
+                date: "Months 7-12 (Jan 1 - Jun 30, 2027)",
+                phaseNum: 2,
+                industry: "Profitable B2B SaaS",
+                geography: "United States (National)",
+                size: "F1000-3000 / 150-600 FTE",
+                buyer: "CPO & CTO",
+                acv: "$40K ACV",
+                salesCycle: "~2 to 3 months",
+                cohort: "30 Active (10 SMB + 12 MM + 8 Design Partners)",
+                pain: "Low Feature Adoption &amp; Legacy Technical Debt",
+                focus: "Commercial Scale to $1.0M ARR Milestone",
+                activities: [
+                    "Target Cyber & Fintech SaaS (150-600 FTEs)",
+                    "Hire GTM Rep #1 to scale outbound pipeline",
+                    "Complete SOC-2 Type II audit",
+                    "Close 12 mid-market contracts",
+                    "Reach $1.0M ARR milestone (22 MM/SMB @ $40K ACV + 8 DP @ $15K ACV)"
+                ]
+            },
+            '2B': {
+                title: "Part 2B: Post-$1M Scale",
+                date: "Months 13-16 (Jul 1 - Oct 31, 2027)",
+                phaseNum: 2,
+                industry: "Profitable B2B SaaS",
+                geography: "United States (National)",
+                size: "F1000-3000 / 150-500 FTE",
+                buyer: "CPO & CTO",
+                acv: "$40K ACV",
+                salesCycle: "~3 months",
+                cohort: "45 Active (11 SMB + 24 MM + 10 Design Partners)",
+                pain: "Low Feature Adoption &amp; Legacy Technical Debt",
+                focus: "Seed Round Prep & ARR Scale",
+                activities: [
+                    "Hire Customer Success Rep #1 to manage integrations",
+                    "Drive expansion ARR through feature adoption",
+                    "Scale active accounts to 45 (11 SMB + 24 MM + 10 DP)",
+                    "Launch Seed fundraising round"
+                ]
+            }
+        };
+
+        let activePhase = 1;
+        let selectedSubPhaseKey = '1A';
+
+        function updateTelemetryDashboard() {
+            const data = telemetryData[activePhase];
+            if (!data) return;
+
+            // Update subtitle
+            document.getElementById("dashboard-subtitle-text").textContent = data.subtitle;
+
+            // Update Card Metrics & Details side-by-side
+            for (let i = 1; i <= 2; i++) {
+                const cardData = data.cards[i - 1];
+                if (!cardData) continue;
+
+                // Update Cards
+                const labelEl = document.getElementById(`metric-label-${i}`);
+                const valueEl = document.getElementById(`metric-value-${i}`);
+                const subtextEl = document.getElementById(`metric-subtext-${i}`);
+                
+                if (labelEl) labelEl.textContent = cardData.label;
+                if (valueEl) valueEl.textContent = cardData.value;
+                if (subtextEl) subtextEl.textContent = cardData.subtext;
+
+                // Update details panel elements directly (Formula, What, Why)
+                const nameEl = document.getElementById(`details-metric-name-${i}`);
+                const formulaEl = document.getElementById(`details-metric-formula-${i}`);
+                const whatEl = document.getElementById(`details-metric-what-${i}`);
+                const whyEl = document.getElementById(`details-metric-why-${i}`);
+
+                if (nameEl) nameEl.textContent = cardData.label;
+                if (formulaEl) formulaEl.textContent = cardData.formula;
+                if (whatEl) whatEl.textContent = cardData.what;
+                if (whyEl) whyEl.textContent = cardData.why;
+            }
+        }
+
+        // Timeline toggle logic removed (always open)
+
+        // Render details card for sub-phase
+        function renderSubPhaseDetails(key) {
+            const data = timelineData[key];
+            if (!data) return;
+
+            const detailsContainer = document.getElementById("subphase-details-container");
+            if (!detailsContainer) return;
+
+            let activitiesHtml = '';
+            data.activities.forEach(act => {
+                activitiesHtml += `<li class="activities-list-item">${act}</li>`;
+            });
+
+            detailsContainer.innerHTML = `
+                <div class="subphase-details-card">
+                    <div class="subphase-card-header">
+                        <span class="subphase-badge">${data.date}</span>
+                        <h3 class="subphase-title">${data.title}</h3>
+                    </div>
+                    
+                    <div class="subphase-meta-grid">
+                        <div class="meta-item">
+                            <span class="meta-label">Target Industry:</span>
+                            <strong class="meta-value">${data.industry}</strong>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Target Geography:</span>
+                            <strong class="meta-value">${data.geography}</strong>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Target Size / Stage:</span>
+                            <strong class="meta-value">${data.size}</strong>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Key Buyer:</span>
+                            <strong class="meta-value">${data.buyer}</strong>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Target ACV:</span>
+                            <strong class="meta-value">${data.acv}</strong>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Sales Cycle (approx.):</span>
+                            <strong class="meta-value" style="color: var(--color-accent);">${data.salesCycle}</strong>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Target Close (Active):</span>
+                            <strong class="meta-value">${data.cohort}</strong>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Primary Pain:</span>
+                            <strong class="meta-value">${data.pain}</strong>
+                        </div>
+                    </div>
+
+                    <div class="subphase-activities-section">
+                        <h4 class="activities-title">Key Activities &amp; Milestones:</h4>
+                        <ul class="activities-list">
+                            ${activitiesHtml}
+                        </ul>
+                    </div>
+                    
+                    <div class="view-phase-3-container">
+                        <button class="phase-3-view-btn" onclick="switchPhase(3)">
+                            View Phase 3: Up-Market Scale (Post-Seed Vision) &rarr;
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Sub-phase selection handler
+        function selectSubPhase(subPhaseKey, event) {
+            if (event) event.stopPropagation();
+            selectedSubPhaseKey = subPhaseKey;
+
+            // Deactivate all step dots
+            document.querySelectorAll('.step-dot').forEach(el => el.classList.remove('active'));
+            // Activate selected dot
+            const dot = document.getElementById(`step-dot-${subPhaseKey}`);
+            if (dot) dot.classList.add('active');
+
+            // Deactivate all bar groups
+            document.querySelectorAll('.bar-group').forEach(el => el.classList.remove('active'));
+            // Activate selected bar group
+            const bar = document.getElementById(`bar-${subPhaseKey}`);
+            if (bar) bar.classList.add('active');
+
+            // Render details card
+            renderSubPhaseDetails(subPhaseKey);
+
+            // Sync with bottom phase details panel
+            const spData = timelineData[subPhaseKey];
+            if (spData) {
+                const phaseNum = spData.phaseNum;
+                
+                // Hide all phase details
+                document.querySelectorAll('.phase-details').forEach(el => el.classList.add('hidden'));
+                
+                // Show selected phase details panel below
+                const detailsEl = document.getElementById(`phase-details-${phaseNum}`);
+                if (detailsEl) detailsEl.classList.remove('hidden');
+
+                // Update telemetry dashboard
+                activePhase = phaseNum;
+                updateTelemetryDashboard();
+
+
+
+                // Move the metrics dashboard
+                const dashboard = document.querySelector('.metrics-dashboard');
+                let anchor = document.querySelector(`#phase-details-${phaseNum} .metrics-dashboard-anchor`);
+                if (!anchor) {
+                    anchor = document.querySelector(`#phase-details-${phaseNum} .calc-grid`);
+                }
+                if (dashboard && anchor) {
+                    anchor.after(dashboard);
+                }
+            }
+        }
+
+        // Phase switching logic (sync from outside tab/triggers)
+        function switchPhase(phaseNum) {
+            if (phaseNum === 3) {
+                // Hide all details
+                document.querySelectorAll('.phase-details').forEach(el => el.classList.add('hidden'));
+                
+                // Show Phase 3 details panel below
+                const detailsEl = document.getElementById(`phase-details-3`);
+                if (detailsEl) detailsEl.classList.remove('hidden');
+
+
+
+                // Deactivate all stepper dots & chart bars to indicate we are outside 16-month scope
+                document.querySelectorAll('.step-dot').forEach(el => el.classList.remove('active'));
+                document.querySelectorAll('.bar-group').forEach(el => el.classList.remove('active'));
+
+                // Render Phase 3 notice in sub-phase details card
+                const detailsContainer = document.getElementById("subphase-details-container");
+                if (detailsContainer) {
+                    detailsContainer.innerHTML = `
+                        <div class="subphase-details-card">
+                            <div class="subphase-card-header">
+                                <span class="subphase-badge" style="color: var(--color-success); background-color: rgba(14, 148, 160, 0.06); border-color: rgba(14, 148, 160, 0.15);">M17+ (Post-Seed)</span>
+                                <h3 class="subphase-title">Phase 3: Up-Market Scale</h3>
+                            </div>
+                            <div class="subphase-meta-grid">
+                                <div class="meta-item">
+                                    <span class="meta-label">Target Industry:</span>
+                                    <strong class="meta-value">Enterprise Platforms</strong>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Target Geography:</span>
+                                    <strong class="meta-value">US &amp; Global</strong>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Target Size / Stage:</span>
+                                    <strong class="meta-value">Fortune 500 Divisions</strong>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Key Buyer:</span>
+                                    <strong class="meta-value">VP Product &amp; CISO</strong>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Target ACV:</span>
+                                    <strong class="meta-value">$150K+ ACV</strong>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Sales Cycle (approx.):</span>
+                                    <strong class="meta-value" style="color: var(--color-accent);">~6 to 9 months</strong>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Target Close (Active):</span>
+                                    <strong class="meta-value">Post-Seed Scale</strong>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Primary Pain:</span>
+                                    <strong class="meta-value">Maintenance costs</strong>
+                                </div>
+                            </div>
+                            <div class="subphase-activities-section">
+                                <p class="narrative-text" style="font-size: 0.8rem; line-height: 1.45;">
+                                    Phase 3 details are currently displayed below. Select any step on the timeline above (1A, 1B, 2A, 2B) to return to the 16-month pre-Seed funding roadmap.
+                                </p>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // Update telemetry dashboard
+                activePhase = 3;
+                updateTelemetryDashboard();
+
+                // Move the metrics dashboard
+                const dashboard = document.querySelector('.metrics-dashboard');
+                let anchor = document.getElementById("phase-details-3").querySelector(".metrics-dashboard-anchor");
+                if (!anchor) {
+                    anchor = document.getElementById("phase-details-3").querySelector(".calc-grid");
+                }
+                if (dashboard && anchor) {
+                    anchor.after(dashboard);
+                }
+            } else {
+                // Return to corresponding sub-phase
+                const subKey = phaseNum === 1 ? '1A' : '2A';
+                selectSubPhase(subKey);
+            }
+        }
+
+        // Interactive calculator logic
+        function calculateCost() {
+            // Get input values
+            const ftes = parseInt(document.getElementById('input-ftes').value);
+            const salary = parseInt(document.getElementById('input-salary').value);
+
+            // Update control labels
+            document.getElementById('label-ftes').textContent = `${ftes} FTEs`;
+            document.getElementById('label-salary').textContent = `$${salary.toLocaleString()}`;
+
+            // Perform math
+            const rawSalaries = ftes * salary;
+            const recruitmentOverhead = Math.round(rawSalaries * 0.25);
+            const initialBuild = rawSalaries + recruitmentOverhead;
+            const maintenanceTax = Math.round(initialBuild * 0.40);
+            const totalSink = initialBuild + maintenanceTax;
+            const yonoCost = 40000;
+            const reclaimed = totalSink - yonoCost;
+
+            // Update results display
+            document.getElementById('res-salaries').textContent = `$${rawSalaries.toLocaleString()}`;
+            document.getElementById('res-overhead').textContent = `$${recruitmentOverhead.toLocaleString()}`;
+            document.getElementById('res-initial').textContent = `$${initialBuild.toLocaleString()}`;
+            document.getElementById('res-maintenance').textContent = `$${maintenanceTax.toLocaleString()}`;
+            document.getElementById('res-total-sink').textContent = `$${totalSink.toLocaleString()}`;
+            
+            // Reclaimed logic formatting
+            const reclaimedValElement = document.getElementById('res-reclaimed');
+            if (reclaimed < 0) {
+                reclaimedValElement.textContent = `-$${Math.abs(reclaimed).toLocaleString()}`;
+                reclaimedValElement.className = "result-val warning";
+            } else {
+                reclaimedValElement.textContent = `$${reclaimed.toLocaleString()}`;
+                reclaimedValElement.className = "result-val success";
+            }
+        }
+
+
+        // Sidebar Navigation Index Data & Logic (ScrollSpy)
+        const tabSections = {
+            'phases': [
+                { id: 'sec-timeline', label: 'Timeline Dashboard' },
+                { id: 'phase-details-1', label: 'Phase 1: Startup Urgency' },
+                { id: 'phase-details-2', label: 'Phase 2: Mid-Market Scale' },
+                { id: 'phase-details-3', label: 'Phase 3: Up-Market Vision' }
+            ],
+            'calculator': [
+                { id: 'calculator-inputs', label: 'Calculator Inputs' },
+                { id: 'calculator-results', label: 'Financial Sink Comparison' }
+            ],
+            'targets': [
+                { id: 'targets-channels', label: 'Sourcing Channels' },
+                { id: 'targets-deep-dive', label: 'Outbound Deep Dive' }
+            ],
+            'economics': [
+                { id: 'sec-economics', label: 'Unit Economics & CAC' }
+            ]
+        };
+
+        let currentActiveTab = 'phases';
+
+        function rebuildSidebarIndex(tabId) {
+            currentActiveTab = tabId;
+            const listContainer = document.getElementById('sidebar-links-list');
+            if (!listContainer) return;
+
+            listContainer.innerHTML = '';
+            const sections = tabSections[tabId] || [];
+
+            sections.forEach(sec => {
+                const li = document.createElement('li');
+                li.className = 'sidebar-link-item';
+                
+                const a = document.createElement('a');
+                a.className = 'sidebar-link';
+                a.setAttribute('data-target-id', sec.id);
+                a.onclick = function(e) {
+                    e.preventDefault();
+                    scrollToSection(sec.id);
+                };
+                
+                const dot = document.createElement('span');
+                dot.className = 'sidebar-dot';
+                
+                const label = document.createElement('span');
+                label.className = 'sidebar-label';
+                label.textContent = sec.label;
+                
+                a.appendChild(dot);
+                a.appendChild(label);
+                li.appendChild(a);
+                listContainer.appendChild(li);
+            });
+            
+            // Highlight active link on reload/switch
+            handleScrollSpy();
+        }
+
+        function scrollToSection(id) {
+            // Automatically select/switch components if they are hidden
+            if (id === 'phase-details-1') {
+                selectSubPhase('1A');
+            } else if (id === 'phase-details-2') {
+                selectSubPhase('2A');
+            } else if (id === 'phase-details-3') {
+                switchPhase(3);
+            }
+            
+            const el = document.getElementById(id);
+            if (el) {
+                // If it is a closed <details> element (like Outbound Deep Dive), open it first
+                if (el.tagName === 'DETAILS' && !el.open) {
+                    el.open = true;
+                }
+                
+                // Allow a brief moment for layout changes (display toggles) to settle
+                setTimeout(() => {
+                    const yOffset = -20; // vertical offset spacing
+                    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                }, 50);
+            }
+        }
+
+        function handleScrollSpy() {
+            const sections = tabSections[currentActiveTab] || [];
+            let activeId = null;
+
+            // Determine which section is currently on screen
+            for (let i = 0; i < sections.length; i++) {
+                const el = document.getElementById(sections[i].id);
+                // Check if element exists and is visible (not display: none)
+                if (el && el.offsetParent !== null) {
+                    const rect = el.getBoundingClientRect();
+                    // Check if top of element is above the scroll threshold (120px)
+                    if (rect.top <= 120) {
+                        activeId = sections[i].id;
+                    }
+                }
+            }
+
+            // Fallback to first visible section if scrolled near the top or if no activeId found
+            if ((window.scrollY < 80 || !activeId) && sections.length > 0) {
+                const firstVisible = sections.find(s => {
+                    const el = document.getElementById(s.id);
+                    return el && el.offsetParent !== null;
+                });
+                if (firstVisible) activeId = firstVisible.id;
+            }
+
+            // Update CSS active classes
+            const links = document.querySelectorAll('.sidebar-link');
+            links.forEach(link => {
+                const targetId = link.getAttribute('data-target-id');
+                if (targetId === activeId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        // Add Scroll listener for ScrollSpy
+        window.addEventListener('scroll', handleScrollSpy);
+
+        // Initialize calculator & timeline view on page load
+        calculateCost();
+        selectSubPhase('1A');
+        rebuildSidebarIndex('phases');
+    </script>
+</body>
+</html>
