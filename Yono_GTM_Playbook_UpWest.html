@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>YONO - GTM Strategy</title>
-<meta content="YONO Go-To-Market Playbook detailing the stealth infrastructure layer for actionable interfaces, containing commercial strategy phases, target accounts, and opportunity cost calculations." name="description"/>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YONO - GTM Strategy</title>
+    <meta name="description" content="YONO Go-To-Market Playbook detailing the stealth infrastructure layer for actionable interfaces, containing commercial strategy phases, target accounts, and opportunity cost calculations.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+        <style>
         /* CSS Variables - Premium Lavender Light Theme */
         :root {
             --color-bg: #FAF9FC; /* Modern crisp off-white with subtle lavender tint */
@@ -193,6 +194,27 @@
         /* Utility classes for tabs visibility */
         .tab-content.hidden {
             display: none !important;
+        }
+        
+        .executive-btn {
+            background: linear-gradient(135deg, var(--color-accent) 0%, #5642A6 100%);
+            color: #FFFFFF;
+            padding: 0.85rem 1.75rem;
+            border: none;
+            border-radius: var(--radius-md);
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.25s ease;
+            letter-spacing: 0.02em;
+        }
+        
+        .executive-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            background: linear-gradient(135deg, var(--color-accent-hover) 0%, var(--color-accent) 100%);
         }
 
         /* Tab Content Section */
@@ -1785,787 +1807,563 @@
             }
         }
     </style>
+
 </head>
 <body>
-<div class="tech-grid-bg"></div>
-<div class="ambient-orb-1"></div>
-<div class="ambient-orb-2"></div>
-<div class="doc-container">
-<h1 class="header-title" style="font-size: 1.8rem; font-weight: 850; margin-bottom: 0.5rem; color: var(--color-text-primary);"><span style="color: var(--color-accent);">YONO</span> - GTM Strategy</h1>
-<!-- Navigation Tabs -->
-<nav class="tab-nav no-print">
-<button class="tab-btn active" id="tab-btn-phases" onclick="switchTab('phases')">
+    <div class="tech-grid-bg"></div>
+    <div class="ambient-orb-1"></div>
+    <div class="ambient-orb-2"></div>
+
+    <div class="doc-container">
+        
+        <h1 class="header-title" style="font-size: 1.8rem; font-weight: 850; margin-bottom: 0.5rem; color: var(--color-text-primary);"><span style="color: var(--color-accent);">YONO</span> - GTM Strategy</h1>
+        
+        <!-- Navigation Tabs -->
+        <nav class="tab-nav no-print">
+            <button id="tab-btn-phases" onclick="switchTab('phases')" class="tab-btn active">
                 1. GTM Phases
             </button>
-<button class="tab-btn" id="tab-btn-calculator" onclick="switchTab('calculator')">
+            <button id="tab-btn-calculator" onclick="switchTab('calculator')" class="tab-btn">
                 2. Opportunity Cost Calculator
             </button>
-<button class="tab-btn" id="tab-btn-targets" onclick="switchTab('targets')">
-                3. Target Accounts &amp; Funnel
-            </button>
-<button class="tab-btn" id="tab-btn-economics" onclick="switchTab('economics')">
-                4. Unit Economics &amp; CAC
-            </button>
-</nav>
-<!-- Main Layout Grid (Two Columns: Sidebar + Content) -->
-<div class="main-layout-grid">
-<!-- Sidebar Navigation Index (Left Side) -->
-<aside class="sidebar-index no-print">
-<div class="sidebar-index-sticky">
-<span class="sidebar-index-title">// Section Index</span>
-<ul class="sidebar-links-list" id="sidebar-links-list">
-<!-- Loaded dynamically via JS -->
-</ul>
-</div>
-</aside>
-<div class="main-content-wrapper">
-<!-- Main Content Container -->
-<div id="content-container">
-<!-- ================== SECTION 1: GTM PHASES ================== -->
-<section class="tab-content" id="sec-phases">
-<!-- GTM Interactive Timeline (Always Open, Only in Phases Tab) -->
-<div class="timeline-section-container" id="sec-timeline">
-<div class="timeline-card-header">
-<div class="timeline-header-text">
-<span class="timeline-eyebrow">// GTM Interactive Timeline</span>
-<h2 class="timeline-heading">Interactive Client Progression &amp; Cohort Mixture</h2>
-<p class="timeline-subheading">Track customer progression and product objectives across the 16-month funding period.</p>
-</div>
-</div>
-<div class="timeline-drawer-content" id="timeline-drawer-content">
-<div class="timeline-grid-layout">
-<div class="chart-container-card">
-<h3 class="chart-title-header">// Customer Cohort Growth &amp; Mix (M1-M16)</h3>
-<div class="chart-wrapper">
-<svg class="stacked-bar-svg" height="240" viewbox="0 0 400 240" width="100%">
-<!-- Gridlines (Scaled at 3.2px per account, max 50, ticks at 0, 10, 20, 30, 40, 50) -->
-<line stroke="rgba(110,86,207,0.06)" stroke-dasharray="4 4" stroke-width="1" x1="50" x2="370" y1="40" y2="40"></line>
-<line stroke="rgba(110,86,207,0.06)" stroke-dasharray="4 4" stroke-width="1" x1="50" x2="370" y1="72" y2="72"></line>
-<line stroke="rgba(110,86,207,0.06)" stroke-dasharray="4 4" stroke-width="1" x1="50" x2="370" y1="104" y2="104"></line>
-<line stroke="rgba(110,86,207,0.06)" stroke-dasharray="4 4" stroke-width="1" x1="50" x2="370" y1="136" y2="136"></line>
-<line stroke="rgba(110,86,207,0.06)" stroke-dasharray="4 4" stroke-width="1" x1="50" x2="370" y1="168" y2="168"></line>
-<line stroke="var(--color-border)" stroke-width="1" x1="50" x2="370" y1="200" y2="200"></line>
-<!-- Y-Axis Labels -->
-<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="end" x="40" y="44">50</text>
-<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="end" x="40" y="76">40</text>
-<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="end" x="40" y="108">30</text>
-<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="end" x="40" y="140">20</text>
-<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="end" x="40" y="172">10</text>
-<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="end" x="40" y="204">0</text>
-<!-- Bars -->
-<!-- 1A: 3 Startups (H=10px, Y=190) -->
-<g class="bar-group active" id="bar-1A" onclick="selectSubPhase('1A', event)">
-<rect fill="var(--color-accent)" height="10" opacity="0.85" rx="3" width="40" x="80" y="190"></rect>
-<text fill="var(--color-accent)" font-family="var(--font-sans)" font-size="10" font-weight="700" text-anchor="middle" x="100" y="182">3</text>
-</g>
-<!-- 1B: 8 Startups (H=26px, Y=174) -->
-<g class="bar-group" id="bar-1B" onclick="selectSubPhase('1B', event)">
-<rect fill="var(--color-accent)" height="26" opacity="0.85" rx="3" width="40" x="160" y="174"></rect>
-<text fill="var(--color-accent)" font-family="var(--font-sans)" font-size="10" font-weight="700" text-anchor="middle" x="180" y="166">8</text>
-</g>
-<!-- 2A: 10 SMB (H=32px, Y=130) + 12 MM (H=38px, Y=162) = 22 Total — $1.0M ARR -->
-<g class="bar-group" id="bar-2A" onclick="selectSubPhase('2A', event)">
-<rect fill="var(--color-success)" height="38" opacity="0.85" rx="3" width="40" x="240" y="162"></rect>
-<rect fill="var(--color-accent)" height="32" opacity="0.85" rx="3" width="40" x="240" y="130"></rect>
-<text fill="var(--color-text-primary)" font-family="var(--font-sans)" font-size="10" font-weight="700" text-anchor="middle" x="260" y="122">22</text>
-</g>
-<!-- 2B: 11 SMB (H=35px, Y=88) + 24 MM (H=77px, Y=123) = 35 Total — Post-$1M Scale -->
-<g class="bar-group" id="bar-2B" onclick="selectSubPhase('2B', event)">
-<rect fill="var(--color-success)" height="77" opacity="0.85" rx="3" width="40" x="320" y="123"></rect>
-<rect fill="var(--color-accent)" height="35" opacity="0.85" rx="3" width="40" x="320" y="88"></rect>
-<text fill="var(--color-text-primary)" font-family="var(--font-sans)" font-size="10" font-weight="700" text-anchor="middle" x="340" y="80">35</text>
-</g>
-<!-- X-Axis Labels -->
-<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="middle" x="100" y="222">1A (M1-3)</text>
-<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="middle" x="180" y="222">1B (M4-6)</text>
-<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="middle" x="260" y="222">2A (M7-12)</text>
-<text fill="var(--color-text-secondary)" font-family="var(--font-mono)" font-size="9" text-anchor="middle" x="340" y="222">2B (M13-16)</text>
-</svg>
-</div>
-<!-- Clickable Selection Stepper (Positioned under the chart) -->
-<div class="timeline-stepper" style="margin: 0.5rem auto 1rem auto; padding: 0 0.5rem;">
-<div class="stepper-line"></div>
-<div class="step-dot active" id="step-dot-1A" onclick="selectSubPhase('1A', event)">
-<div class="dot-inner"></div>
-<span class="step-label">1A: Beachhead</span>
-<span class="step-date">Months 1-3</span>
-</div>
-<div class="step-dot" id="step-dot-1B" onclick="selectSubPhase('1B', event)">
-<div class="dot-inner"></div>
-<span class="step-label">1B: Validation</span>
-<span class="step-date">Months 4-6</span>
-</div>
-<div class="step-dot" id="step-dot-2A" onclick="selectSubPhase('2A', event)">
-<div class="dot-inner"></div>
-<span class="step-label">2A: MM Launch</span>
-<span class="step-date">Months 7-12</span>
-</div>
-<div class="step-dot" id="step-dot-2B" onclick="selectSubPhase('2B', event)">
-<div class="dot-inner"></div>
-<span class="step-label">2B: MM Scale</span>
-<span class="step-date">Months 13-16</span>
-</div>
-</div>
-<div class="chart-legend">
-<div class="legend-item">
-<span class="legend-color-dot startups"></span>
-<span class="legend-text">Startups (DevOps &amp; Cyber)</span>
-</div>
-<div class="legend-item">
-<span class="legend-color-dot midmarket"></span>
-<span class="legend-text">Mid-Market SaaS</span>
-</div>
-</div>
-</div>
-<div class="details-container-card" id="subphase-details-container">
-<!-- Rendered dynamically via JS on load -->
-</div>
-</div>
-</div>
-</div>
-<!-- Dynamic Telemetry Dashboard (Styled from User's Actual Metrics Dashboard) -->
-<div class="metrics-dashboard">
-<div class="dashboard-header">
-<div class="dashboard-title-block">
-<h3 class="dashboard-title" style="margin: 0;">Metrics Dashboard</h3>
-<span class="dashboard-subtitle" id="dashboard-subtitle-text" style="margin-top: 0.25rem;">Core platform analytics mapped to GTM strategic objectives.</span>
-</div>
-<!-- Simulated Dropdowns matching screenshot -->
-<div class="dashboard-controls no-print">
-<div class="simulated-dropdown">
-<span>Last 30 days</span>
-<svg fill="none" height="6" stroke="currentColor" stroke-width="1.5" viewbox="0 0 10 6" width="10">
-<path d="M1 1L5 5L9 1" stroke-linecap="round" stroke-linejoin="round"></path>
-</svg>
-</div>
-<div class="simulated-dropdown">
-<span>Daily</span>
-<svg fill="none" height="6" stroke="currentColor" stroke-width="1.5" viewbox="0 0 10 6" width="10">
-<path d="M1 1L5 5L9 1" stroke-linecap="round" stroke-linejoin="round"></path>
-</svg>
-</div>
-</div>
-</div>
-<!-- Two KPI Cards matching Ryed Admin App -->
-<div class="metrics-grid">
-<!-- Card 1 -->
-<div class="metric-card" id="metric-card-1">
-<div class="metric-card-top">
-<span class="metric-label" id="metric-label-1">Clicks Saved per Task</span>
-<div class="metric-icon-wrapper blue" id="metric-icon-wrapper-1">
-<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="16">
-<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-<circle cx="9" cy="7" r="4"></circle>
-<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-</svg>
-</div>
-</div>
-<span class="metric-value" id="metric-value-1">24 Clicks</span>
-<span class="metric-subtext" id="metric-subtext-1">average per task workflow</span>
-</div>
-<!-- Card 2 -->
-<div class="metric-card" id="metric-card-2">
-<div class="metric-card-top">
-<span class="metric-label" id="metric-label-2">AST Schema Generation Time</span>
-<div class="metric-icon-wrapper purple" id="metric-icon-wrapper-2">
-<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="16">
-<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-</svg>
-</div>
-</div>
-<span class="metric-value" id="metric-value-2">96 Minutes</span>
-<span class="metric-subtext" id="metric-subtext-2">from GitHub repository connection to live frontend execution sandbox</span>
-</div>
-</div>
-<!-- Metric Explanation Details Panel -->
-<div class="metric-details-panel">
-<div class="details-panel-grid">
-<!-- Column 1 -->
-<div class="details-column">
-<div class="details-column-header">
-<span class="details-metric-name" id="details-metric-name-1">Clicks Saved per Task</span>
-<span class="details-panel-formula" id="details-metric-formula-1">Manual UI Steps - Yono Language Steps</span>
-</div>
-<div class="details-panel-item">
-<strong>What:</strong>
-<span id="details-metric-what-1">Tracks the number of manual clicks and form fields bypassed by using natural language actions.</span>
-</div>
-<div class="details-panel-item">
-<strong>Why:</strong>
-<span id="details-metric-why-1">Directly measures user friction reduction and speed to value, driving product engagement.</span>
-</div>
-</div>
-<!-- Column 2 -->
-<div class="details-column">
-<div class="details-column-header">
-<span class="details-metric-name" id="details-metric-name-2">AST Schema Generation Time</span>
-<span class="details-panel-formula" id="details-metric-formula-2">Connection to Sandbox Execution</span>
-</div>
-<div class="details-panel-item">
-<strong>What:</strong>
-<span id="details-metric-what-2">Tracks the time from initial GitHub repository connection to the creation of a verified AST schema and live sandbox execution.</span>
-</div>
-<div class="details-panel-item">
-<strong>Why:</strong>
-<span id="details-metric-why-2">An empirical measurement of setup velocity, proving that Yono reverse-engineers codebase logic automatically, saving devs from months of manual API mapping and backend wrapper development. [⚠️ Aim: less than 12 hours]</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Phase 1 Details -->
-<div class="phase-details" id="phase-details-1">
-<div class="details-header">
-<h2 class="details-title">Phase 1: Startup Urgency (Months 1-6)</h2>
-<span class="details-badge">Reference Proof Engine</span>
-</div>
-<div class="calc-grid">
-<div class="calc-card">
-<h4 class="calc-title">// Target Cohort &amp; ICP Sizing</h4>
-<div class="result-rows" style="gap: 0.5rem; margin-top: 0.5rem;">
-<div class="result-row">
-<span>Total Verified ICP Startups</span>
-<strong class="result-val" style="color: var(--color-accent);">220 Companies</strong>
-</div>
-<div class="result-row">
-<span>San Francisco Bay Area</span>
-<span class="result-val">135 active (Series A–C DevOps &amp; Cyber)</span>
-</div>
-<div class="result-row">
-<span>New York Metropolitan Area</span>
-<span class="result-val">85 active (Series A–C DevOps &amp; Cyber)</span>
-</div>
-<div class="result-row" style="border-bottom: none; margin-bottom: 0.25rem;">
-<span>Phase 1 Bottoms-Up TAM</span>
-<strong class="result-val" style="color: var(--color-accent);">$8,800,000 USD</strong>
-</div>
-</div>
-<div class="table-wrapper" style="margin-top: 0.5rem; font-size: 0.75rem;">
-<table style="width: 100%;">
-<thead>
-<tr>
-<th>Location</th>
-<th>Count (N)</th>
-<th>ACV</th>
-<th>TAM Estimate</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SF Bay Area</td>
-<td class="highlight-mono">135</td>
-<td class="highlight-mono">$40,000</td>
-<td class="highlight-mono">$5,400,000</td>
-</tr>
-<tr>
-<td>NYC Metro</td>
-<td class="highlight-mono">85</td>
-<td class="highlight-mono">$40,000</td>
-<td class="highlight-mono">$3,400,000</td>
-</tr>
-<tr style="font-weight: bold; border-top: 1.5px solid var(--color-border);">
-<td>Total Universe</td>
-<td class="highlight-mono">220</td>
-<td class="highlight-mono">$40,000</td>
-<td class="highlight-mono">$8,800,000</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="calc-card">
-<h4 class="calc-title">// Target Cohort Criteria</h4>
-<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-top: 0.5rem; margin-bottom: 0.5rem;">
-<strong>Criteria</strong>: US-based B2B SaaS startups in the DevOps and Cybersecurity sectors at Series A–C stages with 50–300 employees (equivalent to an estimated 20–100 R&amp;D headcount) and $2M–$20M ARR.
+        </nav>
+
+        <!-- Main Layout Grid (Two Columns: Sidebar + Content) -->
+        <div class="main-layout-grid">
+            
+            <!-- Sidebar Navigation Index (Left Side) -->
+            <aside class="sidebar-index no-print">
+                <div class="sidebar-index-sticky">
+                    <span class="sidebar-index-title">// Section Index</span>
+                    <ul class="sidebar-links-list" id="sidebar-links-list">
+                        <!-- Loaded dynamically via JS -->
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="main-content-wrapper">
+                
+                <!-- Main Content Container -->
+                <div id="content-container">
+
+            <!-- ================== SECTION 1: GTM PHASES ================== -->
+            <section id="sec-phases" class="tab-content">
+                
+                <!-- GTM Interactive Timeline (Always Open, Only in Phases Tab) -->
+                <div class="timeline-section-container" id="sec-timeline">
+                    <div class="timeline-card-header">
+                        <div class="timeline-header-text">
+                            <span class="timeline-eyebrow">// GTM Interactive Timeline</span>
+                            <h2 class="timeline-heading">Interactive Client Progression &amp; Cohort Mixture</h2>
+                            <p class="timeline-subheading">Track customer progression and product objectives across the 16-month funding period.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-drawer-content" id="timeline-drawer-content">
+                        <div class="timeline-grid-layout">
+                            <div class="chart-container-card">
+                                <h3 class="chart-title-header">// Customer Cohort Growth &amp; Mix (M1-M16)</h3>
+                                
+                                <div class="chart-wrapper">
+                                    <svg class="stacked-bar-svg" viewBox="0 0 400 240" width="100%" height="240">
+                                        <!-- Gridlines (Scaled at 3.2px per account, max 50, ticks at 0, 10, 20, 30, 40, 50) -->
+                                        <line x1="50" y1="40" x2="370" y2="40" stroke="rgba(110,86,207,0.06)" stroke-width="1" stroke-dasharray="4 4" />
+                                        <line x1="50" y1="72" x2="370" y2="72" stroke="rgba(110,86,207,0.06)" stroke-width="1" stroke-dasharray="4 4" />
+                                        <line x1="50" y1="104" x2="370" y2="104" stroke="rgba(110,86,207,0.06)" stroke-width="1" stroke-dasharray="4 4" />
+                                        <line x1="50" y1="136" x2="370" y2="136" stroke="rgba(110,86,207,0.06)" stroke-width="1" stroke-dasharray="4 4" />
+                                        <line x1="50" y1="168" x2="370" y2="168" stroke="rgba(110,86,207,0.06)" stroke-width="1" stroke-dasharray="4 4" />
+                                        <line x1="50" y1="200" x2="370" y2="200" stroke="var(--color-border)" stroke-width="1" />
+
+                                        <!-- Y-Axis Labels -->
+                                        <text x="40" y="44" font-size="9" font-family="var(--font-mono)" fill="var(--color-text-secondary)" text-anchor="end">50</text>
+                                        <text x="40" y="76" font-size="9" font-family="var(--font-mono)" fill="var(--color-text-secondary)" text-anchor="end">40</text>
+                                        <text x="40" y="108" font-size="9" font-family="var(--font-mono)" fill="var(--color-text-secondary)" text-anchor="end">30</text>
+                                        <text x="40" y="140" font-size="9" font-family="var(--font-mono)" fill="var(--color-text-secondary)" text-anchor="end">20</text>
+                                        <text x="40" y="172" font-size="9" font-family="var(--font-mono)" fill="var(--color-text-secondary)" text-anchor="end">10</text>
+                                        <text x="40" y="204" font-size="9" font-family="var(--font-mono)" fill="var(--color-text-secondary)" text-anchor="end">0</text>
+
+                                        <!-- Bars -->
+                                        <!-- 1A: 3 Startups (H=10px, Y=190) -->
+                                        <g class="bar-group active" id="bar-1A" onclick="selectSubPhase('1A', event)">
+                                            <rect x="80" y="190" width="40" height="10" rx="3" fill="var(--color-accent)" opacity="0.85" />
+                                            <text x="100" y="182" font-size="10" font-family="var(--font-sans)" font-weight="700" fill="var(--color-accent)" text-anchor="middle">3</text>
+                                        </g>
+
+                                        <!-- 1B: 8 Startups (H=26px, Y=174) -->
+                                        <g class="bar-group" id="bar-1B" onclick="selectSubPhase('1B', event)">
+                                            <rect x="160" y="174" width="40" height="26" rx="3" fill="var(--color-accent)" opacity="0.85" />
+                                            <text x="180" y="166" font-size="10" font-family="var(--font-sans)" font-weight="700" fill="var(--color-accent)" text-anchor="middle">8</text>
+                                        </g>
+
+                                        <!-- 2A: 10 SMB (H=32px, Y=130) + 12 MM (H=38px, Y=162) = 22 Total — $1.0M ARR -->
+                                        <g class="bar-group" id="bar-2A" onclick="selectSubPhase('2A', event)">
+                                            <rect x="240" y="162" width="40" height="38" rx="3" fill="var(--color-success)" opacity="0.85" />
+                                            <rect x="240" y="130" width="40" height="32" rx="3" fill="var(--color-accent)" opacity="0.85" />
+                                            <text x="260" y="122" font-size="10" font-family="var(--font-sans)" font-weight="700" fill="var(--color-text-primary)" text-anchor="middle">22</text>
+                                        </g>
+
+                                        <!-- 2B: 11 SMB (H=35px, Y=88) + 24 MM (H=77px, Y=123) = 35 Total — Post-$1M Scale -->
+                                        <g class="bar-group" id="bar-2B" onclick="selectSubPhase('2B', event)">
+                                            <rect x="320" y="123" width="40" height="77" rx="3" fill="var(--color-success)" opacity="0.85" />
+                                            <rect x="320" y="88" width="40" height="35" rx="3" fill="var(--color-accent)" opacity="0.85" />
+                                            <text x="340" y="80" font-size="10" font-family="var(--font-sans)" font-weight="700" fill="var(--color-text-primary)" text-anchor="middle">35</text>
+                                        </g>
+
+                                        <!-- X-Axis Labels -->
+                                        <text x="100" y="222" font-size="9" font-family="var(--font-mono)" fill="var(--color-text-secondary)" text-anchor="middle">1A (M1-3)</text>
+                                        <text x="180" y="222" font-size="9" font-family="var(--font-mono)" fill="var(--color-text-secondary)" text-anchor="middle">1B (M4-6)</text>
+                                        <text x="260" y="222" font-size="9" font-family="var(--font-mono)" fill="var(--color-text-secondary)" text-anchor="middle">2A (M7-12)</text>
+                                        <text x="340" y="222" font-size="9" font-family="var(--font-mono)" fill="var(--color-text-secondary)" text-anchor="middle">2B (M13-16)</text>
+                                    </svg>
+                                </div>
+
+                                <!-- Clickable Selection Stepper (Positioned under the chart) -->
+                                <div class="timeline-stepper" style="margin: 0.5rem auto 1rem auto; padding: 0 0.5rem;">
+                                    <div class="stepper-line"></div>
+                                    <div class="step-dot active" id="step-dot-1A" onclick="selectSubPhase('1A', event)">
+                                        <div class="dot-inner"></div>
+                                        <span class="step-label">1A: Beachhead</span>
+                                        <span class="step-date">Months 1-3</span>
+                                    </div>
+                                    <div class="step-dot" id="step-dot-1B" onclick="selectSubPhase('1B', event)">
+                                        <div class="dot-inner"></div>
+                                        <span class="step-label">1B: Validation</span>
+                                        <span class="step-date">Months 4-6</span>
+                                    </div>
+                                    <div class="step-dot" id="step-dot-2A" onclick="selectSubPhase('2A', event)">
+                                        <div class="dot-inner"></div>
+                                        <span class="step-label">2A: MM Launch</span>
+                                        <span class="step-date">Months 7-12</span>
+                                    </div>
+                                    <div class="step-dot" id="step-dot-2B" onclick="selectSubPhase('2B', event)">
+                                        <div class="dot-inner"></div>
+                                        <span class="step-label">2B: MM Scale</span>
+                                        <span class="step-date">Months 13-16</span>
+                                    </div>
+                                </div>
+
+                                <div class="chart-legend">
+                                    <div class="legend-item">
+                                        <span class="legend-color-dot startups"></span>
+                                        <span class="legend-text">Startups (DevOps &amp; Cyber)</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color-dot midmarket"></span>
+                                        <span class="legend-text">Mid-Market SaaS</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="details-container-card" id="subphase-details-container">
+                                <!-- Rendered dynamically via JS on load -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Dynamic Telemetry Dashboard (Styled from User's Actual Metrics Dashboard) -->
+                <div class="metrics-dashboard">
+                    <div class="dashboard-header">
+                        <div class="dashboard-title-block">
+                            <h3 class="dashboard-title" style="margin: 0;">Metrics Dashboard</h3>
+                            <span class="dashboard-subtitle" id="dashboard-subtitle-text" style="margin-top: 0.25rem;">Core platform analytics mapped to GTM strategic objectives.</span>
+                        </div>
+                        <!-- Simulated Dropdowns matching screenshot -->
+                        <div class="dashboard-controls no-print">
+                            <div class="simulated-dropdown">
+                                <span>Last 30 days</span>
+                                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M1 1L5 5L9 1" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="simulated-dropdown">
+                                <span>Daily</span>
+                                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M1 1L5 5L9 1" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Two KPI Cards matching Ryed Admin App -->
+                    <div class="metrics-grid">
+                        <!-- Card 1 -->
+                        <div class="metric-card" id="metric-card-1">
+                            <div class="metric-card-top">
+                                <span class="metric-label" id="metric-label-1">Clicks Saved per Task</span>
+                                <div class="metric-icon-wrapper blue" id="metric-icon-wrapper-1">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span class="metric-value" id="metric-value-1">24 Clicks</span>
+                            <span class="metric-subtext" id="metric-subtext-1">average per task workflow</span>
+                        </div>
+                        
+                        <!-- Card 2 -->
+                        <div class="metric-card" id="metric-card-2">
+                            <div class="metric-card-top">
+                                <span class="metric-label" id="metric-label-2">AST Schema Generation Time</span>
+                                <div class="metric-icon-wrapper purple" id="metric-icon-wrapper-2">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span class="metric-value" id="metric-value-2">96 Minutes</span>
+                            <span class="metric-subtext" id="metric-subtext-2">from GitHub repository connection to live frontend execution sandbox</span>
+                        </div>
+                    </div>
+
+                    <!-- Metric Explanation Details Panel -->
+                    <div class="metric-details-panel">
+                        <div class="details-panel-grid">
+                            <!-- Column 1 -->
+                            <div class="details-column">
+                                <div class="details-column-header">
+                                    <span class="details-metric-name" id="details-metric-name-1">Clicks Saved per Task</span>
+                                    <span class="details-panel-formula" id="details-metric-formula-1">Manual UI Steps - Yono Language Steps</span>
+                                </div>
+                                <div class="details-panel-item">
+                                    <strong>What:</strong>
+                                    <span id="details-metric-what-1">Tracks the number of manual clicks and form fields bypassed by using natural language actions.</span>
+                                </div>
+                                <div class="details-panel-item">
+                                    <strong>Why:</strong>
+                                    <span id="details-metric-why-1">Directly measures user friction reduction and speed to value, driving product engagement.</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Column 2 -->
+                            <div class="details-column">
+                                <div class="details-column-header">
+                                    <span class="details-metric-name" id="details-metric-name-2">AST Schema Generation Time</span>
+                                    <span class="details-panel-formula" id="details-metric-formula-2">Connection to Sandbox Execution</span>
+                                </div>
+                                <div class="details-panel-item">
+                                    <strong>What:</strong>
+                                    <span id="details-metric-what-2">Tracks the time from initial GitHub repository connection to the creation of a verified AST schema and live sandbox execution.</span>
+                                </div>
+                                <div class="details-panel-item">
+                                    <strong>Why:</strong>
+                                    <span id="details-metric-why-2">An empirical measurement of setup velocity, proving that Yono reverse-engineers codebase logic automatically, saving devs from months of manual API mapping and backend wrapper development. [⚠️ Aim: less than 12 hours]</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 1 Details -->
+                <div id="phase-details-1" class="phase-details">
+                    <div class="details-header">
+                        <h2 class="details-title">Phase 1: Startup Urgency (Months 1-6)</h2>
+                        <span class="details-badge">Reference Proof Engine</span>
+                    </div>
+                    
+                    <div class="calc-grid">
+                        <div class="calc-card">
+                            <h4 class="calc-title">// Target Cohort &amp; ICP Sizing</h4>
+                            <div class="result-rows" style="gap: 0.5rem; margin-top: 0.5rem;">
+                                <div class="result-row">
+                                    <span>Total Verified ICP Startups</span>
+                                    <strong class="result-val" style="color: var(--color-accent);">220 Companies</strong>
+                                </div>
+                                <div class="result-row">
+                                    <span>San Francisco Bay Area</span>
+                                    <span class="result-val">135 active (Series A–C DevOps &amp; Cyber)</span>
+                                </div>
+                                <div class="result-row">
+                                    <span>New York Metropolitan Area</span>
+                                    <span class="result-val">85 active (Series A–C DevOps &amp; Cyber)</span>
+                                </div>
+                                <div class="result-row" style="border-bottom: none; margin-bottom: 0.25rem;">
+                                    <span>Phase 1 Bottoms-Up TAM</span>
+                                    <strong class="result-val" style="color: var(--color-accent);">$8,800,000 USD</strong>
+                                </div>
+                            </div>
+                            <div class="table-wrapper" style="margin-top: 0.5rem; font-size: 0.75rem;">
+                                <table style="width: 100%;">
+                                    <thead>
+                                        <tr>
+                                            <th>Location</th>
+                                            <th>Count (N)</th>
+                                            <th>ACV</th>
+                                            <th>TAM Estimate</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>SF Bay Area</td>
+                                            <td class="highlight-mono">135</td>
+                                            <td class="highlight-mono">$40,000</td>
+                                            <td class="highlight-mono">$5,400,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>NYC Metro</td>
+                                            <td class="highlight-mono">85</td>
+                                            <td class="highlight-mono">$40,000</td>
+                                            <td class="highlight-mono">$3,400,000</td>
+                                        </tr>
+                                        <tr style="font-weight: bold; border-top: 1.5px solid var(--color-border);">
+                                            <td>Total Universe</td>
+                                            <td class="highlight-mono">220</td>
+                                            <td class="highlight-mono">$40,000</td>
+                                            <td class="highlight-mono">$8,800,000</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="calc-card">
+                            <h4 class="calc-title">// Target Cohort Criteria</h4>
+                            <p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-top: 0.5rem; margin-bottom: 0.5rem;">
+                                <strong>Criteria</strong>: US-based B2B SaaS startups in the DevOps and Cybersecurity sectors at Series A–C stages with 50–300 employees (equivalent to an estimated 20–100 R&D headcount) and $2M–$20M ARR.
                             </p>
-<p class="narrative-text" style="font-size: 0.8rem; line-height: 1.5; color: var(--color-text-secondary); margin-top: 0.5rem; font-style: italic; border-left: 2px solid var(--color-accent); padding-left: 0.5rem;">
-<strong>ARR Proxy Note</strong>: Calibrated via a standard $150K–$200K ARR per employee benchmark. Headcounts are programmatically triangulated with VC funding history to bypass pre-revenue overhiring anomalies (e.g., Upwind Security, Eon).
+                            <p class="narrative-text" style="font-size: 0.8rem; line-height: 1.5; color: var(--color-text-secondary); margin-top: 0.5rem; font-style: italic; border-left: 2px solid var(--color-accent); padding-left: 0.5rem;">
+                                <strong>ARR Proxy Note</strong>: Calibrated via a standard $150K–$200K ARR per employee benchmark. Headcounts are programmatically triangulated with VC funding history to bypass pre-revenue overhiring anomalies (e.g., Upwind Security, Eon).
                             </p>
-</div>
-</div>
-<div class="calc-card metrics-dashboard-anchor" style="margin-top: 0.25rem;">
-<h4 class="calc-title">// ICP Selection Rationale (Why this ICP?)</h4>
-<div class="decision-flow-steps" style="margin-top: 0.5rem;">
-<div class="decision-step" style="border-left-color: var(--color-accent);">
-<strong>Feedback from the Field:</strong> Direct discovery with ~80 target companies confirms that DevOps and Cybersecurity teams experience the most acute UI friction and show the highest interest. Backed by a $100K active DevOps pilot in SF and 3 cybersecurity verbal agreements.
+                        </div>
+                    </div>
+                    
+                    <div class="calc-card metrics-dashboard-anchor" style="margin-top: 0.25rem;">
+                        <h4 class="calc-title">// ICP Selection Rationale (Why this ICP?)</h4>
+                        <div class="decision-flow-steps" style="margin-top: 0.5rem;">
+                            <div class="decision-step" style="border-left-color: var(--color-accent);">
+                                <strong>Feedback from the Field:</strong> Direct discovery with ~80 target companies confirms that DevOps and Cybersecurity teams experience the most acute UI friction and show the highest interest. Backed by a $100K active DevOps pilot in SF and 3 cybersecurity verbal agreements.
                             </div>
-<div class="decision-step" style="border-left-color: var(--color-accent);">
-<strong>Onboarding Speed &amp; PLG Conversion:</strong> In developer and security tools, onboarding speed is the primary driver of self-serve conversion. Every 10 minutes of delay in Time-to-Value (TTV) reduces trial-to-paid conversion by 8%. Yono's sandboxes bypass setup friction, driving users directly to primary activation where Day 30 retention climbs from 8.2% to 47.3%.
+                            <div class="decision-step" style="border-left-color: var(--color-accent);">
+                                <strong>Onboarding Speed &amp; PLG Conversion:</strong> In developer and security tools, onboarding speed is the primary driver of self-serve conversion. Every 10 minutes of delay in Time-to-Value (TTV) reduces trial-to-paid conversion by 8%. Yono's sandboxes bypass setup friction, driving users directly to primary activation where Day 30 retention climbs from 8.2% to 47.3%.
                             </div>
-<div class="decision-step" style="border-left-color: var(--color-accent);">
-<strong>Complex Product Agility:</strong> DevOps and Cybersecurity products are highly complex. Yono brings operational agility to these environments, letting users execute workflows in plain language instead of manual navigation.
+                            <div class="decision-step" style="border-left-color: var(--color-accent);">
+                                <strong>Complex Product Agility:</strong> DevOps and Cybersecurity products are highly complex. Yono brings operational agility to these environments, letting users execute workflows in plain language instead of manual navigation.
                             </div>
-<div class="decision-step" style="border-left-color: var(--color-accent); border-bottom: none;">
-<strong>Technical Support Economics:</strong> DevOps and Cyber platforms require highly specialized, expensive technical support, making human customer success scaling cost-prohibitive. Yono resolves this by automating post-sale operations, enabling technical startups to scale capacity to a lean $2.0M managed ARR per CSM coverage ratio.
+                            <div class="decision-step" style="border-left-color: var(--color-accent); border-bottom: none;">
+                                <strong>Technical Support Economics:</strong> DevOps and Cyber platforms require highly specialized, expensive technical support, making human customer success scaling cost-prohibitive. Yono resolves this by automating post-sale operations, enabling technical startups to scale capacity to a lean $2.0M managed ARR per CSM coverage ratio.
                             </div>
-</div>
-</div>
-<!-- Sourcing Sequence Card -->
+                        </div>
+                    </div>
+                    <div style="margin-top: 2rem; display: flex; justify-content: flex-end; padding-top: 1rem; border-top: 1px solid var(--color-border);">
+                        <button class="executive-btn" onclick="switchTab('phase-details-2', event)">Next Phase: Mid-Market Scale &rarr;</button>
+                    </div>
+                </div>
+                <!-- Phase 2 Details -->
+                <div id="phase-details-2" class="phase-details hidden">
+                    <div class="details-header">
+                        <h2 class="details-title">Phase 2: Mid-Market Expansion (Months 7-16)</h2>
+                        <span class="details-badge">Commercial ICP Core</span>
+                    </div>
 
-<!-- Target Pipeline Funnel -->
-
-<!-- Sales Execution Process -->
-
-
-<!-- Collapsible details for pros/cons and timelines -->
-
-
-<div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); display: flex; justify-content: flex-end;">
-<button class="tab-btn" onclick="switchTab('phase-details-2')" style="background-color: var(--color-accent); color: white; padding: 12px 24px; font-size: 1rem;">
-                        Next Phase →
-                    </button>
-</div>
-</div>
-<!-- Phase 2 Details -->
-<div class="phase-details hidden" id="phase-details-2">
-<div class="details-header">
-<h2 class="details-title">Phase 2: Mid-Market Expansion (Months 7-16)</h2>
-<span class="details-badge">Commercial ICP Core</span>
-</div>
-<div class="calc-grid">
-<div class="calc-card">
-<h4 class="calc-title">// Target Cohort &amp; ICP Sizing</h4>
-<div class="result-rows" style="gap: 0.5rem; margin-top: 0.5rem;">
-<div class="result-row">
-<span>Verified US Target Universe</span>
-<strong class="result-val" style="color: var(--color-accent);">176 Companies</strong>
-</div>
-<div class="result-row">
-<span>Cybersecurity SaaS Cohort</span>
-<span class="result-val">64 Companies (150–600 FTEs)</span>
-</div>
-<div class="result-row">
-<span>Fintech SaaS Cohort</span>
-<span class="result-val">112 Companies (150–600 FTEs)</span>
-</div>
-<div class="result-row" style="border-bottom: none;">
-<span>Target Scale Window</span>
-<span class="result-val">$20M – $150M ARR (Median $187.5K/FTE)</span>
-</div>
-</div>
-</div>
-<div class="calc-card">
-<h4 class="calc-title">// Private Market Operational Proxy</h4>
-<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-top: 0.5rem; margin-bottom: 0.5rem;">
-<strong>Headcount-to-ARR Model</strong>: Headcount of 150–600 FTEs serves as a proxy for the $20M–$150M ARR bracket. Operational benchmarks demonstrate $150K ARR/employee baseline at 150 FTEs ($22.5M ARR floor), climbing to $250K/FTE top-quartile efficiency ($150M ARR ceiling at 600 FTEs).
+                    <div class="calc-grid">
+                        <div class="calc-card">
+                            <h4 class="calc-title">// Target Cohort &amp; ICP Sizing</h4>
+                            <div class="result-rows" style="gap: 0.5rem; margin-top: 0.5rem;">
+                                <div class="result-row">
+                                    <span>Verified US Target Universe</span>
+                                    <strong class="result-val" style="color: var(--color-accent);">176 Companies</strong>
+                                </div>
+                                <div class="result-row">
+                                    <span>Cybersecurity SaaS Cohort</span>
+                                    <span class="result-val">64 Companies (150–600 FTEs)</span>
+                                </div>
+                                <div class="result-row">
+                                    <span>Fintech SaaS Cohort</span>
+                                    <span class="result-val">112 Companies (150–600 FTEs)</span>
+                                </div>
+                                <div class="result-row" style="border-bottom: none;">
+                                    <span>Target Scale Window</span>
+                                    <span class="result-val">$20M – $150M ARR (Median $187.5K/FTE)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="calc-card">
+                            <h4 class="calc-title">// Private Market Operational Proxy</h4>
+                            <p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-top: 0.5rem; margin-bottom: 0.5rem;">
+                                <strong>Headcount-to-ARR Model</strong>: Headcount of 150–600 FTEs serves as a proxy for the $20M–$150M ARR bracket. Operational benchmarks demonstrate $150K ARR/employee baseline at 150 FTEs ($22.5M ARR floor), climbing to $250K/FTE top-quartile efficiency ($150M ARR ceiling at 600 FTEs).
                             </p>
-<p class="narrative-text" style="font-size: 0.8rem; line-height: 1.5; color: var(--color-text-secondary); margin-top: 0.5rem; font-style: italic; border-left: 2px solid var(--color-accent); padding-left: 0.5rem;">
-<strong>Valuation Discrepancy Note</strong>: Back-calculating ARR from VC funding rounds introduces 30%–40% variance due to growth endurance decay (to 65% median retained growth) and private Rule of 40 gaps (median score 12%). Headcount provides a more reliable GTM sizing baseline.
+                            <p class="narrative-text" style="font-size: 0.8rem; line-height: 1.5; color: var(--color-text-secondary); margin-top: 0.5rem; font-style: italic; border-left: 2px solid var(--color-accent); padding-left: 0.5rem;">
+                                <strong>Valuation Discrepancy Note</strong>: Back-calculating ARR from VC funding rounds introduces 30%–40% variance due to growth endurance decay (to 65% median retained growth) and private Rule of 40 gaps (median score 12%). Headcount provides a more reliable GTM sizing baseline.
                             </p>
-</div>
-</div>
-<div class="calc-card metrics-dashboard-anchor" style="margin-top: 0.25rem;">
-<h4 class="calc-title">// ICP Selection Rationale (Why this ICP?)</h4>
-<div class="decision-flow-steps" style="margin-top: 0.5rem;">
-<div class="decision-step" style="border-left-color: var(--color-accent);">
-<strong>Onboarding &amp; Integration Drag:</strong> Mid-market Cyber tools (SIEM/SOAR/SOC) require 8–12 weeks of setup and 6 months of tuning. Fintech applications (Treasury/AML/KYC) average a 49-day onboarding timeline, driving a 5%–10% client abandonment rate. Yono compresses this onboarding runway by automating complex setups.
+                        </div>
+                    </div>
+                    
+                    <div class="calc-card metrics-dashboard-anchor" style="margin-top: 0.25rem;">
+                        <h4 class="calc-title">// ICP Selection Rationale (Why this ICP?)</h4>
+                        <div class="decision-flow-steps" style="margin-top: 0.5rem;">
+                            <div class="decision-step" style="border-left-color: var(--color-accent);">
+                                <strong>Onboarding &amp; Integration Drag:</strong> Mid-market Cyber tools (SIEM/SOAR/SOC) require 8–12 weeks of setup and 6 months of tuning. Fintech applications (Treasury/AML/KYC) average a 49-day onboarding timeline, driving a 5%–10% client abandonment rate. Yono compresses this onboarding runway by automating complex setups.
                             </div>
-<div class="decision-step" style="border-left-color: var(--color-accent);">
-<strong>Support Ticket &amp; Alert Fatigue Tax:</strong> B2B support tickets cost $18–$35 average ($30–$60 for enterprise), with 35%–50% consisting of repetitive "Tier-0" questions. Concurrently, Cyber analysts face severe alert fatigue (22K weekly alerts, 90% false positives, 70% burnout), causing them to ignore 42%–63% of alerts. Yono defers this support tax by automating repetitive UI queries.
+                            <div class="decision-step" style="border-left-color: var(--color-accent);">
+                                <strong>Support Ticket &amp; Alert Fatigue Tax:</strong> B2B support tickets cost $18–$35 average ($30–$60 for enterprise), with 35%–50% consisting of repetitive "Tier-0" questions. Concurrently, Cyber analysts face severe alert fatigue (22K weekly alerts, 90% false positives, 70% burnout), causing them to ignore 42%–63% of alerts. Yono defers this support tax by automating repetitive UI queries.
                             </div>
-<div class="decision-step" style="border-left-color: var(--color-accent);">
-<strong>Legacy Frontend Constraints:</strong> Mid-market companies often run on legacy frontends (such as jQuery/AngularJS with EOL CVSS 7.5 security risks) with a 252-day remediation latency. Rebuilding these frontends to support modern natural language action layers is too expensive. Yono overlays directly on existing UI code, delivering modern interfaces without rewrites.
+                            <div class="decision-step" style="border-left-color: var(--color-accent);">
+                                <strong>Legacy Frontend Constraints:</strong> Mid-market companies often run on legacy frontends (such as jQuery/AngularJS with EOL CVSS 7.5 security risks) with a 252-day remediation latency. Rebuilding these frontends to support modern natural language action layers is too expensive. Yono overlays directly on existing UI code, delivering modern interfaces without rewrites.
                             </div>
-<div class="decision-step" style="border-left-color: var(--color-accent); border-bottom: none;">
-<strong>Feature Adoption &amp; Net Dollar Retention (NDR):</strong> Up to 80% of SaaS features are rarely or never used, dragging down NDR. Converting "Light Users" into "Power Users" (who deploy automated playbooks or custom configurations) stabilizes gross retention at 98% and unlocks a 45% annual expansion rate. Yono drives this adoption by letting users execute advanced features in plain language.
+                            <div class="decision-step" style="border-left-color: var(--color-accent); border-bottom: none;">
+                                <strong>Feature Adoption &amp; Net Dollar Retention (NDR):</strong> Up to 80% of SaaS features are rarely or never used, dragging down NDR. Converting "Light Users" into "Power Users" (who deploy automated playbooks or custom configurations) stabilizes gross retention at 98% and unlocks a 45% annual expansion rate. Yono drives this adoption by letting users execute advanced features in plain language.
                             </div>
-</div>
-</div>
-<!-- Sourcing Sequence Card -->
+                        </div>
+                    </div>
+                    <div style="margin-top: 2rem; display: flex; justify-content: flex-end; padding-top: 1rem; border-top: 1px solid var(--color-border);">
+                        <button class="executive-btn" onclick="switchTab('sec-timeline', event)">&larr; Back to Dashboard</button>
+                    </div>
+                </div>
+            </section>
 
-<!-- Target Pipeline Funnel -->
-
-<!-- Sales Execution Process -->
-
-
-<!-- Collapsible details for roadmaps -->
-
-
-<div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); display: flex; justify-content: flex-end;">
-<button class="tab-btn" onclick="switchTab('phase-details-3')" style="background-color: var(--color-accent); color: white; padding: 12px 24px; font-size: 1rem;">
-                        Next Phase →
-                    </button>
-</div>
-</div>
-<!-- Phase 3 Details -->
-<div class="phase-details hidden" id="phase-details-3">
-<div class="details-header">
-<h2 class="details-title">Phase 3: Up-Market Scale</h2>
-<span class="details-badge">Enterprise Scaling</span>
-</div>
-<div class="calc-grid">
-<div class="calc-card">
-<h4 class="calc-title">// Target Cohort &amp; ICP Sizing</h4>
-<div class="result-rows" style="gap: 0.5rem; margin-top: 0.5rem;">
-<div class="result-row">
-<span>Target Enterprise Count</span>
-<strong class="result-val" style="color: var(--color-accent);">TBD</strong>
-</div>
-<div class="result-row">
-<span>Scale Definition</span>
-<span class="result-val">Enterprise Platforms &amp; Fortune 500 Divisions</span>
-</div>
-<div class="result-row" style="border-bottom: none;">
-<span>Sourcing Stance</span>
-<span class="result-val">To be mapped and triaged post-Seed raise</span>
-</div>
-</div>
-</div>
-<div class="calc-card">
-<h4 class="calc-title">// Enterprise Target Criteria</h4>
-<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-top: 0.5rem;">
-<strong>Criteria</strong>: Large technology divisions and Fortune 500 enterprises experiencing compounding developer resource drains spent maintaining custom copilot integrations.
-                            </p>
-</div>
-</div>
-<div class="calc-card metrics-dashboard-anchor" style="margin-top: 0.25rem;">
-<h4 class="calc-title">// Sourcing &amp; Alliance Channels</h4>
-<div class="decision-flow-steps" style="margin-top: 0.5rem;">
-<div class="decision-step">
-<strong>Step 1: Warm Network Mapping:</strong> Secure warm executive introductions from peer founder networks and partner connections directly to enterprise CPOs and CTOs.
-                            </div>
-<div class="decision-step">
-<strong>Step 2: Channel Partner Program:</strong> Launch alliance playbooks with global systems integrators and enterprise development consultants.
-                            </div>
-</div>
-</div>
-<div class="calc-card" style="margin-top: 0.25rem;">
-<h4 class="calc-title">// Post-Seed Enterprise Vision</h4>
-<div style="font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem;">
-<p>
-                                Phase 3 represents our long-term enterprise scale and market consolidation. To maintain rigorous focus during the Pre-Seed stage, detailed funnel execution, step-by-step closing flows, and target accounts lists for Phase 3 will be mapped and triaged post-Seed raise.
-                            </p>
-<p>
-<strong>Economic Rationale</strong>: Enterprise software divisions spend millions in engineering resources trying to build and support custom user action interfaces. Packaging Helm charts for private cloud deployment and offering SSO and customer-managed keys bypasses security concerns, turning custom builds into Yono platform accounts.
-                            </p>
-<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.5rem;">
-<div style="background-color: var(--color-bg); border: 1px solid var(--color-border); padding: 0.75rem; border-radius: 6px;">
-<span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--color-accent); font-weight: 700; text-transform: uppercase;">Packaging</span>
-<h5 style="font-size: 0.8rem; margin: 0.15rem 0; font-weight: 700;">Helm Deployments</h5>
-<p style="font-size: 0.7rem; color: var(--color-text-secondary); line-height: 1.35;">Private cloud installation to satisfy strict data privacy requirements.</p>
-</div>
-<div style="background-color: var(--color-bg); border: 1px solid var(--color-border); padding: 0.75rem; border-radius: 6px;">
-<span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--color-accent); font-weight: 700; text-transform: uppercase;">Compliance</span>
-<h5 style="font-size: 0.8rem; margin: 0.15rem 0; font-weight: 700;">SSO / BYOK Encryption</h5>
-<p style="font-size: 0.7rem; color: var(--color-text-secondary); line-height: 1.35;">Full enterprise authentication integration and customer-managed keys.</p>
-</div>
-<div style="background-color: var(--color-bg); border: 1px solid var(--color-border); padding: 0.75rem; border-radius: 6px;">
-<span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--color-accent); font-weight: 700; text-transform: uppercase;">Scale</span>
-<h5 style="font-size: 0.8rem; margin: 0.15rem 0; font-weight: 700;">M2M Transactions</h5>
-<p style="font-size: 0.7rem; color: var(--color-text-secondary); line-height: 1.35;">Moving beyond human interfaces to support high-margin machine-to-machine integrations.</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Collapsible details for timelines -->
-<details class="deep-dive-drawer">
-<summary class="deep-dive-summary">Phase 3 Deep Dive: Narrative &amp; Timeline Roadmap</summary>
-<div class="deep-dive-inner">
-<div class="narrative-block">
-<span class="narrative-title">// Strategic Narrative</span>
-<p class="narrative-text">
-                                    Enterprise SaaS divisions spend millions in engineering time building and supporting custom action endpoints. Offering private cloud deployment bypasses security reviews and converts expensive custom projects into Yono platform accounts.
-                                </p>
-</div>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-<th style="width: 15%;">Milestone</th>
-<th style="width: 30%;">Milestone Focus</th>
-<th>Key Directives</th>
-</tr>
-</thead>
-<tbody>
-<tr><td class="highlight-mono">Milestone 1</td><td><strong>SSO &amp; Seed Close</strong></td><td>Close Seed round. Deploy enterprise SSO, multi-tenant RBAC permissions, and team settings.</td></tr>
-<tr><td class="highlight-mono">Milestone 2</td><td><strong>Enterprise Retention</strong></td><td>Secure contract renewals to lock enterprise customer accounts and protect net Dollar retention.</td></tr>
-<tr><td class="highlight-mono">Milestone 3</td><td><strong>A2A Transactions</strong></td><td>Deploy self-healing AST delta sync engine to support automated machine-to-machine transactions. Launch Series A.</td></tr>
-</tbody>
-</table>
-</div>
-</div>
-</details>
-</div>
-</section>
-<!-- ================== SECTION 2: OPPORTUNITY COST CALCULATOR ================== -->
-<section class="tab-content hidden" id="sec-calculator">
-<p class="section-intro">
+            <!-- ================== SECTION 2: OPPORTUNITY COST CALCULATOR ================== -->
+            <section id="sec-calculator" class="tab-content hidden">
+                
+                <p class="section-intro">
                     Compare the total sink of building and maintaining custom agents in-house against Yono's out-of-the-box infrastructure.
                 </p>
-<div class="calc-grid">
-<!-- Controls Column -->
-<div class="calc-card" id="calculator-inputs">
-<h4 class="calc-title">// In-House Build Inputs</h4>
-<div class="control-group">
-<div class="slider-label-row">
-<span>Engineering Team Size</span>
-<span class="slider-val" id="label-ftes">3 FTEs</span>
-</div>
-<input id="input-ftes" max="10" min="1" oninput="calculateCost()" type="range" value="3"/>
-<div class="slider-bounds">
-<span>1 Engineer</span>
-<span>10 Engineers</span>
-</div>
-</div>
-<div class="control-group">
-<div class="slider-label-row">
-<span>Average Annual Compensation</span>
-<span class="slider-val" id="label-salary">$300,000</span>
-</div>
-<input id="input-salary" max="450000" min="100000" oninput="calculateCost()" step="10000" type="range" value="300000"/>
-<div class="slider-bounds">
-<span>$100K</span>
-<span>$450K</span>
-</div>
-</div>
-</div>
-<!-- Results Column -->
-<div class="calc-card" id="calculator-results">
-<h4 class="calc-title">// Financial Sink Comparison</h4>
-<div class="result-rows">
-<div class="result-row">
-<span>Raw Annual Salaries</span>
-<span class="result-val" id="res-salaries">$900,000</span>
-</div>
-<div class="result-row">
-<span>Recruitment &amp; Overhead (25%)</span>
-<span class="result-val" id="res-overhead">$225,000</span>
-</div>
-<div class="result-row">
-<span>Initial Build Cost (Year 1)</span>
-<span class="result-val" id="res-initial">$1,125,000</span>
-</div>
-<div class="result-row">
-<span>Annual Maintenance Tax (40%)</span>
-<span class="result-val" id="res-maintenance">$450,000</span>
-</div>
-<div class="result-row">
-<span>Total In-House Sink</span>
-<span class="result-val warning" id="res-total-sink">$1,575,000</span>
-</div>
-<div class="result-row highlight">
-<strong>Yono Standard Cost</strong>
-<span class="result-val" style="color: var(--color-accent);">$40,000</span>
-</div>
-<div class="result-row highlight" style="border-bottom: none;">
-<strong>Reclaimed Capital</strong>
-<span class="result-val success" id="res-reclaimed">$1,535,000</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Deep Dive Drawer: Evidence -->
-<details class="deep-dive-drawer">
-<summary class="deep-dive-summary">Calculator Deep Dive: In-House Failure Case Studies</summary>
-<div class="deep-dive-inner">
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-<th style="width: 25%;">Cohort / Scale</th>
-<th style="width: 30%;">R&amp;D Resources Spent</th>
-<th>Outcome &amp; Failure Mode</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="highlight-mono">Series C SaaS (Workflow)</td>
-<td><strong>37.5 Dev-Months</strong> (5 FTEs for 7.5 months)</td>
-<td>Built only 4 basic agents. High resource burn with zero modular scaling capacity. Highly validates the massive resource drain of building LLMOps internally.</td>
-</tr>
-<tr>
-<td class="highlight-mono">Series E Enterprise (Logistics)</td>
-<td><strong>70-80 Engineers</strong> for 7 months</td>
-<td>Achieved zero product execution actions. System restricted entirely to delivery tracking.</td>
-</tr>
-<tr>
-<td class="highlight-mono">Billion-Dollar SaaS (Marketing)</td>
-<td><strong>18 Months</strong> initial build + <strong>40% dev tax</strong></td>
-<td>Operational wrapper built, but consumes 40% of their platform team just to keep alive against UI updates.</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</details>
-</section>
-<!-- ================== SECTION 3: TARGET ACCOUNTS ================== -->
-<section class="tab-content hidden" id="sec-targets">
-<p class="section-intro">
-                    We pre-configure personalized Yono Lite demos to drive high outbound conversion, leveraging US partner and founder networks for warm customer dogfooding.
-                </p>
-<div class="persona-grid" id="targets-channels" style="grid-template-columns: repeat(3, 1fr);">
-<div class="persona-card">
-<span class="persona-role">// Channel 1</span>
-<div class="persona-title-block">
-<span class="persona-name">Network Dogfooding</span>
-<span class="persona-focus">Warm Partner Intros</span>
-</div>
-<p class="persona-list-item" style="font-size: 0.8rem; color: var(--color-text-secondary); line-height: 1.45; list-style: none; padding-left: 0;">
-                            Warm introductions to target company CPOs. Leveraging the founder's extensive network and founder contacts in the US market to secure warm entry points and bypass cold outbound walls.
-                        </p>
-</div>
-<div class="persona-card">
-<span class="persona-role">// Channel 2</span>
-<div class="persona-title-block">
-<span class="persona-name">Tech-Trigger Outbound</span>
-<span class="persona-focus">Hiring &amp; Beta Signals</span>
-</div>
-<p class="persona-list-item" style="font-size: 0.8rem; color: var(--color-text-secondary); line-height: 1.45; list-style: none; padding-left: 0;">
-                            Intercepting build plans. We scan boards for startups hiring AI PMs or Copilot Developers, pitching Yono before they allocate dev headcount.
-                        </p>
-</div>
-<div class="persona-card">
-<span class="persona-role">// Channel 3</span>
-<div class="persona-title-block">
-<span class="persona-name">Yono Lite Demos</span>
-<span class="persona-focus">Pre-Configured AST Traversal</span>
-</div>
-<p class="persona-list-item" style="font-size: 0.8rem; color: var(--color-text-secondary); line-height: 1.45; list-style: none; padding-left: 0;">
-                            Pre-configured demo outreach. We reverse-engineer target frontends at the AST level prior to contact, sending functioning demos to CPOs/CEOs to prove value instantly.
-                        </p>
-</div>
-</div>
-<!-- Deep Dive Drawer: Startups Index & Outbound Details -->
-<details class="deep-dive-drawer" id="targets-deep-dive">
-<summary class="deep-dive-summary">Outbound Deep Dive: Granular Target Cohorts &amp; Playbooks</summary>
-<div class="deep-dive-inner">
-<div class="narrative-block">
-<span class="narrative-title">// Network Dogfooding Playbook</span>
-<p class="narrative-text">
-                                Our founder and VC network introduce Yono directly to peer companies. For VCs, this helps their portfolio companies operate more efficiently and leanly. For founders, it saves valuable engineering resources, allowing them to remain focused on building their core products.
-                            </p>
-</div>
-<div class="narrative-block">
-<span class="narrative-title">// Outbound Tech-Triggers</span>
-<p class="narrative-text">
-                                We monitor job boards for target startups hiring AI-related engineering roles, using these hiring triggers to launch cold outreach or secure warm introductions through our network.
-                            </p>
-</div>
-<div class="narrative-block">
-<span class="narrative-title">// Yono Lite Pre-Configuration</span>
-<p class="narrative-text">
-                                Because Yono indexes public assets, we reverse-engineer the targets' AST context maps <i>before</i> starting outbound. The CPO receives a personalized, click-to-run demo showing Yono automating a complex action on their actual product frontend, driving high outbound-to-meeting conversion.
-                            </p>
-</div>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-<th>Target Cohort</th>
-<th>Granular Profile Filters</th>
-<th>Primary Pain Point</th>
-<th>Outbound Hook Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="highlight-mono">Cohort 1 (SF DevOps)</td>
-<td>Series A-C, 20-50 R&amp;D FTEs, High Density Graph UI</td>
-<td>R&amp;D bandwidth fully locked in core infrastructure sprints</td>
-<td><strong>Yono Lite Demo:</strong> Pre-mapped state execution sent to CPO</td>
-</tr>
-<tr>
-<td class="highlight-mono">Cohort 2 (NY Cyber)</td>
-<td>Series B-C, 30-60 R&amp;D FTEs, Strict Security compliance</td>
-<td>High CISO reviews blocking external database connections</td>
-<td><strong>Zero-DB Hook:</strong> Pitching frontend-only execution bypass</td>
-</tr>
-<tr>
-<td class="highlight-mono">Cohort 3 (F1000-3000)</td>
-<td>Fortune 1000-3000 SaaS, High shelfware metrics</td>
-<td>Stagnant account expansion and low feature adoption</td>
-<td><strong>ROI Hook:</strong> Metric-driven upgrade-conversion lift proof</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</details>
-</section>
-<section class="tab-content hidden" id="sec-economics">
-<p class="section-intro">
-                    Analyze the GTM capital efficiency, lifetime customer value (LTV), acquisition cost (CAC), and payback runways modeled for Yono's scaling.
-                </p>
-<div class="calc-grid">
-<!-- Unit Economics Card -->
-<div class="calc-card" style="grid-column: 1 / -1;">
-<h4 class="calc-title">// GTM Unit Economics &amp; Scalability Projections (Theoretical Sizing Model)</h4>
-<p class="narrative-text" style="font-size: 0.85rem; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1.5rem; margin-top: 0.5rem;">
-                            This model maps Yono's theoretical planning targets against standard venture capital health benchmarks (specifically the 3:1 LTV:CAC threshold). 
-                            <br/><br/>
-<span style="display: block; font-style: italic; border-left: 2px solid var(--color-accent); padding-left: 0.5rem;">
-<strong>Theoretical Model Disclaimer:</strong> These metrics are planning models designed to size operational capital requirements and scalability. They are **highly unreliable for predicting near-term financial performance** at this pre-revenue stage, where we rely on early signal rather than historical data.
-                            </span>
-</p>
-<span class="narrative-title" style="font-size: 0.8rem; opacity: 0.8; display: block; margin-bottom: 0.5rem;">[Unit Economics &amp; CAC Sizing Projections]</span>
-<div class="table-wrapper">
-<table>
-<thead>
-<tr>
-<th>Metric Dimension</th>
-<th>Phase 1 (Startup Beachhead)</th>
-<th>Phase 2 (Mid-Market SaaS)</th>
-<th>Target Health Benchmark</th>
-<th>Data / Proxy Source</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Annual Contract Value (ACV)</td>
-<td class="highlight-mono">$40,000 (Flat)</td>
-<td class="highlight-mono">$40,000 (Flat)</td>
-<td>Enforced Pricing</td>
-<td>Yono standard contract pricing</td>
-</tr>
-<tr>
-<td>Model Customer Lifetime Value (LTV)</td>
-<td class="highlight-mono">$120,000</td>
-<td class="highlight-mono">$120,000</td>
-<td>Scale Sizing</td>
-<td>Assumes 3-year average customer lifetime</td>
-</tr>
-<tr>
-<td>Estimated Customer Acquisition Cost (CAC)</td>
-<td class="highlight-mono">~$5,000</td>
-<td class="highlight-mono">~$14,700</td>
-<td>Capital Efficiency</td>
-<td>GTM tooling &amp; representative headcount</td>
-</tr>
-<tr>
-<td>Projected LTV:CAC Ratio</td>
-<td class="highlight-mono">~24.0x</td>
-<td class="highlight-mono">~8.1x</td>
-<td class="highlight-mono">≥ 3.0x</td>
-<td>UpWest investment standard</td>
-</tr>
-<tr>
-<td>CAC Payback Period</td>
-<td class="highlight-mono">~1.5 Months</td>
-<td class="highlight-mono">~4.4 Months</td>
-<td class="highlight-mono">≤ 12.0 Months</td>
-<td>Industry top-quartile payback speed</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</section>
-</div> <!-- end #content-container -->
-</div> <!-- end .main-content-wrapper -->
-</div> <!-- end .main-layout-grid -->
-</div>
-<!-- Script Block -->
-<script>
+
+                <div class="calc-grid">
+                    <!-- Controls Column -->
+                    <div class="calc-card" id="calculator-inputs">
+                        <h4 class="calc-title">// In-House Build Inputs</h4>
+                        
+                        <div class="control-group">
+                            <div class="slider-label-row">
+                                <span>Engineering Team Size</span>
+                                <span id="label-ftes" class="slider-val">3 FTEs</span>
+                            </div>
+                            <input type="range" id="input-ftes" min="1" max="10" value="3" oninput="calculateCost()">
+                            <div class="slider-bounds">
+                                <span>1 Engineer</span>
+                                <span>10 Engineers</span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="slider-label-row">
+                                <span>Average Annual Compensation</span>
+                                <span id="label-salary" class="slider-val">$300,000</span>
+                            </div>
+                            <input type="range" id="input-salary" min="100000" max="450000" step="10000" value="300000" oninput="calculateCost()">
+                            <div class="slider-bounds">
+                                <span>$100K</span>
+                                <span>$450K</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Results Column -->
+                    <div class="calc-card" id="calculator-results">
+                        <h4 class="calc-title">// Financial Sink Comparison</h4>
+                        
+                        <div class="result-rows">
+                            <div class="result-row">
+                                <span>Raw Annual Salaries</span>
+                                <span id="res-salaries" class="result-val">$900,000</span>
+                            </div>
+                            <div class="result-row">
+                                <span>Recruitment &amp; Overhead (25%)</span>
+                                <span id="res-overhead" class="result-val">$225,000</span>
+                            </div>
+                            <div class="result-row">
+                                <span>Initial Build Cost (Year 1)</span>
+                                <span id="res-initial" class="result-val">$1,125,000</span>
+                            </div>
+                            <div class="result-row">
+                                <span>Annual Maintenance Tax (40%)</span>
+                                <span id="res-maintenance" class="result-val">$450,000</span>
+                            </div>
+                            <div class="result-row">
+                                <span>Total In-House Sink</span>
+                                <span id="res-total-sink" class="result-val warning">$1,575,000</span>
+                            </div>
+                            <div class="result-row highlight">
+                                <strong>Yono Standard Cost</strong>
+                                <span class="result-val" style="color: var(--color-accent);">$40,000</span>
+                            </div>
+                            <div class="result-row highlight" style="border-bottom: none;">
+                                <strong>Reclaimed Capital</strong>
+                                <span id="res-reclaimed" class="result-val success">$1,535,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deep Dive Drawer: Evidence -->
+                <details class="deep-dive-drawer">
+                    <summary class="deep-dive-summary">Calculator Deep Dive: In-House Failure Case Studies</summary>
+                    <div class="deep-dive-inner">
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="width: 25%;">Cohort / Scale</th>
+                                        <th style="width: 30%;">R&amp;D Resources Spent</th>
+                                        <th>Outcome &amp; Failure Mode</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="highlight-mono">Series C SaaS (Workflow)</td>
+                                        <td><strong>37.5 Dev-Months</strong> (5 FTEs for 7.5 months)</td>
+                                        <td>Built only 4 basic agents. High resource burn with zero modular scaling capacity. Highly validates the massive resource drain of building LLMOps internally.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="highlight-mono">Series E Enterprise (Logistics)</td>
+                                        <td><strong>70-80 Engineers</strong> for 7 months</td>
+                                        <td>Achieved zero product execution actions. System restricted entirely to delivery tracking.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="highlight-mono">Billion-Dollar SaaS (Marketing)</td>
+                                        <td><strong>18 Months</strong> initial build + <strong>40% dev tax</strong></td>
+                                        <td>Operational wrapper built, but consumes 40% of their platform team just to keep alive against UI updates.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </details>
+
+            </section>
+
+            <!-- ================== SECTION 3: TARGET ACCOUNTS ================== -->
+            
+        </div> <!-- end #content-container -->
+        </div> <!-- end .main-content-wrapper -->
+        </div> <!-- end .main-layout-grid -->
+
+    </div>
+
+    <!-- Script Block -->
+    <script>
         // Tab switching logic
-        function switchTab(tabId) {
+        function switchTab(tabId, event) {
+            if (event) { event.preventDefault(); }
+            
+            if (tabId.startsWith('phase-details-') || tabId === 'sec-timeline') {
+                let realTabId = 'phases';
+                document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+                const buttons = ['phases', 'calculator'];
+                buttons.forEach(id => {
+                    const btn = document.getElementById(`tab-btn-${id}`);
+                    if (btn) btn.classList.remove('active');
+                });
+                const sec = document.getElementById(`sec-${realTabId}`);
+                if (sec) sec.classList.remove('hidden');
+                const activeBtn = document.getElementById(`tab-btn-${realTabId}`);
+                if (activeBtn) activeBtn.classList.add('active');
+                rebuildSidebarIndex(realTabId);
+                scrollToSection(tabId);
+                return;
+            }
+
             // Hide all tab contents
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             
             // Deactivate all tab buttons
-            const buttons = ['phases', 'calculator', 'targets', 'economics'];
+            const buttons = ['phases', 'calculator'];
             buttons.forEach(id => {
                 const btn = document.getElementById(`tab-btn-${id}`);
                 if (btn) btn.classList.remove('active');
@@ -2626,28 +2424,9 @@
                         why: "Directly drives expansion revenue by presenting upgrade options to users at the moment they need them most."
                     }
                 ]
-            },
-            3: {
-                subtitle: "Phase 3: Eliminating UI-drift maintenance tax and enabling automated machine-to-machine transaction scale.",
-                cards: [
-                    { 
-                        label: "AST Auto-Sync Success", 
-                        value: "99.85%", 
-                        subtext: "UI selector auto-heals", 
-                        formula: "Auto-Healed UI Selectors / Total UI Updates",
-                        what: "Measures the reliability of automated UI selector mappings healing themselves during rapid product code updates.",
-                        why: "Mitigates ongoing developer maintenance overhead and prevents broken user automation pipelines."
-                    },
-                    { 
-                        label: "M2M Transaction Success", 
-                        value: "99.98%", 
-                        subtext: "Autonomous user executions", 
-                        formula: "Successful Autonomous Actions / Total M2M Requests",
-                        what: "Tracks execution accuracy of autonomous machine-to-machine workflow transactions without human intervention.",
-                        why: "Secures high-margin enterprise process scale and enables high-volume transactional pricing models."
-                    }
-                ]
             }
+
+
         };
 
         const timelineData = {
@@ -2835,11 +2614,7 @@
                         </ul>
                     </div>
                     
-                    <div class="view-phase-3-container">
-                        <button class="phase-3-view-btn" onclick="switchPhase(3)">
-                            View Phase 3: Up-Market Scale (Post-Seed Vision) &rarr;
-                        </button>
-                    </div>
+
                 </div>
             `;
         }
@@ -3025,19 +2800,11 @@
             'phases': [
                 { id: 'sec-timeline', label: 'Timeline Dashboard' },
                 { id: 'phase-details-1', label: 'Phase 1: Startup Urgency' },
-                { id: 'phase-details-2', label: 'Phase 2: Mid-Market Scale' },
-                { id: 'phase-details-3', label: 'Phase 3: Up-Market Vision' }
+                { id: 'phase-details-2', label: 'Phase 2: Mid-Market Scale' }
             ],
             'calculator': [
                 { id: 'calculator-inputs', label: 'Calculator Inputs' },
                 { id: 'calculator-results', label: 'Financial Sink Comparison' }
-            ],
-            'targets': [
-                { id: 'targets-channels', label: 'Sourcing Channels' },
-                { id: 'targets-deep-dive', label: 'Outbound Deep Dive' }
-            ],
-            'economics': [
-                { id: 'sec-economics', label: 'Unit Economics & CAC' }
             ]
         };
 
@@ -3086,8 +2853,7 @@
                 selectSubPhase('1A');
             } else if (id === 'phase-details-2') {
                 selectSubPhase('2A');
-            } else if (id === 'phase-details-3') {
-                switchPhase(3);
+
             }
             
             const el = document.getElementById(id);
